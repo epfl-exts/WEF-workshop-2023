@@ -279,7 +279,7 @@ proceeds vertically, with x fixed, according to the posterior distribution of mu
 - **Bayesians**: they take the only <span style="color:red;">observable</span> realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
 :::
 
-## Break :coffee:
+## Coffee Break :coffee:
 
 ::: {style="font-size: 5em;font-color: #2cd5ff ;text-align: center"}
 
