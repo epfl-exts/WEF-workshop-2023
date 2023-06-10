@@ -1,1 +1,7 @@
 /.luarc.json
+
+# my notes
+/.notes/
+
+# Jupyter Notebook
+.ipynb_checkpoints
