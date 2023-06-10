@@ -4,4 +4,7 @@
 /.notes/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+/.ipynb_checkpoints
+
+# if cache is true 
+/.jupyter_cache
