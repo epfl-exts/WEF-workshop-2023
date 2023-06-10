@@ -1,10 +1,3 @@
 /.luarc.json
 
-# my notes
-*/notes/*.md
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# if cache is true 
-Day1-03/.jupyter_cache/*
