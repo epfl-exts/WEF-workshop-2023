@@ -7,4 +7,4 @@
 /.ipynb_checkpoints
 
 # if cache is true 
-/.jupyter_cache
+/.jupyter_cache/
