@@ -25,3 +25,4 @@ Day 2:
 helpers
 - to add background image: {background-image="img/handson.png" background-size="cover"}
 - frequentism: Ronald Fisher (1890-1962), bayesianism: Thomas Bayes (1702-1761), Pierre-Simon Laplace (1749-1827)
+- new line
