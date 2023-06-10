@@ -3,11 +3,14 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-# my notes
-.Day1-03/notes/
+# ignore my scratch notes
+**/notes/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# ignore the cache
+**/.jupyter_cache/
 
 # macOS forlder attributes
 .DS_Store
