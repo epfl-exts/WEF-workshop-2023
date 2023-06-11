@@ -67,6 +67,7 @@ jupyter: python3
 :::
 :::
 
+
 ::: notes
 Suppose that the probability that one arrives on time to work is 90%. The only other outcome is that they arrive late
 These two probabilities show how we perceive the two events and their associated possibilities, prior to gaining further knowledge about them.
@@ -74,7 +75,10 @@ These two probabilities show how we perceive the two events and their associated
 <a href="https://www.flaticon.com/free-icons/late" title="Late icons">Late icons created by surang - Flaticon</a>
 ::: 
 
+
 ## Bayes rule
+
+
 
 <br>
 <br>
@@ -115,7 +119,7 @@ Byes rule provides a simple passage from our **prior** idea to **new insight**
 
 . . .
 
-let’s call the new idea a **posterior** idea
+let’s call the new idea a [posterior]{style="background-color: yellow;"}
 
 . . .
 
@@ -197,7 +201,7 @@ flowchart LR
 ::: fragment 
 <br>
 
-### Frequentism vs Bayesianism
+### Frequentism VS Bayesianism
 <br>
 <br>
 :::
@@ -208,7 +212,6 @@ flowchart LR
 | Frequentism | -   | observe $x$ |   learn about $\mu$   |
 | Bayesianism | prior about $\mu$ | observe $x$ |   learn about $\mu$   |
 :::
-
 
 
 ## Frequentism vs Bayesianism: example
@@ -279,13 +282,20 @@ proceeds vertically, with x fixed, according to the posterior distribution of mu
 - **Bayesians**: they take the only <span style="color:red;">observable</span> realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
 :::
 
-## Coffee Break :coffee:
+## {#slide1-id data-menu-title="coffee break"}
 
-::: {style="font-size: 5em;font-color: #2cd5ff ;text-align: center"}
 
+::: {style="font-size: 5em; font-color: #32a6a8 ;text-align: center"}
+Coffee Break <br> :coffee:
 :::
 
-## [QA]{style="color:white;"}
+## {background-image="img/working-hours-and-breaks-rules-made-simple-for-employers-and-employees-in-UK-by-Papershift.png" background-size="50%"}
+
+::: footer
+[source](https://www.papershift.com/en/blog/working-hours-break-laws-in-uk-every-owner-employee-should-be-aware-of)
+:::
+
+## {#slide3-id data-menu-title="QA"}
 
 ![](img/qa.png){width=30% height=30% fig-align="center"}
 
@@ -293,5 +303,4 @@ proceeds vertically, with x fixed, according to the posterior distribution of mu
 ::: notes
 <a href="https://www.flaticon.com/free-icons/qa" title="qa icons">Qa icons created by Freepik - Flaticon</a>
 :::
-
 
