@@ -3,7 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-# ignore renders during dev
+# ignore trial and errors during dev
+**/temp*
+
+# ignore renders during dev, but release them once work is done
 **/slide.html
 
 # ignore my scratch notes
