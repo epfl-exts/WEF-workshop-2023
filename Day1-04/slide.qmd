@@ -18,7 +18,6 @@ format:
       buttons: true
     preview-links: auto
     menu: false
-    css: exts_theme.css
     mermaid:
       theme: forest
 from: markdown+emoji
@@ -32,11 +31,21 @@ jupyter: python3
 
 <br> <br>
 
-::: fragment
 ::: incremental
-- two variants vs multiple variants
-- conversioin: Bernoulli vs value
-- frequentist vs bayesian approaches in testing
-- data
-- prior
-- posterior
+- **Approaches**: frequentist vs bayesian
+- **Variants**: two vs multiple
+- **Conversioin**: Bernoulli vs value
+- **Key components**: 
+  - data
+  - prior
+  - posterior
+:::
+
+
+## Definition
+
+<br> <br>
+
+> What is A/B testing?
+
+Where it can be used?
