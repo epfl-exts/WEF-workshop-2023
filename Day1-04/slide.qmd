@@ -24,7 +24,19 @@ format:
 from: markdown+emoji
 execute:
   enabled: true
-  cache: true
+  cache: false
 jupyter: python3
 ---
 
+## AB Testing: Key comcepts and terms 
+
+<br> <br>
+
+::: fragment
+::: incremental
+- two variants vs multiple variants
+- conversioin: Bernoulli vs value
+- frequentist vs bayesian approaches in testing
+- data
+- prior
+- posterior
