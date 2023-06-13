@@ -28,76 +28,66 @@ execute:
   enabled: true
   cache: true
 jupyter: python3
+
 ---
 
-## Bayes rule
+## Bayes rule 
 
-<br>
-<br>
+<br> <br>
 
 ::: columns
 ::: {.column width="50%"}
 ::: fragment
-![](img/clock.png){ width=30% height=20% fig-align="center"}
+![](img/clock.png){width="30%" height="20%" fig-align="center"}
 :::
 :::
 
 ::: {.column width="50%"}
 ::: incremental
-- `P(arrive on time) = 0.9` 
+-   `P(arrive on time) = 0.9`
 
-- `P(late) = 0.1`
+-   `P(late) = 0.1`
 :::
 :::
 :::
 
 . . .
 
-
 ::: columns
 ::: {.column width="50%"}
-- That's our perception about how likely these two events are
+-   That's our perception about how likely these two events are
 
-- Let’s call that our [prior]{style="color:#2cd5ff"}
+-   Let's call that our [prior]{style="color:#2cd5ff"}
 :::
-
 
 ::: {.column width="50%"}
-![](img/thinking.png){ width=30% height=30% fig-align="center"}
+![](img/thinking.png){width="30%" height="30%" fig-align="center"}
 :::
 :::
-
 
 ::: notes
-Suppose that the probability that one arrives on time to work is 90%. The only other outcome is that they arrive late
-These two probabilities show how we perceive the two events and their associated possibilities, prior to gaining further knowledge about them.
-.nobullets ul {list-style-type: none;}
-<a href="https://www.flaticon.com/free-icons/late" title="Late icons">Late icons created by surang - Flaticon</a>
-::: 
-
+Suppose that the probability that one arrives on time to work is 90%. The only other outcome is that they arrive late These two probabilities show how we perceive the two events and their associated possibilities, prior to gaining further knowledge about them. .nobullets ul {list-style-type: none;} <a href="https://www.flaticon.com/free-icons/late" title="Late icons">Late icons created by surang - Flaticon</a>
+:::
 
 ## Bayes rule
 
+<br> <br>
 
-
-<br>
-<br>
-
-**But ...**  
+**But ...**
 
 <br>
 
 ::: columns
 ::: {.column width="50%"}
 ::: incremental
-- What if we start learning more about the 'situation'?
-- Should we stick to our prior idea about the events and their possibilities?
-- If not, how they should be adapted to the new situation?
+-   What if we start learning more about the 'situation'?
+-   Should we stick to our prior idea about the events and their possibilities?
+-   If not, how they should be adapted to the new situation?
 :::
 :::
 
 ::: {.column width="50%"}
-![](img/thinking.png){ width=40% height=30% right="180" fig-align="center"}
+![](img/thinking.png){width="40%" height="30%" right="180" fig-align="center"}
 :::
 :::
 
@@ -106,66 +96,67 @@ These two probabilities show how we perceive the two events and their associated
 This is where **Bayesian Statistics** steps in and provide answers
 
 ## Bayes rule {.smaller}
-<br>
-Byes rule provides a simple passage from our **prior** idea to **new insight** 
+
+<br> Byes rule provides a simple passage from our **prior** idea to **new insight**
 
 ::: fragment
-![](img/bayes - rule.png){ width=70% height=70% fig-align="center"}
+![](img/bayes%20-%20rule.png){width="70%" height="70%" fig-align="center"}
 :::
 
 ::: fragment
-![](img/bayes - rule - example.jpg){ width=70% height=70% fig-align="center"}
+![](img/bayes%20-%20rule%20-%20example.jpg){width="70%" height="70%" fig-align="center"}
 :::
 
 . . .
 
-let’s call the new idea a [posterior]{style="background-color: yellow;"}
+let's call the new idea a [posterior]{style="background-color: yellow;"}
 
 . . .
 
 `P(arrive on time) → P(arrive on time | it’s raining)`
 
 ::: notes
-press c to activate the chalk and circle on the P(arrive on time | it’s raining) and the word  posterior
-press c again to turn it off
+press c to activate the chalk and circle on the P(arrive on time \| it's raining) and the word posterior press c again to turn it off
 :::
 
 ## Bayes rule
-<br>
-<br>
-More formally, Bayes rule says:
+
+<br> <br> More formally, Bayes rule says:
 
 $$P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text{arrive on time})}{P(rain)}$$
 
 ## Bayes rule: an example
+
 ::: incremental
-- **Evidence**: a speaker at the forum will be from WEF NY office 
+-   **Evidence**: a speaker at the forum will be from WEF NY office
 
-- **My prior**: 90% of WEF employees are on time
+-   **My prior**: 90% of WEF employees are on time
 
-- What is my **posterior**? what is the probability that the speaker will be on time?
+-   What is my **posterior**? what is the probability that the speaker will be on time?
 :::
 
 ::: fragment
-![](img/bayes-example.jpg){width=70% height=70% fig-align="center"}
+![](img/bayes-example.jpg){width="70%" height="70%" fig-align="center"}
 :::
 
 ::: notes
-posterior p(speaker is on time | ny office) or posterior p(wef on time | ny office)?
+posterior p(speaker is on time \| ny office) or posterior p(wef on time \| ny office)?
 :::
 
 ## Bayes rule: an example {.smaller}
 
-![](img/bayes-example.jpg){width=60% height=60% fig-align="center"}
+![](img/bayes-example.jpg){width="60%" height="60%" fig-align="center"}
 
 ::: {style="font-size:14px"}
 ::: fragment
+```{=tex}
 \begin{align}
 P(\text{on time}|\text{NY office})& = \frac{P(\text{NY office}|\text{on time})\times P(\text{on time})}{P(\text{NY office})} \\
 & = \frac{0.4 \times 0.9}{0.4 \times 0.9 + 0.8 \times 0.1} = 0.82
 \end{align}
-::: 
-::: 
+```
+:::
+:::
 
 . . .
 
@@ -173,134 +164,197 @@ my prior has dropped from **90% to 82%**
 
 
 ::: notes
-press c to activate the chalk and circle on the prior 90% and posterior 82%
-press c again to turn it off
+press c to activate the chalk and circle on the prior 90% and posterior 82% press c again to turn it off
 :::
 
+## Hands-on Time!
 
-## Hands-on Time!  
-
-![](img/python-logo-inkscape.svg){width=50% height=50% fig-align="center"}
+![](img/python-logo-inkscape.svg){width="50%" height="50%" fig-align="center"}
 
 It's your turn:
 
-- Open the notebook in `Day1-03/hands-on.ipynb`
-- Follow the instructions in the notebook
+-   Open the notebook in `Day1-03/hands-on.ipynb`
+-   Follow the instructions in the notebook
+
+## Jupyter Notebook
+
+```{python}
+#| code-line-numbers: 7|12
+#| eval: true
+#| echo: true
+#| output: true
+# set the boundaries (-inf < a < b < inf)
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import beta
+
+a0, b0 = 1, 1
+
+# plot probability distribution
+x = np.linspace(0,1,100)
+
+plt.plot(x, beta.pdf(x, a0,b0), 'r-', label='prior beta pdf',lw=3)
+plt.xlabel('probability')
+plt.ylabel('')
+plt.title('')
+plt.legend(loc='best', frameon=False)
+
+plt.show()
+```
 
 
 
-## Statistical Inference 
 
-<br>
-<br>
+
+
+
+## Statistical Inference
+
+<br> <br>
 
 ```{mermaid}
 flowchart LR
   A(observe data) --> B(learn about its properties)
-```  
-::: fragment 
+```
+
+::: fragment
 <br>
 
 ### Frequentism VS Bayesianism
-<br>
-<br>
+
+<br> <br>
 :::
 
-::: fragment 
-|[approach]{style="color:green;"}|<font color="green">property</font>|<font color="green">evidence</font>|<font color="green"> property </font>|
-|:-----------:|:---------------:|:--------------:|:------------:|
-| Frequentism | -   | observe $x$ |   learn about $\mu$   |
-| Bayesianism | prior about $\mu$ | observe $x$ |   learn about $\mu$   |
+::: fragment
+| [approach]{style="color:green;"} | <font color="green">property</font> | <font color="green">evidence</font> | <font color="green"> property </font> |
+|:---------------:|:------------------:|:----------------:|:---------------:|
+|           Frequentism            |                 \-                  |             observe $x$             |           learn about $\mu$           |
+|           Bayesianism            |          prior about $\mu$          |             observe $x$             |           learn about $\mu$           |
 :::
-
 
 ## Frequentism vs Bayesianism: example
 
-<br>
-<br>
+<br> <br>
 
 Suppose that there is a sensor in this room that measures the temperature. I take data recorded by it and observe that:
 
-<br>
-<br>
+<br> <br>
 
 ::: incremental
-- 10 values ranging from 18C^0^ to 22 C^0^
-- I am interested in the average temperature, which is 20 based on the data
-- I conclude that $\bar{x}=20$ is an unbiased estimator of $\mu$
-- There is a Frequentist in the room!
+-   10 values ranging from 18C^0^ to 22 C^0^
+-   I am interested in the average temperature, which is 20 based on the data
+-   I conclude that $\bar{x}=20$ is an unbiased estimator of $\mu$
+-   There is a Frequentist in the room!
 :::
 
 ## Frequentism vs Bayesianism: example
 
-<br>
-<br>
+<br> <br>
 
 Then you tell me that there is an issue with the sensor, as it caps values above 25 by 25:
 
 <br>
 
 ::: incremental
-- You argue that $\bar{x}=20$ is no longer an unbiased estimator of $\mu$
-- That's true even though my 10 values were between 18 to 22
-- Future realisations of the measurements could be large 
+-   You argue that $\bar{x}=20$ is no longer an unbiased estimator of $\mu$
+-   That's true even though my 10 values were between 18 to 22
+-   Future realisations of the measurements could be large
 :::
 
 ## Frequentism vs Bayesianism: example
 
-<br>
-<br>
+<br> <br>
 
-As a Bayesian, you argue that:
-<br>
+As a Bayesian, you argue that: <br>
 
 ::: incremental
-- You can have a prior about the parameter $\mu$
-- Then, the 10 observed values can serve as a piece of evidence 
-- That leads to a posterior about $\mu$
-::: 
+-   You can have a prior about the parameter $\mu$
+-   Then, the 10 observed values can serve as a piece of evidence
+-   That leads to a posterior about $\mu$
+:::
 
 ## Frequentism vs Bayesianism
 
-![](img/bayes - freq_bayes.jpg){.absolute bottom="20"}
+![](img/bayes%20-%20freq_bayes.jpg){.absolute bottom="20"}
 
-![](img/bayes - freq.jpg){.absolute .fragment .fade-in bottom="20"}
+![](img/bayes%20-%20freq.jpg){.absolute .fragment .fade-in bottom="20"}
 
-![](img/bayes - bayes.jpg){.absolute .fragment .fade-in bottom="20"}
+![](img/bayes%20-%20bayes.jpg){.absolute .fragment .fade-in bottom="20"}
 
+::: notes
+frequentists reason horizontally, with mu fixed and x varying, while Bayesian inference proceeds vertically, with x fixed, according to the posterior distribution of mu.
 
-::: {.notes}
-frequentists reason horizontally, with mu fixed and x varying, while Bayesian inference
-proceeds vertically, with x fixed, according to the posterior distribution of mu.
+-   Bayesian inference requires a prior distribution g(mu). When past experience provides g, there is every good reason to employ Bayes' theorem.
+-   Frequentism replaces the choice of a prior with the choice of a method t(x), designed to answer the specific question at hand. This adds an arbitrary element to the inferential process
+-   In the absence of genuine prior information, a whiff of subjectivity hangs over Bayesian results, even those based on uninformative priors. Classical frequentism claimed for itself the high ground of scientific objectivity
 
-- Bayesian inference requires a prior distribution g(mu). When past experience provides g, there is every good reason to employ Bayes’ theorem.
-- Frequentism replaces the choice of a prior with the choice of a method t(x), designed to answer the specific question at hand. This adds an arbitrary element to the inferential process
-- In the absence of genuine prior information, a whiff of subjectivity hangs over Bayesian results, even those based on uninformative priors. Classical frequentism claimed for itself the high ground of scientific objectivity
+**Frequentist**: they assume that we can [repeatedly]{.rn rn-type="highlight" rn-color="red"} have realisations of the measurements from the sensor, but we are able to only observe one such realisations, and infer $\mu$. The imaginary repeated realsations can constitute the whole spectrum of values for $\mu$
 
-**Frequentist**: they assume that we can [repeatedly]{.rn rn-type=highlight rn-color=red} have realisations of the measurements from the sensor, but we are able to only observe one such realisations, and infer $\mu$. The imaginary repeated realsations can constitute the whole spectrum of values for $\mu$
-
-- **Bayesians**: they take the only <span style="color:red;">observable</span> realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
+-   **Bayesians**: they take the only [observable]{style="color:red;"} realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
 :::
 
-## {#slide1-id data-menu-title="coffee break"}
-
+##  {#slide1-id data-menu-title="coffee break"}
 
 ::: {style="font-size: 5em; font-color: #32a6a8 ;text-align: center"}
 Coffee Break <br> :coffee:
 :::
 
-## {background-image="img/working-hours-and-breaks-rules-made-simple-for-employers-and-employees-in-UK-by-Papershift.png" background-size="50%"}
+##  {background-image="img/working-hours-and-breaks-rules-made-simple-for-employers-and-employees-in-UK-by-Papershift.png" background-size="50%"}
 
 ::: footer
-[source](https://www.papershift.com/en/blog/working-hours-break-laws-in-uk-every-owner-employee-should-be-aware-of)
+[image source](https://www.papershift.com/en/blog/working-hours-break-laws-in-uk-every-owner-employee-should-be-aware-of)
 :::
 
-## {#slide3-id data-menu-title="QA"}
+##  {#slide3-id data-menu-title="QA"}
 
-![](img/qa.png){width=30% height=30% fig-align="center"}
-
+![](img/qa.png){width="30%" height="30%" fig-align="center"}
 
 ::: notes
 <a href="https://www.flaticon.com/free-icons/qa" title="qa icons">Qa icons created by Freepik - Flaticon</a>
 :::
 
+## shiny
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 420
+#| eval: true
+#| echo: true
+#| output: true
+
+from shiny import App, render, ui
+import numpy as np
+import matplotlib.pyplot as plt
+
+app_ui = ui.page_fluid(
+    ui.layout_sidebar(
+        ui.panel_sidebar(
+            ui.input_slider("period", "Period", 0.5, 4, 1, step=0.5),
+            ui.input_slider("amplitude", "Amplitude", 0, 2, 1, step=0.25),
+            ui.input_slider("shift", "Phase shift", 0, 2, 0, step=0.1),
+        ),
+        ui.panel_main(
+            ui.output_plot("plot"),
+        ),
+    ),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.plot(alt="Sine wave")
+    def plot():
+        t = np.arange(0.0, 4.0, 0.01)
+        s = input.amplitude() * np.sin(
+            2 * np.pi / input.period() * (t - input.shift() / 2)
+        )
+        fig, ax = plt.subplots()
+        ax.set_ylim([-2, 2])
+        ax.plot(t, s)
+        ax.grid()
+
+
+app = App(app_ui, server)
+
+```
