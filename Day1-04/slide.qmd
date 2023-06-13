@@ -1,0 +1,30 @@
+---
+title: AB Testing
+subtitle: What is AB testing?
+author: EPFL Extension School
+editor:
+  render-on-save: true
+format:
+  revealjs:
+    embed-resources: false
+    smaller: true
+    scrollable: true
+    theme: simple
+    logo: img/logo_red.png
+    footer: '<https://www.extensionschool.ch>'
+    code-fold: true
+    slide-number: true
+    chalkboard:
+      buttons: true
+    preview-links: auto
+    menu: false
+    css: exts_theme.css
+    mermaid:
+      theme: forest
+from: markdown+emoji
+execute:
+  enabled: true
+  cache: true
+jupyter: python3
+---
+
