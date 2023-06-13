@@ -417,3 +417,5 @@ FodyWeavers.xsd
 *.sln.iml
 Day1-03/notes/
 notes/
+
+/.luarc.json

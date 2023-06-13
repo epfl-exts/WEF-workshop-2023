@@ -21,8 +21,6 @@ format:
     css: exts_theme.css
     mermaid:
       theme: forest
-filters:
-  - roughnotation
 from: markdown+emoji
 execute:
   enabled: true
