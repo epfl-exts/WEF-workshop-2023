@@ -8,7 +8,8 @@
 
 # ignore renders during dev, but release them once work is done
 **/slide.html
-**/*_files/ # e.g. slide_files 
+**/slide_files/  
+**/outline_files/  
 
 # ignore my scratch notes
 **/notes/
