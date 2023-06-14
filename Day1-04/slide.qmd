@@ -1,6 +1,6 @@
 ---
-title: AB Testing
-subtitle: What is AB testing?
+title: Statistical Inference
+subtitle: Frequentism VS Bayesianism
 author: EPFL Extension School
 editor:
   render-on-save: true
@@ -27,25 +27,123 @@ execute:
 jupyter: python3
 ---
 
-## AB Testing: Key comcepts and terms 
+## Statistical Inference
+
+<br> <br>
+
+```{mermaid}
+flowchart LR
+  A(observe data) --> B(learn about its properties)
+```
+
+::: fragment
+<br>
+
+### Frequentism VS Bayesianism
+
+<br> <br>
+:::
+
+::: fragment
+| [approach]{style="color:green;"} | <font color="green">property</font> | <font color="green">evidence</font> | <font color="green"> property </font> |
+|:----------------:|:------------------:|:----------------:|:----------------:|
+|           Frequentism            |                 \-                  |             observe $x$             |           learn about $\mu$           |
+|           Bayesianism            |          prior about $\mu$          |             observe $x$             |           learn about $\mu$           |
+:::
+
+::: incremental 
+- Frequentists rely on the [**sampling distributions**]{style="color:#ff332c"}
+- What is [**sampling distributions**]{style="color:#ff332c"}? :thinking:
+:::
+
+::: notes
+press c and use marker to circle around observe x for Freq approach. This approach relies too much on the observed x and makes bold assumptions about the sample. So, the whole inference will become too much dependent on the observed x. Lets discuss this by a few examples, but before we need to know what is the wholy things about Frequentism.
+:::
+
+## Sampling distribution
+
+![image](img/coin_flip.png){.absolute .r-stretch  fig-align="center"} 
+![image](img/coin_flip-4.png){.absolute .fragment} 
+![](img/coin_flip-3.png){.absolute .fragment} 
+![](img/coin_flip-1.png){.absolute .fragment} 
+![](img/coin_flip-10.png){.absolute .fragment} 
+![](img/coin_flip-6.png){.absolute .fragment} 
+![](img/coin_flip-8.png){.absolute .fragment} 
+![](img/coin_flip-9.png){.absolute .fragment} 
+![](img/coin_flip-5.png){.absolute .fragment} 
+![](img/coin_flip-7.png){.absolute .fragment} 
+![](img/coin_flip-0.png){.absolute .fragment} 
+![caption](img/coin_flip-2.png){.absolute .fragment}
+
+::: notes
+notice that the graph has 11 numbers on the x axis because we're gonna repeat the experminet of flipping the coin 11 times, and each time we get different heads ratio. The binomial probability distribution in this figure is also called a sampling distribution. This terminology stems from the idea that any set of N flips is a representative sample of the behavior of the coin. If we were to repeatedly run experiments with a fair coin, such that in every experiment we flip the coin exactly N times, then, in the long run, the probability of getting each possible z (# of heads) would be the distribution shown in this plot.
+
+note that p(head)=0.5 is fixed by null hypothesis. The ratios on the x axis are coming from the samples
+:::
+
+## Sampling distribution
+
+<br> <br>
+
+Statistical methods that rely on [**sampling distributions**]{style="color:#ff332c"} are sometimes called [**frequentist**]{style="color:#ff332c"} methods.
+
+## Frequentism vs Bayesianism: example
+
+<br> <br>
+
+Suppose that there is a sensor in this room that measures the temperature. I take data recorded by it and observe that:
 
 <br> <br>
 
 ::: incremental
-- **Approaches**: frequentist vs bayesian
-- **Variants**: two vs multiple
-- **Conversioin**: Bernoulli vs value
-- **Key components**: 
-  - data
-  - prior
-  - posterior
+-   10 values ranging from 18C^0^ to 22 C^0^
+-   I am interested in the average temperature, which is 20 based on the data
+-   I conclude that $\bar{x}=20$ is an unbiased estimator of $\mu$
+-   There is a Frequentist in the room!
 :::
 
-
-## Definition
+## Frequentism vs Bayesianism: example
 
 <br> <br>
 
-> What is A/B testing?
+Then you tell me that there is an issue with the sensor, as it caps values above 25 by 25:
 
-Where it can be used?
+<br>
+
+::: incremental
+-   You argue that $\bar{x}=20$ is no longer an unbiased estimator of $\mu$
+-   That's true even though my 10 values were between 18 to 22
+-   Future realisations of the measurements could be large
+:::
+
+## Frequentism vs Bayesianism: example
+
+<br> <br>
+
+As a Bayesian, you argue that: ☞ 🕖 ⏩️ 🧐<br>
+
+::: incremental
+-   You can have a prior about the parameter $\mu$
+-   Then, the 10 observed values can serve as a piece of evidence
+-   That leads to a posterior about $\mu$
+:::
+
+## Frequentism vs Bayesianism
+
+![](img/bayes%20-%20freq_bayes.jpg){.absolute bottom="20"}
+
+![](img/bayes%20-%20freq.jpg){.absolute .fragment .fade-in bottom="20"}
+
+![](img/bayes%20-%20bayes.jpg){.absolute .fragment .fade-in bottom="20"}
+
+::: notes
+frequentists reason horizontally, with mu fixed and x varying, while Bayesian inference proceeds vertically, with x fixed, according to the posterior distribution of mu.
+
+-   Bayesian inference requires a prior distribution g(mu). When past experience provides g, there is every good reason to employ Bayes' theorem.
+-   Frequentism replaces the choice of a prior with the choice of a method t(x), designed to answer the specific question at hand. This adds an arbitrary element to the inferential process
+-   In the absence of genuine prior information, a whiff of subjectivity hangs over Bayesian results, even those based on uninformative priors. Classical frequentism claimed for itself the high ground of scientific objectivity
+
+**Frequentist**: they assume that we can [repeatedly]{.rn rn-type="highlight" rn-color="red"} have realisations of the measurements from the sensor, but we are able to only observe one such realisations, and infer $\mu$. The imaginary repeated realsations can constitute the whole spectrum of values for $\mu$
+
+-   **Bayesians**: they take the only [observable]{style="color:red;"} realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
+:::
