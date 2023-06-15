@@ -1,6 +1,6 @@
 ---
 title: Statistical Inference
-subtitle: Frequentism VS Bayesianism
+subtitle: Frequentism vs Bayesianism
 author: EPFL Extension School
 editor:
   render-on-save: true
@@ -63,7 +63,7 @@ press c and use marker to circle around observe x for Freq approach. This approa
 ## Sampling distribution
 
 ![image](img/coin_flip.png){.absolute .r-stretch  fig-align="center"} 
-![image](img/coin_flip-4.png){.absolute .fragment} 
+![](img/coin_flip-4.png){.absolute .fragment} 
 ![](img/coin_flip-3.png){.absolute .fragment} 
 ![](img/coin_flip-1.png){.absolute .fragment} 
 ![](img/coin_flip-10.png){.absolute .fragment} 
@@ -73,7 +73,7 @@ press c and use marker to circle around observe x for Freq approach. This approa
 ![](img/coin_flip-5.png){.absolute .fragment} 
 ![](img/coin_flip-7.png){.absolute .fragment} 
 ![](img/coin_flip-0.png){.absolute .fragment} 
-![caption](img/coin_flip-2.png){.absolute .fragment}
+![](img/coin_flip-2.png){.fragment .fade-in}
 
 ::: notes
 notice that the graph has 11 numbers on the x axis because we're gonna repeat the experminet of flipping the coin 11 times, and each time we get different heads ratio. The binomial probability distribution in this figure is also called a sampling distribution. This terminology stems from the idea that any set of N flips is a representative sample of the behavior of the coin. If we were to repeatedly run experiments with a fair coin, such that in every experiment we flip the coin exactly N times, then, in the long run, the probability of getting each possible z (# of heads) would be the distribution shown in this plot.
@@ -87,7 +87,7 @@ note that p(head)=0.5 is fixed by null hypothesis. The ratios on the x axis are 
 
 Statistical methods that rely on [**sampling distributions**]{style="color:#ff332c"} are sometimes called [**frequentist**]{style="color:#ff332c"} methods.
 
-## Frequentism vs Bayesianism: example
+## Example
 
 <br> <br>
 
@@ -102,7 +102,7 @@ Suppose that there is a sensor in this room that measures the temperature. I tak
 -   There is a Frequentist in the room!
 :::
 
-## Frequentism vs Bayesianism: example
+## Example
 
 <br> <br>
 
@@ -116,7 +116,7 @@ Then you tell me that there is an issue with the sensor, as it caps values above
 -   Future realisations of the measurements could be large
 :::
 
-## Frequentism vs Bayesianism: example
+## Example
 
 <br> <br>
 
