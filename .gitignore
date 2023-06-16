@@ -8,7 +8,7 @@
 
 # ignore renders during dev, but release them once work is done
 **/slide.html
-**/slide_files/  
+**/slide_files/
 
 # ignore my scratch notes
 **/notes/
@@ -419,3 +419,5 @@ Day1-03/notes/
 notes/
 
 /.luarc.json
+
+/.quarto/
