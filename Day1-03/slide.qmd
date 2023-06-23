@@ -273,20 +273,30 @@ and $\alpha>0$ and $\beta>0$ are the shape parameters of the distribution, and $
 
 Let's have a little fun with the [Beta distribution](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0qE2sEyoT0xHs7F6cHYACFMlBgfQkiw1Et6KR2GIoBAqh4yHoeGg4AB+GhgSZvd73PioJZcFQhFgMm5lZlLFbs0K-KC0-y0gAKkPgFBYOhF7AAjP55QAGPDy+k7d4zA685acAWXMCqOXiyXQmXG-AKpWq9VTTVa-ZYIXsAB87FV7FUbo9tI1XJaGveZQhRxOsj420dHwOizILOWWjIv2g8DyqCC9j99veQdaGvG2QgdBC8M4oQAboLdf44wn-OXOKtSONEG8AAJ1pYdwIQDlYRTJqDyMhFWnedhigAiADE-W9S+xU9UM-YJm2HXtbBgWESQTBEnA4I15QBOABsAA5ldf1QG7gAC8scREBIkk5UAHiKAA9v-L7x-Yol0wFQIE4CFCDgBplQwZVFVg09TzwABWZVC03XYDAHJQGh-fwMmSLBMzw-xdQwKAJjwcjVAmSZ2AAckGABaBi8HkQQigAJgw95sLIZ55GghjUWSfQnA2VR6BUMgrBCcDnisewzAgQgBNIBjeJubCfzmDJ5AaFgGIAEhoGhEWSYzNPvbDsD045DJMsUmnMvpLPGazMNabChKqPsGkUQgigYjIkjY9hHChUgihnYdywwmyR0SbhAQmIscnQYDfFQBpcgKegG0rUJ-HWMwKiKB4WDMOBxjAABfPBwGXahAgARwiQJ4HITgeh-Mh8CIUgKCoZAeHaIQRDEeqAF0gA):
 
+A few observations:
+
 ::: incremental
--   $\alpha=1$ and $\beta=1$ $\rightarrow$ uniform distribution
-
--   $\alpha=2$ and $\beta=2$ $\rightarrow$ symmetric distribution
-
--   $\alpha=2$ and $\beta=5$ $\rightarrow$ skewed distribution
-
--   $\alpha=5$ and $\beta=2$ $\rightarrow$ skewed distribution
+- uniform distribution is a special case of the Beta distribution e.g. with $\alpha=\beta=1$
+- it can give symmetric distribution e.g. with $\alpha=\beta=4$
+- it can give right or left-skewed distributions e.g. with $\alpha=2$ and $\beta=5$
 :::
 
 ::: notes
 note that changing the values of $\alpha$ and $\beta$ changes the shape of the distribution
 :::
 
+
+## Posterior  ... what would it be like if the prior ~ Beta? {.smaller}
+
+Let's go back to the coin example:
+
+$$\color{#962cff}{posterior} \propto \color{red}{likelihood}\times\color{blue}{prior}$$
+
+$$\color{#962cff}{P(\theta|data)} \propto \color{red}{P(data|\theta)}\times\color{blue}{P(\theta)}$$
+
+$$\color{#962cff}{P(\theta|data)} \propto \color{red}{\theta^z(1-\theta)^{N-z}}\times\color{blue}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}$$
+
+$$\color{#962cff}{P(\theta|data)} \propto \theta^{z+\alpha-1}(1-\theta)^{N-z+\beta-1}$$
 
 
 
@@ -368,48 +378,3 @@ Coffee Break <br> :coffee:
 ::: notes
 <a href="https://www.flaticon.com/free-icons/qa" title="qa icons">Qa icons created by Freepik - Flaticon</a>
 :::
-
-## shiny
-
-```{shinylive-python}
-#| standalone: true
-#| viewerHeight: 420
-#| eval: true
-#| echo: true
-#| output: true
-
-from shiny import App, render, ui
-import numpy as np
-import matplotlib.pyplot as plt
-
-app_ui = ui.page_fluid(
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("period", "Period", 0.5, 4, 1, step=0.5),
-            ui.input_slider("amplitude", "Amplitude", 0, 2, 1, step=0.25),
-            ui.input_slider("shift", "Phase shift", 0, 2, 0, step=0.1),
-        ),
-        ui.panel_main(
-            ui.output_plot("plot"),
-        ),
-    ),
-)
-
-
-def server(input, output, session):
-    @output
-    @render.plot(alt="Sine wave")
-    def plot():
-        t = np.arange(0.0, 4.0, 0.01)
-        s = input.amplitude() * np.sin(
-            2 * np.pi / input.period() * (t - input.shift() / 2)
-        )
-        fig, ax = plt.subplots()
-        ax.set_ylim([-2, 2])
-        ax.plot(t, s)
-        ax.grid()
-
-
-app = App(app_ui, server)
-
-```
