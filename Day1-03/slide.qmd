@@ -22,6 +22,8 @@ format:
     mermaid:
       theme: forest
 from: markdown+emoji
+filters:
+  - shinylive
 execute:
   enabled: true
   cache: true
@@ -265,9 +267,25 @@ where $B(\alpha,\beta)$ is the beta function:
 
 $$B(\alpha,\beta) = \int_0^1 \theta^{\alpha-1}(1-\theta)^{\beta-1} d\theta$$
 
-and $\alpha$ and $\beta$ are the shape parameters of the distribution.
+and $\alpha>0$ and $\beta>0$ are the shape parameters of the distribution, and $0 \leq \theta \leq 1$.
 
 ## Beta distribution
+
+Let's have a little fun with the [Beta distribution](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0qE2sEyoT0xHs7F6cHYACFMlBgfQkiw1Et6KR2GIoBAqh4yHoeGg4AB+GhgSZvd73PioJZcFQhFgMm5lZlLFbs0K-KC0-y0gAKkPgFBYOhF7AAjP55QAGPDy+k7d4zA685acAWXMCqOXiyXQmXG-AKpWq9VTTVa-ZYIXsAB87FV7FUbo9tI1XJaGveZQhRxOsj420dHwOizILOWWjIv2g8DyqCC9j99veQdaGvG2QgdBC8M4oQAboLdf44wn-OXOKtSONEG8AAJ1pYdwIQDlYRTJqDyMhFWnedhigAiADE-W9S+xU9UM-YJm2HXtbBgWESQTBEnA4I15QBOABsAA5ldf1QG7gAC8scREBIkk5UAHiKAA9v-L7x-Yol0wFQIE4CFCDgBplQwZVFVg09TzwABWZVC03XYDAHJQGh-fwMmSLBMzw-xdQwKAJjwcjVAmSZ2AAckGABaBi8HkQQigAJgw95sLIZ55GghjUWSfQnA2VR6BUMgrBCcDnisewzAgQgBNIBjeJubCfzmDJ5AaFgGIAEhoGhEWSYzNPvbDsD045DJMsUmnMvpLPGazMNabChKqPsGkUQgigYjIkjY9hHChUgihnYdywwmyR0SbhAQmIscnQYDfFQBpcgKegG0rUJ-HWMwKiKB4WDMOBxjAABfPBwGXahAgARwiQJ4HITgeh-Mh8CIUgKCoZAeHaIQRDEeqAF0gA):
+
+::: incremental
+-   $\alpha=1$ and $\beta=1$ $\rightarrow$ uniform distribution
+
+-   $\alpha=2$ and $\beta=2$ $\rightarrow$ symmetric distribution
+
+-   $\alpha=2$ and $\beta=5$ $\rightarrow$ skewed distribution
+
+-   $\alpha=5$ and $\beta=2$ $\rightarrow$ skewed distribution
+:::
+
+::: notes
+note that changing the values of $\alpha$ and $\beta$ changes the shape of the distribution
+:::
 
 
 
