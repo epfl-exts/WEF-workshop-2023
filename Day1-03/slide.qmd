@@ -310,22 +310,6 @@ a few things we learn from the plot:
 - a+b=N
 :::
 
-
-
-
-
-
-
-##  {background-image="img/AdobeStock_316152114.jpeg" background-size="cover"}
-
-
-![](img/python-logo-inkscape.svg){width="50%" height="50%" fig-align="center"}
-
-It's your turn:
-
--   Open the notebook in `Day1-03/hands-on.ipynb`
--   Follow the instructions in the notebook
-
 ## Jupyter Notebook
 
 ```{.python code-line-numbers="11|3|5|8"}
@@ -351,29 +335,44 @@ plt.show()
 
 
 
+## {chalkboard-buttons="false" background-image="img/AdobeStock_316152114.jpeg"}
 
+![](img/python-logo-inkscape.svg){width="50%" height="50%" fig-align="center"}
 
+It's your turn:
 
+-   Open the notebook in `Day1-03/hands-on.ipynb`
+-   Follow the instructions in the notebook
 
-
-
-
-##  {#slide1-id data-menu-title="coffee break"}
-
-::: {style="font-size: 5em; font-color: #32a6a8 ;text-align: center"}
-Coffee Break <br> :coffee:
-:::
-
-##  {background-image="img/working-hours-and-breaks-rules-made-simple-for-employers-and-employees-in-UK-by-Papershift.png" background-size="50%"}
 
 ::: footer
-[image source](https://www.papershift.com/en/blog/working-hours-break-laws-in-uk-every-owner-employee-should-be-aware-of)
 :::
 
-##  {#slide3-id data-menu-title="QA"}
+## {chalkboard-buttons="false" background-image="img/AdobeStock_439133763.jpeg" background-opacity="1.0" background-position="center" }
 
-![](img/qa.png){width="30%" height="30%" fig-align="center"}
+::: footer
+:::
 
-::: notes
-<a href="https://www.flaticon.com/free-icons/qa" title="qa icons">Qa icons created by Freepik - Flaticon</a>
+
+## {chalkboard-buttons="false" background-image="img/working-hours-and-breaks-rules-made-simple-for-employers-and-employees-in-UK-by-Papershift.png" background-opacity="1.0" background-position="center" background-size="50%"}
+
+::: {style="font-size: 1em; font-color: #32a6a8 ;text-align: center"}
+Coffee Break
+:::
+
+::: footer
+[image credit www.papershift.com](https://www.papershift.com/en/blog/working-hours-break-laws-in-uk-every-owner-employee-should-be-aware-of)
+:::
+
+
+
+## {chalkboard-buttons="false" background-image="img/AdobeStock_206674448.jpeg" background-opacity="1.0" background-position="center"}
+
+::: footer
+:::
+
+## {chalkboard-buttons="false" background-iframe="https://extensionschool.ch" background-interactive="true" background-interactive-end="true" background-interactive-start="true" background-opacity="0.7" background-position="center" } 
+
+
+::: footer
 :::
