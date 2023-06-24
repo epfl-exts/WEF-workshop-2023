@@ -286,24 +286,19 @@ note that changing the values of $\alpha$ and $\beta$ changes the shape of the d
 :::
 
 
-## Posterior  ... what would it be like if the prior ~ Beta? {.smaller}
+## Posterior  ... what would it be like if the prior is Beta? {.smaller}
 
-Let's go back to the coin example:
-
-$$\color{#962cff}{posterior} \propto \color{red}{likelihood}\times\color{blue}{prior}$$
-
-$$\color{#962cff}{P(\theta|data)} \propto \color{red}{P(data|\theta)}\times\color{blue}{P(\theta)}$$
+![](img/posterior.png){width="45%" height="45%" fig-align="center"}
 
 $$\color{#962cff}{P(\theta|data)} \propto \color{red}{\theta^z(1-\theta)^{N-z}}\times\color{blue}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}$$
 
 $$\color{#962cff}{P(\theta|data)} \propto \theta^{z+\alpha-1}(1-\theta)^{N-z+\beta-1}$$
 
+$$\color{#962cff}{Beta(\alpha+z,\beta+N-z)} \propto \color{red}{\text{Bernoulli likelihood}} \times\color{blue}{Beta(\alpha,\beta)}$$
 
 
 
-
-
-
+Let's have a little [show](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0vTg7AAQpkoPpiElQvRWOwxFAIFU9KorBD9CxkSwdBAgtDQhBFvIVOwVMMVNxiMQggB+GhgSZvd73PioJZcFQhFgcm5lblLFb80K-KCs-ysgAKm1gmVCOhl7AAjP51QAGPDq9k7d4zA6i5acCWXMCqNXyxXwCiE634DVa3X6qaGo37DCm8VnS0AORtkAsGUJxHs7Fq8U4ap1rrd2oNXo+JtsYvN-t+EDyfSgQVjztZ5hgYfYEfYeYLat1Gu1ieTKbKqF+rINQpajeuzfRxzysj42xT3sWZB5yy0ZGzSryqCC9jbHveXfYBvG2QgdBCkc4oQAbpLTf5R+P-LvOKtSONEG8AAInpZ3wLE0JYRRTqDyMhFVnedhygARAAxNs3m3dhoHgWd5wmG9PT2WwMBYdEQRgRI4DgRp1QATgANgADm1Qj9Q7dhSNuAAC3cOFxZCMUhbUAB4ilQZj1VIiFkmKCDMBUCBOFQKBCDgBptQwbVNTE7DsL1et103eDdnuQhAhESEyEEYh9HfVIdjhJxBFI+x6AqfwoAADzBbiDESMxVEnTgGk1dgACZ-GMipVgALzgIonLcr5xnkzltO0GEWHJMxKXoal6Fpeh6UZUiLLBYBtQAXTfJQGk4qB-FygAqArTQwHMq0c8Z2AK9gnIAWly8YioaEqAwmWqSrKuB8wqyZ2AAchYPr-BgTgihc4KbmSyzODSzLqLycy5gyeQGkGgASGgaFyta+om64UpmjL0OWbAluOBo+ppY4EoZIJdqm1KjvmshnnkES+vCyLoti+LEruva9luA7ZowCp8UaAHdnI0KOFQJwNlUegVDIKwgnoJJ8VUJZkQU95gfVTLJxyvpkn8DJkiwGDcv8EqoAmPAStUCZer61RaqG6koGWoo+rhgl-2Aob5EEMbIdafHCffYnYTJ2FKfsaXSY8dMyAwOnxgAag63MuoLenlfHDAmc1lq2u18rmf8Vm6jgPdkTesgOeFsazPkVBuCgIoxNw-wzvkHnmERfEUUAoD7sU1oHpmgnjoWv3Vr6jatpJqAdrFloJdj06ufOvrw7x6bgBj57XvevmURQ+Eg-50POHzm5M7eqpiQaRRCB5jIkg5xwlVIIogM-Xd07uTOwbWCZSNImyXoqbhljmBYlgniOWhsnhAWXjdcm43wW1yAp6DPfdQn8dYzAqIoHhYMw4HGMAAF88HASCEGQQIAEcIkCeByE4HpzLIPgIgpAKBUGQDwdoQgRBiAfulIAA) of this
 
 
 
@@ -316,12 +311,16 @@ $$\color{#962cff}{P(\theta|data)} \propto \theta^{z+\alpha-1}(1-\theta)^{N-z+\be
 
 ## Hands-on Time!
 
+![](img/ai.ai){width="50%" height="50%" fig-align="center"}
+
 ![](img/python-logo-inkscape.svg){width="50%" height="50%" fig-align="center"}
 
 It's your turn:
 
 -   Open the notebook in `Day1-03/hands-on.ipynb`
 -   Follow the instructions in the notebook
+prior: how does an uninformative prior contribute to the posterior
+sample size: how does contribute to the posterior
 
 ## Jupyter Notebook
 
