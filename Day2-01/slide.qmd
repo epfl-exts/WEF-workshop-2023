@@ -1,0 +1,174 @@
+---
+title: A/B Testing
+subtitle: Bayesian Approach
+author: EPFL Extension School
+editor:
+  render-on-save: true
+format:
+  revealjs:
+    embed-resources: false
+    smaller: true
+    scrollable: true
+    theme: simple
+    logo: img/logo_red.png
+    code-fold: true
+    slide-number: true
+    chalkboard:
+      buttons: true
+    preview-links: auto
+    menu: false
+from: markdown+emoji
+execute:
+  enabled: true
+  cache: true
+jupyter: python3
+---
+## 
+
+
+<!-- ```{python}
+
+from multiprocessing import Pool
+
+def f(x):
+    return x*x
+
+if __name__ == '__main__':
+    __spec__ = None
+    with Pool(5) as p:
+        print(p.map(f, [1, 2, 3]))
+``` -->
+
+## Defining the problem
+
+- We have a website and we want to increase the number of visitors that click on a button.
+- We have two versions of the website: A and B.
+- We want to know which version is better.
+- We want to know how much better it is.
+- We want to know how much data we need to collect to be sure that we have a good estimate of the difference between the two versions.
+- We consider Bernoulli conversion
+
+## Definitions
+### Parameters
+
+- $\theta_A$ is the conversion rate for version A
+- $\theta_B$ is the conversion rate for version B
+- $\frac{\theta_B}{\theta_A}-1$ is the uplift of version B compared to version A
+
+### Priors
+
+-  conversion rates $\theta$ are independent
+-  conversion rates $\theta$ are Beta distributed
+
+$$\theta_A \sim Beta(\alpha_A, \beta_A)$$
+$$\theta_B \sim Beta(\alpha_B, \beta_B)$$
+
+-  conversion rates share the same parameters $\alpha_A=\beta_A=\alpha_B=\beta_B$
+-  $\alpha = \beta = 100$ 
+
+## Definitions
+
+### Likelihoods
+
+-  data for version A and B are independent
+-  data for version A and B are Bernoulli distributed
+
+### Posterior
+
+-  posterior is Beta distributed
+
+
+## PyMC
+
+We use PyMC library to do the Bayesian inference for the A/B testing problem.
+
+TALK ABOUT PYMC HERE
+
+```{python}
+import pymc as pm
+```
+
+## Setting up the problem in PyMC
+
+
+```{python code-line-numbers="1,2|4,5|7,8|10,11"}
+# let's define the variants A and B
+variants  = ['A', 'B']
+variants
+# each variant has 1000 trail 
+trials    = [1000, 1000]
+
+# 200 of which leads to success
+successes = [200, 200]
+
+# let's define parameters for a weak prior for the conversion rates
+weak_alpha, weak_beta = [100, 100]
+```
+
+
+## Creating a model in PyMC
+
+<!-- ```{python code-line-numbers="1|3,4|5,6|7|9,10|11,12|4,13|14|4,16-18|20-21"}
+import matplotlib.pyplot as plt
+import pandas as pd
+import arviz as az
+import numpy as np
+
+rng = np.random.default_rng(4000)
+
+with pm.Model() as example_model:
+
+    # Priors for unknown model parameters
+    theta = pm.Beta("theta", 
+                    alpha = weak_alpha, 
+                    beta  = weak_beta, 
+                    shape = 2)
+    
+    # Likelihood (sampling distribution) of observations
+    obs = pm.Binomial("y", 
+                      n = trials, 
+                      p = theta, 
+                      observed = successes,
+                      shape = 2) 
+    
+    # Difference between variants
+    relative_uplift = pm.Deterministic("uplift_B", 
+                                        theta[1] / theta[0] - 1)
+
+    # Draw samples from the prior
+    trace = pm.sample(draws=10, return_inferencedata=False)
+``` -->
+
+::: notes
+how to explain the with statement in pymc?
+
+the pymc code looks like this: it hijacks the context manager which one usually uses for 
+opening/closing files and instead uses it to create a context for the model and define its variables. Here it opens a model (WITH pm.Model() AS model)
+and populate it with the priors and variables. Then it runs the model and samples from the posterior. 
+Model is an object which is a container  for the model random variables. It is the top level container for all probability models. 
+
+Finally it returns the posterior samples. The context manager is a python construct that
+allows you to do something before and after a block of code. In this case it opens the model
+and closes it after the sampling is done.
+Any time you declare a pymc mvariable inside a with statement (or context manager), it gets added to the model. Pymc is a high level language.
+:::
+
+## Checking the model specification
+
+Unobserved Random Variables:
+
+```{python}
+example_model.unobserved_RVs  
+```
+Observed Random Variables:
+
+```{python}
+example_model.observed_RVs  
+```
+
+## Checking the output
+
+<!-- ```{python}
+#| echo: true
+trace
+``` -->
