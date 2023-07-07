@@ -228,18 +228,18 @@ weak_outcome.columns = ['theta_A','theta_B','uplift_B']
 #| code-fold: false
 #| code-line-numbers: 5,9,13
 # let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift_B
-fig, ax = plt.subplots(1, 3, figsize=(12, 3))
+fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True)
 
 # plot the distribution of theta_A
-ax[0].hist(weak_outcome['theta_A'],bins=50, alpha=0.4)
+ax[0].hist(weak_outcome['theta_A'],bins=50,)
 ax[0].set_title(r'$\theta_A$')
 
 # plot the distribution of theta_B
-ax[1].hist(weak_outcome['theta_B'],bins=50, alpha=0.4)
+ax[1].hist(weak_outcome['theta_B'],bins=50,)
 ax[1].set_title(r'$\theta_B$')
 
 # plot the distribution of uplift_B
-ax[2].hist(weak_outcome['uplift_B'], bins=50)
+ax[2].hist(weak_outcome['uplift_B'], bins=50,)
 ax[2].set_title('uplift_B')
 
 plt.show()
@@ -250,19 +250,20 @@ plt.show()
 #| echo: false
 #| eval: true
 
+
 # let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift_B
-fig, ax = plt.subplots(1, 3, figsize=(12, 3))
+fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True)
 
 # plot the distribution of theta_A
-ax[0].hist(weak_outcome['theta_A'],bins=50, alpha=0.4)
+ax[0].hist(weak_outcome['theta_A'],bins=50,)
 ax[0].set_title(r'$\theta_A$')
 
 # plot the distribution of theta_B
-ax[1].hist(weak_outcome['theta_B'],bins=50, alpha=0.4)
+ax[1].hist(weak_outcome['theta_B'],bins=50,)
 ax[1].set_title(r'$\theta_B$')
 
 # plot the distribution of uplift_B
-ax[2].hist(weak_outcome['uplift_B'], bins=50)
+ax[2].hist(weak_outcome['uplift_B'], bins=50,)
 ax[2].set_title('uplift_B')
 
 plt.show()
@@ -344,3 +345,4 @@ plt.title("B vs. A Relative Uplift Distribution", fontsize=10)
 plt.axvline(x=0, color="red");
 ```
 
+what is HDI?
