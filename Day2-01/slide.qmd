@@ -195,6 +195,8 @@ example_model.observed_RVs
 trace
 ```
 
+
+
 <br>
 
 ```{python}
@@ -314,10 +316,21 @@ trace
 
 <br>
 
-
 Note that the output type is now different:
 
 - Each row of an array is treated as an independent series of draws from the variable, called a chain.
+
+```{python}
+#| echo: true
+#| eval: true
+#| code-fold: false
+trace.posterior.theta.shape
+```
+
+::: notes
+as an example, for theta we have 4 chains, each with 1000 draws. So for theta_A we have 4 chains, each with 1000 draws.
+:::
+
 
 ## Exploring the posterior
 
