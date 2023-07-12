@@ -49,12 +49,9 @@ jupyter: python3
 
 -  conversion rates $\theta$ are independent
 -  conversion rates $\theta$ are Beta distributed
-
 $$\theta_A \sim Beta(\alpha_A, \beta_A)$$
 $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
-
--  conversion rates share the same parameters $\alpha_A=\beta_A=\alpha_B=\beta_B$
--  $\alpha = \beta = 100$ 
+-  conversion rates share the same parameters $\alpha_A=\beta_A=\alpha_B=\beta_B=100$
 
 ## Definitions
 
@@ -80,7 +77,7 @@ TALK ABOUT PYMC HERE
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import arviz as az
+import arviz
 import numpy as np
 import pymc as pm
 rng = np.random.default_rng(4000)
@@ -118,6 +115,22 @@ successes = [200, 200]
 weak_alpha, weak_beta = [100, 100]
 ```
 
+```{python}
+#| echo: false
+#| eval: true
+#| code-fold: false
+from scipy.stats import beta
+
+# plot probability distribution
+x = np.linspace(0,1,100)
+fig, ax = plt.subplots(figsize=(5, 3))
+plt.plot(x, beta.pdf(x, weak_alpha,weak_beta), 'r-', lw=2, )
+plt.xlabel(r'$\theta$')
+plt.title(r'prior $\beta(100,100)$ PDF')
+plt.show()
+```
+
+
 
 ## Creating a model in PyMC
 
@@ -125,7 +138,7 @@ weak_alpha, weak_beta = [100, 100]
 #| echo: true
 #| eval: true
 #| code-fold: false
-#| code-line-numbers: 1|4|5,6|7|10|11,12|4,13|14|4,17,18|21
+#| code-line-numbers: 1|4|5,6|7|10|11,12|4,13|7,14|4,17,18|21
 with pm.Model() as example_model:
 
     # Priors for unknown model parameters
@@ -142,10 +155,10 @@ with pm.Model() as example_model:
                       shape    = 2) 
     
     # Difference between variants
-    relative_uplift = pm.Deterministic("uplift_B", 
+    relative_uplift = pm.Deterministic("uplift", 
                                         theta[1] / theta[0] - 1)
 
-    # Draw samples from the prior
+    # Draw samples from the posterior
     trace = pm.sample(draws=1000, return_inferencedata=False)
 ```
 
@@ -203,7 +216,7 @@ trace
 #| echo: true
 #| eval: true
 #| code-fold: false
-trace.theta.shape,  trace.uplift_B.shape
+trace.theta.shape,  trace.uplift.shape
 ```
 
 <br>
@@ -212,11 +225,11 @@ trace.theta.shape,  trace.uplift_B.shape
 #| echo: true
 #| eval: true
 #| code-fold: false
-# let's create a dataframe with the output of the prior predictive
+# let's put the trace into a dataframe
 weak_outcome = pd.concat([pd.DataFrame(trace['theta']), 
-                          pd.DataFrame(trace['uplift_B'])],
+                          pd.DataFrame(trace['uplift'])],
                           axis=1)
-weak_outcome.columns = ['theta_A','theta_B','uplift_B']
+weak_outcome.columns = ['theta_A','theta_B','uplift']
 ```
 
 
@@ -229,7 +242,7 @@ weak_outcome.columns = ['theta_A','theta_B','uplift_B']
 #| eval: false
 #| code-fold: false
 #| code-line-numbers: 5,9,13
-# let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift_B
+# let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift
 fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True)
 
 # plot the distribution of theta_A
@@ -240,9 +253,9 @@ ax[0].set_title(r'$\theta_A$')
 ax[1].hist(weak_outcome['theta_B'],bins=50,)
 ax[1].set_title(r'$\theta_B$')
 
-# plot the distribution of uplift_B
-ax[2].hist(weak_outcome['uplift_B'], bins=50,)
-ax[2].set_title('uplift_B')
+# plot the distribution of uplift
+ax[2].hist(weak_outcome['uplift'], bins=50,)
+ax[2].set_title('uplift')
 
 plt.show()
 ```
@@ -253,7 +266,7 @@ plt.show()
 #| eval: true
 
 
-# let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift_B
+# let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift
 fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True)
 
 # plot the distribution of theta_A
@@ -264,9 +277,9 @@ ax[0].set_title(r'$\theta_A$')
 ax[1].hist(weak_outcome['theta_B'],bins=50,)
 ax[1].set_title(r'$\theta_B$')
 
-# plot the distribution of uplift_B
-ax[2].hist(weak_outcome['uplift_B'], bins=50,)
-ax[2].set_title('uplift_B')
+# plot the distribution of uplift
+ax[2].hist(weak_outcome['uplift'], bins=50,)
+ax[2].set_title(r'uplift: $\frac{\theta_B}{\theta_A}-1$')
 
 plt.show()
 ```
@@ -296,7 +309,7 @@ with pm.Model() as example_model:
                       shape = 2) 
     
     # Difference between variants
-    relative_uplift = pm.Deterministic("uplift_B", 
+    relative_uplift = pm.Deterministic("uplift", 
                                         theta[1] / theta[0] - 1)
 
     # Draw samples from the prior
@@ -340,7 +353,7 @@ as an example, for theta we have 4 chains, each with 1000 draws. So for theta_A 
 #| eval: true
 #| code-fold: false
 
-pm.summary(trace, var_names=["theta", "uplift_B"]).T
+pm.summary(trace, var_names=["theta", "uplift"]).T
 ```
 
 ## Exploring the posterior
@@ -352,7 +365,7 @@ we can also use the ArviZ library for plotting. The main advantage is that it wo
 #| eval: true
 #| code-fold: false
 #| code-line-numbers: 1,2
-az.plot_posterior(trace.posterior["uplift_B"], **plotting_defaults, figsize=(6, 4))
+arviz.plot_posterior(trace.posterior["uplift"], **plotting_defaults, figsize=(6, 4))
 
 plt.title("B vs. A Relative Uplift Distribution", fontsize=10)
 plt.axvline(x=0, color="red");
