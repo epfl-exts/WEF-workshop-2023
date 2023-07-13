@@ -285,6 +285,9 @@ A few observations:
 note that changing the values of $\alpha$ and $\beta$ changes the shape of the distribution
 :::
 
+## Gamma prior-distribution
+
+need to expalin it too
 
 ## Posterior  ... what would it be like if the prior is Beta? {.smaller}
 
