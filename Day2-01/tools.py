@@ -12,6 +12,8 @@ class RevenueData:
     purchased: int
     total_revenue: float
 
+#---------------------------------------------HANDS ON 1
+
 
 def get_posterior(priors, trials, successes):
 
@@ -58,7 +60,7 @@ def sample_size_effect(sample_sizes, prior, successes_rate):
     return trace_all
 
 
-
+#---------------------------------------------HANDS ON 2
 
 def get_data(variants, true_conversion_rates, true_mean_purchase, samples_per_variant):
 
@@ -67,36 +69,34 @@ def get_data(variants, true_conversion_rates, true_mean_purchase, samples_per_va
     mean_purchase = {}
     
     for variant, p, mp in zip(variants, true_conversion_rates, true_mean_purchase):
-        converted[variant]     = bernoulli.rvs(p,    size=samples_per_variant)
-        print('simulated ',samples_per_variant, ' Bernoulli data based on ', p, 'for variant ', variant)
+        
+        converted[variant] = bernoulli.rvs(p, size=samples_per_variant)
+        print('generated',samples_per_variant, 'obs from a Bernoulli rv based on', p, 'rate for variant', variant)
         
         mean_purchase[variant] = expon.rvs(scale=mp, size=samples_per_variant)
-        print('simulated ',samples_per_variant, ' Exponential data based on ', mp, 'for variant ', variant)
+        print('generated',samples_per_variant, 'obs from an Exponential rv based on', mp, 'for variant', variant)
+        print('----------------------------------------------------------------------')
 
     converted     = pd.DataFrame(converted)
     mean_purchase = pd.DataFrame(mean_purchase)
     revenue = converted * mean_purchase
 
     # step 2: put this together with a dataclass
-    generated = pd.concat(
-        [
-            converted.aggregate(["count", "sum"]).rename(
-                index={"count": "visitors", "sum": "purchased"}
-            ),
-            revenue.aggregate(["sum"]).rename(index={"sum": "total_revenue"}),
-        ]
-    )
+    generated = pd.concat([
+        converted.aggregate(["count", "sum"]).rename(index={"count": "visitors", "sum": "purchased"}),
+        revenue.aggregate(["sum"]).rename(index={"sum": "total_revenue"}),
+                            ])
+
+    print('\n Below is the outcome and we are now going to use them as input in the PyMC model:')
     display(generated.round())
 
     data = [RevenueData(**generated[v].to_dict()) for v in variants]
-    display(data)
 
     visitors      = [d.visitors for d in data]
     purchased     = [d.purchased for d in data]
     total_revenue = [d.total_revenue for d in data]
 
-
-    return visitors, purchased, total_revenue
+    return purchased, total_revenue
     
 
 
@@ -147,8 +147,6 @@ def get_posterior2(beta_priors,
 
         #------------------------------------------------posterior
         # draw posterior samples
-        trace = pm.sample(draws=5000, return_inferencedata=True)
+        trace = pm.sample(draws=5000, return_inferencedata=True, progressbar=False, chains=4)
 
     return trace
-
-
