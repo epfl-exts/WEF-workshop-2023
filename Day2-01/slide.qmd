@@ -3,7 +3,7 @@ title: Bayesian AB Testing
 subtitle: Bernoulli and Value Conversions
 author: EPFL Extension School
 editor:
-  render-on-save: false
+  render-on-save: true
 format:
   revealjs:
     code-copy: true
@@ -159,8 +159,11 @@ with pm.Model() as example_model:
                                         theta[1] / theta[0] - 1)
 
     # Draw samples from the posterior
-    trace = pm.sample(draws=1000, return_inferencedata=False)
+    trace = pm.sample(draws=1000, return_inferencedata=False, progressbar=False)
 ```
+
+
+![](img/Screenshot%202023-07-16%20at%2016.12.14.png)
 
 ::: notes
 how to explain the with statement in pymc?
@@ -195,8 +198,6 @@ Observed Random Variables:
 #| code-block-border-left: "#31BAE9"
 example_model.observed_RVs  
 ```
-
-## Checking the output
 
 ```{python}
 #| code-block-bg: true
@@ -313,7 +314,7 @@ with pm.Model() as example_model:
                                         theta[1] / theta[0] - 1)
 
     # Draw samples from the prior
-    trace = pm.sample(draws=1000, return_inferencedata=True)
+    trace = pm.sample(draws=1000, return_inferencedata=True, progressbar=False)
 
 ```
 
@@ -372,3 +373,182 @@ plt.axvline(x=0, color="red");
 ```
 
 what is HDI?
+
+## Value Conversion
+
+- So far we have compared A and B variants in terms of how many conversions they generate, and estimated the relative uplift of conversions between the two.
+
+- Now what if we wanted to compare A and B variants in terms of how much revenue they generate, and estimate the relative uplift of revenue between the two. 
+
+- We should consider Value Conversion
+
+## Definitions
+
+Suppose that a single visitor $i$ has a probability $\theta$ of paying at all. So, we can model the conversion as a Bernoulli trial:
+
+$$conv_i \sim \mathrm{Bernoulli}(\theta)$$ 
+
+$$\theta \sim \mathrm{Beta}(\alpha_1, \beta_1)$$
+
+We assume that if a visitor pays, they spend an amount $rev$ that is exponentially distributed with rate $\lambda$:
+
+$$rev_i \sim \mathrm{Exponential}(\lambda)$$
+
+$$\lambda \sim \mathrm{Gamma}(\alpha_2, \beta_2)$$
+
+::: notes 
+This is already the Bernoulli conversion model we have seen before. What is new in the Value Conversion model is the following.
+In this setting, we have two priors, one for $\theta$ and one for $\lambda$. So, we need two likelihoods, one for $conv_i$ and one for $rev_i$. By combining the two priors and likelihoods, we can estimate two posteriors, one for $\theta$ and one for $\lambda$.
+:::
+
+## Objective
+
+The reach our objective which is finding the relative uplift of revenue between A and B we will use the posterior samples of $\theta$ and $\lambda$. The expected revenue per visitor is $\theta/\lambda$.
+
+What are the likelihoods for the Value Conversion model?
+
+
+## Likelihoods
+
+Let's extend the setting for more than just a single visitor:
+
+\begin{align*}
+conv &=  \sum^{\# \text{visitors}} conv_i \\
+&= \sum^{\# \text{visitors}}\mathrm{Bernoulli}(\theta)
+\sim \mathrm{Binomial}(\# \text{visitors}, \theta)
+\end{align*}
+
+\begin{align*}
+rev &= \sum^{\# \text{payers}} rev_i \\
+&= \sum^{\# \text{payers}}\mathrm{Exponential}(\lambda)
+\sim \mathrm{Gamma}(\# \text{payers}, \lambda)
+\end{align*}
+
+::: notes
+:::
+
+## Summary
+
+Let's complete the setting by bringing in the variants A and B:
+
+We have two conversion **likelihoods**:
+
+\begin{align*}
+conv_A &\sim \mathrm{Binomial}(N_A, \theta_A) \\
+conv_B &\sim \mathrm{Binomial}(N_B, \theta_B) \\
+\end{align*}
+
+and our **prior** about conversion probablies are:
+
+$$\theta_A = \theta_B \sim \mathrm{Beta}(\alpha_1, \beta_1)$$
+
+We have two revenue **likelihoods**:
+
+\begin{align*}
+rev_A &\sim \mathrm{Gamma}(conv_A, \lambda_A) \\
+rev_B &\sim \mathrm{Gamma}(conv_B, \lambda_B)
+\end{align*}
+
+ad our **prior** about the amounts spent are:
+
+$$\lambda_A = \lambda_B \sim \mathrm{Gamma}(\alpha_2, \beta_2)$$
+
+::: notes
+:::
+
+## Uplift
+
+
+Finally, average spending by two variants are:
+
+$$\mu_A =  \dfrac{\theta_A}{\lambda_A}$$
+$$\mu_B =  \dfrac{\theta_B}{\lambda_B}$$
+
+and the relative uplift is:
+
+$$\mathrm{uplift} = \mu_B / \mu_A - 1$$
+
+::: notes
+$\mu$ here represents the average revenue per visitor, including those who don't make a purchase. This is the best way to capture the overall revenue effect - some variants may increase the average sales value, but reduce the proportion of visitors that pay at all (e.g. if we promoted more expensive items on the landing page).
+:::
+
+## Posterior
+
+We have two posteriors:
+
+$$\theta_A, \theta_B \sim \mathrm{Beta}(\alpha_1 + conv_A, \beta_1 + N_A - conv_A)$$
+
+$$\lambda_A, \lambda_B \sim \mathrm{Gamma}(\alpha_2 + rev_A, \beta_2 + conv_A)$$
+
+## Creating this model in PyMC
+
+<!-- ```{python}
+#| echo: false
+#| eval: false
+# as before we have variants A and B
+variants  = ['A', 'B']
+# let's define the revenue data
+# each variant has 1000 visitors 
+visitors      = [1000, 1000]
+
+# 100 of which leads to purchase, i.e. conversion rate is 10%
+purchased     = [100, 100]
+
+# each purchase is worth 10, i.e. mean purchase is 10
+total_revenue = [1000, 1000]
+
+# let's define parameters for a prior for the conversion rates
+conv_alpha, conv_beta = [5000, 5000]
+
+# let's define parameters for the mean purchase prior
+purchase_alpha, purchase_beta = [9000, 900]
+``` -->
+
+
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: false
+#| code-line-numbers: 1|3,17|3-15|5-8|11-15|17-29|19-22|25-29|32|32,37|35-36
+with pm.Model() as example_model:
+
+    #-----------------------------------------------conversion rate model
+    # Priors for unknown model parameters
+    theta = pm.Beta("theta",
+                    alpha = conv_alpha, 
+                    beta  = conv_beta, 
+                    shape = 2)
+    
+    # Likelihood of observations
+    converted = pm.Binomial("converted", 
+                            n        = visitors,      
+                            observed = purchased,     
+                            p        = theta,         
+                            shape    = 2)  
+    
+    #------------------------------------------------revenue model
+    # Priors for unknown model parameters
+    lamda = pm.Gamma( "lamda", 
+                    alpha = purchase_alpha,
+                    beta  = purchase_beta,
+                    shape = 2)
+    
+    # Likelihood of observations
+    revenue = pm.Gamma("revenue", 
+                        alpha    = purchased,            
+                        observed = total_revenue, 
+                        beta     = lamda, 
+                        shape    = 2)        
+    
+    # get the revenue per visitor
+    revenue_per_visitor = pm.Deterministic("revenue_per_visitor", theta / lamda)
+
+    #------------------------------------------------relative uplifts
+    theta_uplift = pm.Deterministic(f"theta uplift", theta[1] / theta[0] - 1)
+    lamda_uplift = pm.Deterministic(f"lamda uplift", (1 / lamda[1]) / (1 / lamda[0]) - 1)
+    uplift       = pm.Deterministic(f"uplift", revenue_per_visitor[1] / revenue_per_visitor[0] - 1)
+
+    #------------------------------------------------posterior
+    # draw posterior samples
+    trace = pm.sample(draws=10, return_inferencedata=True)
+```
