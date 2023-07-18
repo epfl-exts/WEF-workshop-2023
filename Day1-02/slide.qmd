@@ -1,0 +1,92 @@
+---
+title: Statistical Distributions & Inference
+subtitle: subtitle
+author: EPFL Extension School
+editor:
+  render-on-save: true
+format:
+  revealjs:
+    embed-resources: false
+    smaller: true
+    scrollable: true
+    theme: simple
+    logo: img/logo_red.png
+    footer: '<https://www.extensionschool.ch>'
+    code-fold: true
+    slide-number: true
+    chalkboard:
+      buttons: true
+    preview-links: auto
+    menu: false
+from: markdown+emoji
+filters:
+  - shinylive
+execute:
+  enabled: true
+  cache: true
+jupyter: python3
+
+---
+
+## Statistical distributions: A high level view
+
+Distributions describe how values are spreaded over certain field 
+Values can … 
+
+- be frequent or infrequent in certain areas
+- come from natural phenomena
+- or come from an experiment
+- be discrete or continuous 
+- be available to us or not
+
+Distributions are all around us, so it makes sense to formulate them:
+
+this is where we have statistical distributions
+
+::: notes
+they describe how values are spreaded over a certain field. for instance, most of you are sitting in this part of the room and few or no one in the other areas or corners
+values can be frequent or infrequent in certain areas, e.g. think about how swiss population is spreaded across different regions
+values can come from natural phenomena, e.g. 
+values can come from an experiment, e.g.
+values can be discrete e.g.
+values can be continuous e.g.
+values can be available to us or not e.g.
+:::
+
+## Statistical distributions: Properties
+
+Statistical distributions are characterized by their parameters e.g. mu in Normal or p in Bernoulli. 
+
+The shape of statistical distributions can be characterized by: 
+
+- a measure of center, e.g. mean
+- a measure of spread, e.g. variance
+- a measure of asymmetry, e.g. skewness
+- a measure that describe its tails, e.g. kurtosis
+
+You may see different names:
+
+- probability density function (PDF)
+- probability mass function (PMF)
+- cumulative distribution function (CDF)
+
+## Statistical Inference: Hypothesis testing
+
+What if the distribution is unknown to us: 
+
+- we only observe realizations of it
+- we wish to know more, e.g. a certain property of it
+- we can learn about the property from the realization
+
+learning from a realization VS learning from true distribution ⁉️
+
+How big is the gap?
+
+- this is an inferential question
+- but the gap is negligible for large samples
+
+
+::: notes
+certain property: eg mean in Normal or proportion p in Bernoulli
+:::
+
