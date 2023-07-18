@@ -1,0 +1,32 @@
+---
+title: Data Analysis using Python
+subtitle: subtitle
+author: EPFL Extension School
+editor:
+  render-on-save: true
+format:
+  revealjs:
+    embed-resources: false
+    smaller: true
+    scrollable: true
+    theme: simple
+    logo: img/logo_red.png
+    footer: '<https://www.extensionschool.ch>'
+    code-fold: true
+    slide-number: true
+    chalkboard:
+      buttons: true
+    preview-links: auto
+    menu: false
+from: markdown+emoji
+filters:
+  - shinylive
+execute:
+  enabled: true
+  cache: true
+jupyter: python3
+
+---
+
+## This slide deck shows solutions to the exercises of the course "Data Analysis using Python" 
+
