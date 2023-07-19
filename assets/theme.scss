@@ -3,18 +3,23 @@
 // fonts
 @import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
 
-$font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
+$font-family-sans-serif: "Palatino Linotype", sans-serif;
 $presentation-heading-color: #00589b;
 $presentation-title-slide-text-align: "left";
 $presentation-subtitle-slide-text-align: "left";
-$code-block-font-size: 0.8em;
 $presentation-h2-font-size: 1.4em;
-$code-selection-background-color: #f02e2e;
 
 $link-color: #ffc72c;
+
+$selection-color: #030303;
+$selection-background-color: #ffc72c;
+
+$code-block-font-size: 0.8em;
+$code-selection-background-color: #f02e2e;
 $code-color: #cc0000;
-$codeFont: monospace;
 $code-block-bg: #f2f2f2;
+$codeFont: monospace;
+
 
 /*-- scss:rules --*/
 .blackbox {
