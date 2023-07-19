@@ -20,8 +20,6 @@ format:
     preview-links: auto
     menu: false
 from: markdown+emoji
-filters:
-  - shinylive
 execute:
   enabled: true
   cache: true
@@ -82,10 +80,13 @@ Let's begin:
 ::: footer
 :::
 
-## Solution to the hands-on
+## Solutions
 
-- You will be able to find the solution notebook by the end of the day in `Day1-01/hands-on-solution.ipynb`
+::: info-box
+You will be able to find the solution notebook by the end of the day in `Day1-01/hands-on-solution.ipynb`
+:::
 
+<br>
 
 ### A. Importing and cleaning
 
