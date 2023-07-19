@@ -9,10 +9,11 @@ format:
     embed-resources: false
     smaller: true
     scrollable: true
-    theme: simple
+    theme: ../assets/theme.scss
     logo: img/logo_red.png
     footer: '<https://www.extensionschool.ch>'
     code-fold: true
+    code-line-numbers: false
     slide-number: true
     chalkboard:
       buttons: true
@@ -28,5 +29,296 @@ jupyter: python3
 
 ---
 
-## This slide deck shows solutions to the exercises of the course "Data Analysis using Python" 
+# Data analysis with Python: a quick refresher
+
+
+Durig the next hour, you will be working with the `Swiss communes` data collected from multiple public resources published by the Federal Statistical Office of Switzerland. 
+
+The data is available in the `data` folder of the course repository.
+
+## Swiss Communes Data
+
+
+```{python}
+#| echo: false
+#| eval: true #| code-fold: false
+
+import pandas as pd
+
+df = pd.read_csv('data/communes.csv')
+df.sample(3).T
+```
+
+. . .
+
+::: {.absolute top="13%" bottom="5%" left="20%" width="245" }
+::: {.blackbox}
+:::
+:::
+
+. . .
+
+::: {.absolute top="38%" bottom="50%" left="20%" width="650" }
+::: {.blackbox}
+:::
+:::
+
+. . .
+
+::: {.absolute top="62%" bottom="20%" left="20%" width="650"}
+::: {.blackbox}
+:::
+:::
+
+## {chalkboard-buttons="false" background-image="img/AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
+
+![](img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
+
+Let's begin:
+
+-   Open the Jupyter notebook in `Day1-01/hands-on.ipynb`
+-   Follow the instructions in the notebook, and provide your answers in the code cells
+
+::: footer
+:::
+
+## Solution to the hands-on
+
+- You will be able to find the solution notebook by the end of the day in `Day1-01/hands-on-solution.ipynb`
+
+
+### A. Importing and cleaning
+
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+import pandas as pd
+
+df = pd.read_csv("data/communes.csv")
+
+df.shape
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df.head(2)
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df.index
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+list(df.columns)
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df.dtypes
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df[df.isna().any(axis=1)]
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df.dropna(inplace = True)
+```
+
+<br/>
+
+### B. Exploration: numerical summaries, indexing and grouping
+
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df.describe().loc[['mean','min','max']].T.round(1)
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df[["Commune", "Canton", "Residents"]].sort_values(by=['Residents'], ascending=False).head(10)
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df[df['20-64 years'] > 50].groupby('Canton')['20-64 years'].count().sort_values()
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+df.groupby('Canton')['Elevation'].agg(lambda x : max(x) - min(x)).sort_values(ascending=False).head(5)
+```
+
+<br/>
+
+### C. Exploration: visualizations
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+#| code-line-numbers: 1|5
+import matplotlib.pyplot as plt
+
+top10 = df.sort_values(by=['Residents'], ascending=False).head(10)
+
+top10.plot.barh(x='Commune', y='Residents', title="10 populated communes")
+plt.xlabel('population')
+plt.show()
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+top10[['Settlement area', 'Agricultural area',
+       'Wooded area','Unproductive area','Commune']].plot.barh(x='Commune',stacked=True)
+
+plt.xlabel('area type in %')
+plt.title("10 populated communes by type of area")
+plt.legend(bbox_to_anchor=(1,1))
+plt.show()
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+#| code-line-numbers: 1|3
+import seaborn as sns
+
+sns.violinplot(x="Language", y="0-19 years",data=df,color='0.8')
+
+plt.title('distributions of the age group 0-19 years across language regions')
+plt.ylabel('0-19 years (in %)')
+plt.show()
+```
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+#| code-line-numbers: 1,2,4|6-8
+fig, axes = plt.subplots(nrows = 1,
+                         ncols = 3,
+                         figsize = (12, 3), 
+                         sharey=True)   
+
+sns.boxplot(x="Language", y="0-19 years",   data=df, ax=axes[0])
+sns.boxplot(x="Language", y="20-64 years",     data=df, ax=axes[1])
+sns.boxplot(x="Language", y="65 years or over",data=df, ax=axes[2])
+
+axes[0].set_title('age group 0-19 vs language regions')
+axes[1].set_title('age group 20-64 vs language regions')
+axes[2].set_title('age group 65 years or over vs language regions')
+
+fig.tight_layout()
+plt.show()
+```
+
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+#| code-line-numbers: 1|3,4|5
+sns.pairplot(
+            data=df, 
+            y_vars='Agricultural area', 
+            x_vars=['Settlement area','Wooded area','Unproductive area'], 
+            hue='Elevation',
+            height=3,
+            plot_kws={"s": 15})
+
+
+plt.show()
+```
+
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+#| code-line-numbers: 5,9|
+fig, axes = plt.subplots(nrows = 1,
+                         ncols = 2,
+                         figsize = (12, 4), sharey=True)
+
+sns.scatterplot(data=df, x="East coordinate", y="North coordinate", hue='Elevation', ax=axes[0])
+axes[0].legend(loc='upper left')
+axes[0].set_title('Commune map of Switzerland')
+
+sns.scatterplot(data=df, x="East coordinate", y="North coordinate", hue='Language', ax=axes[1])
+axes[1].legend(loc='upper left')
+axes[1].set_title('Commune map of Switzerland')
+
+fig.tight_layout()
+plt.show()
+```
+
+<br/>
+
+### D. Matrices
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+pd.crosstab(df['Commune'], df['Canton'])
+```
 
