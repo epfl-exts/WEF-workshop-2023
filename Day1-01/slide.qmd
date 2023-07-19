@@ -1,7 +1,9 @@
 ---
 title: Data Analysis using Python
-subtitle: subtitle
+subtitle: A Quick Refresher
 author: EPFL Extension School
+institute: World Economic Forum
+date: 2023-09-28
 editor:
   render-on-save: true
 format:
@@ -27,8 +29,8 @@ jupyter: python3
 
 ---
 
-# Data analysis with Python: a quick refresher
-
+## Data analysis with Python
+#### A quick refresher
 
 Durig the next hour, you will be working with the `Swiss communes` data collected from multiple public resources published by the Federal Statistical Office of Switzerland. 
 
@@ -88,7 +90,7 @@ You will be able to find the solution notebook by the end of the day in `Day1-01
 
 <br>
 
-### A. Importing and cleaning
+#### A. Importing and cleaning
 
 
 ```{python}
@@ -158,7 +160,7 @@ df.dropna(inplace = True)
 
 <br/>
 
-### B. Exploration: numerical summaries, indexing and grouping
+#### B. Exploration: numerical summaries, indexing and grouping
 
 
 ```{python}
@@ -197,7 +199,7 @@ df.groupby('Canton')['Elevation'].agg(lambda x : max(x) - min(x)).sort_values(as
 
 <br/>
 
-### C. Exploration: visualizations
+#### C. Exploration: visualizations
 
 ```{python}
 #| echo: true
@@ -314,7 +316,7 @@ plt.show()
 
 <br/>
 
-### D. Matrices
+#### D. Matrices
 
 ```{python}
 #| echo: true

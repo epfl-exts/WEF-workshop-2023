@@ -2,6 +2,8 @@
 title: Statistics 
 subtitle: Distributions and Inference
 author: EPFL Extension School
+institute: World Economic Forum
+date: 2023-09-28
 editor:
   render-on-save: True
 format:
@@ -87,8 +89,16 @@ So we have statistical distributions
 ![](img/gamma.png)
 :::
 
+## Statistical Distributions
+#### Properties
 
+::: {.r-stack}
+![](img/normal.png){.fragment}
 
+![](img/beta.png){.fragment }
+
+![](img/gamma.png){.fragment}
+:::
 
 
 ## Statistical Distributions
@@ -114,11 +124,11 @@ create images that show the mean etc, and use fragments to show them one by one,
 
 <br>
 
-`probability density function` ☞ PDF
+probability `density` function ☞ PDF
 
-`probability mass function` ☞ PMF
+probability `mass` function ☞ PMF
 
-`cumulative distribution function` ☞ CDF
+`cumulative` distribution function ☞ CDF
 
 
 ## Statistical Inference
