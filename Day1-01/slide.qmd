@@ -322,3 +322,10 @@ plt.show()
 pd.crosstab(df['Commune'], df['Canton'])
 ```
 
+
+
+## {chalkboard-buttons="false" background-image="img/AdobeStock_318442666.jpeg"  background-size="cover"}
+
+::: footer
+
+:::
