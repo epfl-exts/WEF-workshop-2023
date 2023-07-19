@@ -199,6 +199,15 @@ df.groupby('Canton')['Elevation'].agg(lambda x : max(x) - min(x)).sort_values(as
 
 <br/>
 
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+pd.crosstab(df['Commune'], df['Canton'])
+```
+
+<br/>
+
 #### C. Exploration: visualizations
 
 ```{python}
@@ -314,16 +323,6 @@ fig.tight_layout()
 plt.show()
 ```
 
-<br/>
-
-#### D. Matrices
-
-```{python}
-#| echo: true
-#| eval: true 
-#| code-fold: false
-pd.crosstab(df['Commune'], df['Canton'])
-```
 
 
 
