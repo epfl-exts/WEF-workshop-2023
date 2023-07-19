@@ -1,50 +1,58 @@
 ---
-title: Statistical Distributions & Inference
-subtitle: subtitle
+title: Statistics 
+subtitle: Distributions and Inference
 author: EPFL Extension School
 editor:
-  render-on-save: true
+  render-on-save: True
 format:
   revealjs:
     embed-resources: false
     smaller: true
     scrollable: true
-    theme: simple
+    theme: ../assets/theme.scss
     logo: img/logo_red.png
     footer: '<https://www.extensionschool.ch>'
     code-fold: true
+    code-line-numbers: false
     slide-number: true
     chalkboard:
       buttons: true
     preview-links: auto
     menu: false
+title-slide-attributes:
+  data-background-image: img/AdobeStock_54828145.jpeg
+  data-background-size: 100%, cover
+  data-background-position: 100%, center
+  data-background-opacity: ".15"
 from: markdown+emoji
-filters:
-  - shinylive
 execute:
   enabled: true
   cache: true
 jupyter: python3
-
 ---
 
-## Statistical distributions: A high level view
+## Statistical Distributions
+#### A high level view
 
-Distributions describe how values are spreaded over certain field 
+<br>
+
+Distributions describe how values are spread over certain range.
+
 Values can … 
 
-- be frequent or infrequent in certain areas
+
 - come from natural phenomena
 - or come from an experiment
+- be frequent or infrequent in certain parts of the range
 - be discrete or continuous 
 - be available to us or not
 
-Distributions are all around us, so it makes sense to formulate them:
 
-this is where we have statistical distributions
+
+
 
 ::: notes
-they describe how values are spreaded over a certain field. for instance, most of you are sitting in this part of the room and few or no one in the other areas or corners
+they describe how values are spread over a certain field. for instance, most of you are sitting in this part of the room and few or no one in the other areas or corners
 values can be frequent or infrequent in certain areas, e.g. think about how swiss population is spreaded across different regions
 values can come from natural phenomena, e.g. 
 values can come from an experiment, e.g.
@@ -53,9 +61,40 @@ values can be continuous e.g.
 values can be available to us or not e.g.
 :::
 
-## Statistical distributions: Properties
+## Statistical Distributions
+#### A high level view
 
-Statistical distributions are characterized by their parameters e.g. mu in Normal or p in Bernoulli. 
+<br>
+
+> Distributions are all around us, so it makes sense to formulate them ❗ 
+
+<br>
+
+So we have statistical distributions 
+<span class="fragment" fragment-index=1>`Normal`, </span>
+<span class="fragment" fragment-index=2>`Beta`, </span>
+<span class="fragment" fragment-index=3>`Gamma`, . . .</span>
+
+::: {.fragment fragment-index=1 .fade-in .absolute top="370" left="50" }
+![](img/normal.png)
+:::
+
+::: {.fragment fragment-index=2 .fade-in  .absolute top="470" left="350" }
+![](img/beta.png)
+:::
+
+::: {.fragment fragment-index=3 .absolute top="370" right="80"}
+![](img/gamma.png)
+:::
+
+
+
+
+
+## Statistical Distributions
+#### Properties
+
+<br>
 
 The shape of statistical distributions can be characterized by: 
 
@@ -64,29 +103,80 @@ The shape of statistical distributions can be characterized by:
 - a measure of asymmetry, e.g. skewness
 - a measure that describe its tails, e.g. kurtosis
 
-You may see different names:
+create images that show the mean etc, and use fragments to show them one by one, also use keynote to edit them
 
-- probability density function (PDF)
-- probability mass function (PMF)
-- cumulative distribution function (CDF)
+## Statistical Distributions
+#### Properties
 
-## Statistical Inference: Hypothesis testing
+<br>
+
+> You may see different names for distributions❗
+
+<br>
+
+`probability density function` ☞ PDF
+
+`probability mass function` ☞ PMF
+
+`cumulative distribution function` ☞ CDF
+
+
+## Statistical Inference
+#### Hypothesis testing
+
+<br>
 
 What if the distribution is unknown to us: 
 
 - we only observe realizations of it
-- we wish to know more, e.g. a certain property of it
+- we wish to know more, e.g. about a certain property of it
 - we can learn about the property from the realization
 
-learning from a realization VS learning from true distribution ⁉️
+> Learning from a realization versus learning from true distribution❓ 
 
-How big is the gap?
+<br>
+
+How big is the gap? 🧐
 
 - this is an inferential question
-- but the gap is negligible for large samples
+- the gap is negligible for large samples
 
 
 ::: notes
 certain property: eg mean in Normal or proportion p in Bernoulli
 :::
+
+## {chalkboard-buttons="false" background-image="img/AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
+
+![](img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
+
+Let's begin:
+
+- Open the Jupyter notebook in `Day1-02/hands-on.ipynb`
+- Follow the instructions in the notebook, and provide your answers in the code cells
+
+::: footer
+:::
+
+## Solutions
+
+::: info-box
+You will be able to find the solution notebook by the end of the day in `Day1-02/hands-on-solution.ipynb`
+:::
+
+## {chalkboard-buttons="false" background-image="img/AdobeStock_561720123.jpeg"  background-size="100%, cover" background-position="center" background-opacity="0.5"}
+
+::: footer
+
+:::
+
+
+
+
+
+
+
+
+
+
 
