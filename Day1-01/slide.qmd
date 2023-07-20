@@ -43,7 +43,8 @@ The data is available in the `data` folder of the course repository.
 
 ```{python}
 #| echo: false
-#| eval: true #| code-fold: false
+#| eval: true 
+#| code-fold: false
 
 import pandas as pd
 
@@ -72,7 +73,7 @@ df.sample(3).T
 :::
 :::
 
-## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
+## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
 
 ![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
 
@@ -328,7 +329,7 @@ plt.show()
 
 
 
-## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_318442666.jpeg"  background-size="cover"}
+## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg"  background-size="cover"}
 
 ::: footer
 
