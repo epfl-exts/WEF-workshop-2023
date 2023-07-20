@@ -197,7 +197,7 @@ display(mean, var, skew, kurt)
 #| echo: true
 #| eval: true
 #| code-fold: true
-#| code-line-numbers: 6,12
+#| code-line-numbers: 6,9
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
@@ -205,15 +205,11 @@ from scipy.stats import norm
 # drawing 100000 samples from normal(m,s) distribution 
 sample = norm.rvs(m, s, size = (100000,1)) 
 
-# set the range -inf<x<inf
-x = np.linspace(-4,+4,50)
-
 # plot probability distribution
-plt.hist(sample,bins=x)
+plt.hist(sample, bins='auto', density=True) 
 
 plt.xlabel('sample values')
-plt.ylabel('counts')
-plt.title('Normal distribution')
+plt.title('Normal PDF')
 plt.show()
 ```
 
