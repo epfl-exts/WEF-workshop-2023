@@ -168,6 +168,69 @@ Let's begin:
 ::: footer
 :::
 
+## Example: Normal distribution
+
+<br>
+
+```{python}
+#| echo: true
+#| eval: true 
+#| code-fold: false
+#| code-line-numbers: 1,4,7
+from scipy.stats import norm
+
+# set the mean and standard deviation
+m, s = 0, 1 
+
+# find the theoretical properties
+mean, var, skew, kurt = norm.stats(m, s, moments='mvsk')
+display(mean, var, skew, kurt)
+```
+
+## Example: Normal distribution
+
+<br>
+
+::: panel-tabset
+### plot
+```{python}
+#| echo: true
+#| eval: true
+#| code-fold: true
+#| code-line-numbers: 6,12
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+# drawing 100000 samples from normal(m,s) distribution 
+sample = norm.rvs(m, s, size = (100000,1)) 
+
+# set the range -inf<x<inf
+x = np.linspace(-4,+4,50)
+
+# plot probability distribution
+plt.hist(sample,bins=x)
+
+plt.xlabel('sample values')
+plt.ylabel('counts')
+plt.title('Normal distribution')
+plt.show()
+```
+
+### data
+
+```{python}
+#| echo: false
+#| eval: true
+from scipy.stats import norm
+
+# drawing 100000 samples from normal(m,s) distribution 
+sample = norm.rvs(m, s, size = (100000,1))
+display(sample) 
+```
+
+:::
+
 ## Solutions
 
 ::: info-box
