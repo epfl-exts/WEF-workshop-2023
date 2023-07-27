@@ -167,3 +167,6 @@ to check what makes code slow, I uninstalled the following extensions:
 - Material Icon Theme
 
 
+quarto questions:
+- how to change text-selection color?
+- how to fit the backgrund image to the slide? the cover and contain doesn't work
