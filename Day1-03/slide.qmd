@@ -1,6 +1,6 @@
 ---
 title: Bayesian Statistics
-subtitle: Bayes rule and Bayesian Inference
+subtitle: Bayes Rule and Bayesian Inference
 author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-28
@@ -38,13 +38,15 @@ jupyter: python3
 ::: columns
 ::: {.column width="50%"}
 ::: fragment
-![](img/clock.png){width="30%" height="20%" fig-align="center"}
+![](img/AdobeStock_228399688.jpeg){width="40%" height="40%" fig-align="center"}
 :::
 :::
 
 ::: {.column width="50%"}
 ::: incremental
 -   `P(arrive on time) = 0.9`
+
+<br>
 
 -   `P(late) = 0.1`
 :::
@@ -57,47 +59,49 @@ jupyter: python3
 ::: {.column width="50%"}
 -   That's our perception about how likely these two events are
 
--   Let's call that our [prior]{style="color:#2cd5ff"}
+-   Let's call that our [prior]{style="color:#ff412c"} knowledge about the events
 :::
 
 ::: {.column width="50%"}
-![](img/thinking.png){width="30%" height="30%" fig-align="center"}
+![](img/AdobeStock_607202393.jpeg){width="50%" height="50%" fig-align="center"}
 :::
 :::
 
 ::: notes
-Suppose that the probability that one arrives on time to work is 90%. The only other outcome is that they arrive late These two probabilities show how we perceive the two events and their associated possibilities, prior to gaining further knowledge about them. .nobullets ul {list-style-type: none;} <a href="https://www.flaticon.com/free-icons/late" title="Late icons">Late icons created by surang - Flaticon</a>
+Suppose that the probability that one arrives on time to work is 90%. The only other outcome is that they arrive late These two probabilities show how we perceive the two events and their associated possibilities, prior to gaining further knowledge about them.
 :::
 
 ## Bayes rule
 
 <br> <br>
 
-**But ...**
+**But ...** 
 
 <br>
 
 ::: columns
 ::: {.column width="50%"}
-::: incremental
 -   What if we start learning more about the 'situation'?
--   Should we stick to our prior idea about the events and their possibilities?
--   If not, how they should be adapted to the new situation?
-:::
+-   Should we stick to our [prior]{style="color:#ff412c"} idea about the events and their possibilities?
 :::
 
 ::: {.column width="50%"}
-![](img/thinking.png){width="40%" height="30%" right="180" fig-align="center"}
+![](img/AdobeStock_462364017.jpeg){width="50%" height="50%" right="180" fig-align="center"}
 :::
 :::
 
 . . .
 
+If not, how they should be adapted to the new situation?
+
+. . .
+
+
 This is where **Bayesian Statistics** steps in and provide answers
 
 ## Bayes rule {.smaller}
 
-<br> Byes rule provides a simple passage from our **prior** idea to **new insight**
+<br> Byes rule provides a simple passage from our [prior]{style="color:#ff412c"} idea to [new insight]{style="background-color: yellow;"}
 
 ::: fragment
 ![](img/bayes%20-%20rule.png){width="70%" height="70%" fig-align="center"}
@@ -109,11 +113,11 @@ This is where **Bayesian Statistics** steps in and provide answers
 
 . . .
 
-let's call the new idea a [posterior]{style="background-color: yellow;"}
+Let's call the new idea a [posterior]{style="background-color: yellow;"}
 
 . . .
 
-`P(arrive on time) → P(arrive on time | it’s raining)`
+`P(arrive on time)` → `P(arrive on time | it’s raining)` 
 
 ::: notes
 press c to activate the chalk and circle on the P(arrive on time \| it's raining) and the word posterior press c again to turn it off
@@ -128,16 +132,24 @@ $$P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text
 ## Bayes rule: an example
 
 ::: incremental
--   **Evidence**: a speaker at the forum will be from WEF NY office
-
 -   **My prior**: 90% of WEF employees are on time
+
+-   **Evidence**: a speaker at the forum will be from WEF NY office
 
 -   What is my **posterior**? what is the probability that the speaker will be on time?
 :::
 
 ::: fragment
-![](img/bayes-example.jpg){width="70%" height="70%" fig-align="center"}
+![](img/bayes-example1.jpg){.absolute width="70%" height="70%" fig-align="center"}
+
+![](img/bayes-example2.jpg){.absolute width="70%" height="70%" fig-align="center"}
+
+![](img/bayes-example3.jpg){.absolute width="70%" height="70%" fig-align="center"}
 :::
+
+
+<!-- ![](img/bayes-example.jpg){width="70%" height="70%" fig-align="center"} -->
+
 
 ::: notes
 posterior p(speaker is on time \| ny office) or posterior p(wef on time \| ny office)?
