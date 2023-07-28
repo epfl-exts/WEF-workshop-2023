@@ -125,11 +125,15 @@ press c to activate the chalk and circle on the P(arrive on time \| it's raining
 
 ## Bayes rule
 
-<br> <br> More formally, Bayes rule says:
+<br> <br>
+
+More formally, Bayes rule says:
 
 $$P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text{arrive on time})}{P(rain)}$$
 
 ## Bayes rule: an example
+
+
 
 ::: incremental
 -   **My prior**: 90% of WEF employees are on time
@@ -139,16 +143,15 @@ $$P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text
 -   What is my **posterior**? what is the probability that the speaker will be on time?
 :::
 
-::: fragment
-![](img/bayes-example1.jpg){.absolute width="70%" height="70%" fig-align="center"}
-
-![](img/bayes-example2.jpg){.absolute width="70%" height="70%" fig-align="center"}
-
-![](img/bayes-example3.jpg){.absolute width="70%" height="70%" fig-align="center"}
-:::
 
 
-<!-- ![](img/bayes-example.jpg){width="70%" height="70%" fig-align="center"} -->
+
+
+![](img/bayes-example1.jpg){.absolute .fragment width="70%" height="70%" }
+
+![](img/bayes-example2.jpg){.absolute .fragment width="70%" height="70%" }
+
+![](img/bayes-example3.jpg){.absolute .fragment width="70%" height="70%" }
 
 
 ::: notes
@@ -157,7 +160,9 @@ posterior p(speaker is on time \| ny office) or posterior p(wef on time \| ny of
 
 ## Bayes rule: an example {.smaller}
 
-![](img/bayes-example.jpg){width="60%" height="60%" fig-align="center"}
+
+
+![](img/bayes-example3.jpg){width="60%" height="60%" fig-align="center"}
 
 ::: {style="font-size:14px"}
 ::: fragment
@@ -181,14 +186,29 @@ press c to activate the chalk and circle on the prior 90% and posterior 82% pres
 
 ## How to obtain the posterior?
 
+
+We are usually interested in the full posterior **distribution** and not only in the **point** estimates. There are at least two approaches to obtain the distribution:
+
+
+> [**Analytical Methods**:]{style="color: #6ebef0;"}
+
+- They are based on `exact` formulas and conjugate prior concept
+- Examples are Beta and Gamma distributions
+- We introduce these methods and will use them in the hands-on session today
+
+. . . 
+
+> [**Numerical Methods**:]{style="color: #6ebef0;"}
+
+- They are based on Markov Chain Monte Carlo (MCMC) `sampling` methods
+- Examples are Metropolis-Hastings, Gibbs, and No-U-Turn Sampler (NUTS) methods
+- We will use these techniques in the hands-on sessions tomorrow
+
+
+::: notes
 In Bayesian inference, we are interested in the posterior **distribution** of the parameters of interest, and not only in the **point** estimates.
-So, question is how to obtain the posterior distribution? thinking face
-
-There are at least two approaches:
-
-- Analytical: based on exact formulas
-- Numerical: based on sampling methods
-
+So, question is how to obtain the posterior distribution? 
+:::
 
 
 ## Analytical approach
@@ -202,7 +222,6 @@ Consider the example of flipping a coin, but other real-world examples include:
 - the probability of a person being left handed
 - the probability of successful free throw by a player in basketball
 - the probability that a baby is a girl
-- the probability that a heart surgery patient will survive more than a year after surgery
 - the probability that a widget on an assembly line is faulty
 
 ## Analytical approach
@@ -327,18 +346,21 @@ a few things we learn from the plot:
 
 ## Jupyter Notebook
 
-```{.python code-line-numbers="11|3|5|8"}
+<br>
+
+::: panel-tabset
+
+### code
+```{.python code-line-numbers="9|3|6"}
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import beta
-
-a, b = 1, 1
 
 # create a range of x values
 x = np.linspace(0,1,100)
 
 # calculate the probability density function for x values
-beta_pdf = beta.pdf(x, a, b)
+beta_pdf = beta.pdf(x, a=1, b=1)
 
 # plot probability distribution function
 plt.plot(x, beta_pdf)
@@ -347,7 +369,28 @@ plt.ylabel('f(x)')
 plt.title('Beta distribution')
 plt.show()
 ```
+### plot
+```{python}
+#| echo: false
+#| eval: true
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import beta
 
+# create a range of x values
+x = np.linspace(0,1,100)
+
+# calculate the probability density function for x values
+beta_pdf = beta.pdf(x, a=1, b=1)
+
+# plot probability distribution function
+plt.plot(x, beta_pdf)
+plt.xlabel('x values')
+plt.ylabel('f(x)')
+plt.title('Beta distribution')
+plt.show()
+```
+:::
 
 
 ## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
@@ -356,7 +399,7 @@ plt.show()
 
 Let's begin:
 
--   Open the Jupyter notebook in `Day1-01/hands-on.ipynb`
+-   Open the Jupyter notebook in `Day1-03/hands-on.ipynb`
 -   Follow the instructions in the notebook, and provide your answers in the code cells
 
 ::: footer
