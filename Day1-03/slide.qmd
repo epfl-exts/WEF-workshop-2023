@@ -97,7 +97,8 @@ If not, how they should be adapted to the new situation?
 . . .
 
 
-This is where **Bayesian Statistics** steps in and provide answers
+
+> This is where [Bayesian Statistics]{style="background-color: yellow;"} steps in and provide answers
 
 ## Bayes rule {.smaller}
 
@@ -410,7 +411,7 @@ plt.show()
 Let's begin:
 
 -   Open the Jupyter notebook in `Day1-03/hands-on.ipynb`
--   Follow the instructions in the notebook, and provide your answers in the code cells
+-   Follow the instructions in the notebook, and run the codes.
 
 ::: footer
 :::
