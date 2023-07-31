@@ -211,21 +211,23 @@ So, question is how to obtain the posterior distribution?
 :::
 
 
-## Analytical approach
+## Analytical Approach
 
 Consider the example of flipping a coin, but other real-world examples include:
 
-- the probability of a person having a disease
-- the probability of a person buying a product
-- the probability of a person clicking on an ad
-- the probability of a person defaulting on a loan
-- the probability of a person being left handed
-- the probability of successful free throw by a player in basketball
-- the probability that a baby is a girl
-- the probability that a widget on an assembly line is faulty
+The probability that:
 
-## Analytical approach
+- a person has a disease
+- a person buys a product
+- a person clicks on an ad
+- a person defaults on a loan
+- a person is left handed
+- a free throw by a basketball player is successful
+- a baby is a girl
+- a widget on an assembly line is faulty
 
+## Analytical Approach
+#### Objective: find out the posterior given a prior and likelihood
 Here is what we want to do: [violet]{style="color:#962cff"} <-- [blue]{style="color:blue"} + [red]{style="color:red"} 
 
 - we begin with some [prior]{style="color:blue"} distribution of the outcome of coin flips
@@ -248,7 +250,8 @@ The “evidence” for the model, p(D), is the overall probability of the data a
 The term “evidence” is in fact the “marginal likelihood” that refers specifically to the operation of taking the average of the likelihood, p(D|θ), across all values of θ, weighted by the prior probability of θ.
 :::
 
-## Likelihood ... but what is the likelihood? {.smaller}
+## Analytical Approach
+#### Likelihood ... but what is the likelihood?
 
 let's go back to the coin example:
 
@@ -260,7 +263,8 @@ where $x$ is the outcome of the coin flip (0 or 1) and $\theta$ is the probabili
 
 So, $P(x|\theta=0.5)$ is only a function of $x$.
 
-## Likelihood  ... but what if we fix $x$ and let $\theta$ vary? {.smaller}
+## Analytical Approach
+#### Likelihood  ... but what if we fix $x$ and let $\theta$ vary?
 
 In this case we get a function of $\theta$ that is called the (Bernoulli) likelihood function for $\theta$:
 
@@ -274,7 +278,8 @@ Now we only need to specify the prior:
 
 $$\color{#962cff}{posterior} \propto \color{red}{likelihood}\times\color{blue}{prior}$$
 
-## Prior  ... what should be the prior? {.smaller}
+## Analytical Approach
+#### Prior  ... what should be the prior?
 
 The prior $P(\theta)$ can be any function that gives probability for the values of $0 \leq \theta \leq 1$.
 
@@ -288,7 +293,8 @@ Conjugate prior means that the posterior distribution is of the same form as the
 
 [prior]{style="color:red"} ~ Beta distribution $\rightarrow$ [posterior]{style="color:#962cff"} ~ Beta distribution
 
-## Beta distribution
+## Analytical Approach
+#### Prior  ... what is Beta distribution?
 
 Let's see what the Beta distribution looks like:
 
@@ -300,27 +306,26 @@ $$B(\alpha,\beta) = \int_0^1 \theta^{\alpha-1}(1-\theta)^{\beta-1} d\theta$$
 
 and $\alpha>0$ and $\beta>0$ are the shape parameters of the distribution, and $0 \leq \theta \leq 1$.
 
-## Beta distribution
+## Analytical Approach
+#### Prior  ... what is Beta distribution?
 
-Let's have a little fun with the [Beta distribution](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0qE2sEyoT0xHs7F6cHYACFMlBgfQkiw1Et6KR2GIoBAqh4yHoeGg4AB+GhgSZvd73PioJZcFQhFgMm5lZlLFbs0K-KC0-y0gAKkPgFBYOhF7AAjP55QAGPDy+k7d4zA685acAWXMCqOXiyXQmXG-AKpWq9VTTVa-ZYIXsAB87FV7FUbo9tI1XJaGveZQhRxOsj420dHwOizILOWWjIv2g8DyqCC9j99veQdaGvG2QgdBC8M4oQAboLdf44wn-OXOKtSONEG8AAJ1pYdwIQDlYRTJqDyMhFWnedhigAiADE-W9S+xU9UM-YJm2HXtbBgWESQTBEnA4I15QBOABsAA5ldf1QG7gAC8scREBIkk5UAHiKAA9v-L7x-Yol0wFQIE4CFCDgBplQwZVFVg09TzwABWZVC03XYDAHJQGh-fwMmSLBMzw-xdQwKAJjwcjVAmSZ2AAckGABaBi8HkQQigAJgw95sLIZ55GghjUWSfQnA2VR6BUMgrBCcDnisewzAgQgBNIBjeJubCfzmDJ5AaFgGIAEhoGhEWSYzNPvbDsD045DJMsUmnMvpLPGazMNabChKqPsGkUQgigYjIkjY9hHChUgihnYdywwmyR0SbhAQmIscnQYDfFQBpcgKegG0rUJ-HWMwKiKB4WDMOBxjAABfPBwGXahAgARwiQJ4HITgeh-Mh8CIUgKCoZAeHaIQRDEeqAF0gA):
+Let's play with the [Beta distribution](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0qE2sEyoT0xHs7F6cHYACFMlBgfQkiw1Et6KR2GIoBAqh4yHoeGg4AB+GhgSZvd73PioJZcFQhFgMm5lZlLFbs0K-KC0-y0gAKkPgFBYOhF7AAjP55QAGPDy+k7d4zA685acAWXMCqOXiyXQmXG-AKpWq9VTTVa-ZYIXsAB87FV7FUbo9tI1XJaGveZQhRxOsj420dHwOizILOWWjIv2g8DyqCC9j99veQdaGvG2QgdBC8M4oQAboLdf44wn-OXOKtSONEG8AAJ1pYdwIQDlYRTJqDyMhFWnedhigAiADE-W9S+xU9UM-YJm2HXtbBgWESQTBEnA4I15QBOABsAA5ldf1QG7gAC8scREBIkk5UAHiKAA9v-L7x-Yol0wFQIE4CFCDgBplQwZVFVg09TzwABWZVC03XYDAHJQGh-fwMmSLBMzw-xdQwKAJjwcjVAmSZ2AAckGABaBi8HkQQigAJgw95sLIZ55GghjUWSfQnA2VR6BUMgrBCcDnisewzAgQgBNIBjeJubCfzmDJ5AaFgGIAEhoGhEWSYzNPvbDsD045DJMsUmnMvpLPGazMNabChKqPsGkUQgigYjIkjY9hHChUgihnYdywwmyR0SbhAQmIscnQYDfFQBpcgKegG0rUJ-HWMwKiKB4WDMOBxjAABfPBwGXahAgARwiQJ4HITgeh-Mh8CIUgKCoZAeHaIQRDEeqAF0gA) and see how it changes with $\alpha$ and $\beta$.
+
 
 A few observations:
 
 ::: incremental
-- uniform distribution is a special case of the Beta distribution e.g. with $\alpha=\beta=1$
-- it can give symmetric distribution e.g. with $\alpha=\beta=4$
-- it can give right or left-skewed distributions e.g. with $\alpha=2$ and $\beta=5$
+- uniform distribution is a special case of the Beta distribution with $\alpha=\beta=1$
+- it can become a symmetric distribution e.g. with $\alpha=\beta=4$
+- it can become a right or left-skewed distribution e.g. with $\alpha=2$ and $\beta=5$
 :::
 
 ::: notes
 note that changing the values of $\alpha$ and $\beta$ changes the shape of the distribution
 :::
 
-## Gamma prior-distribution
-
-need to expalin it too
-
-## Posterior  ... what would it be like if the prior is Beta? {.smaller}
+## Analytical Approach
+#### Posterior  ... what would it be like if the prior is Beta? {.smaller}
 
 ![](img/posterior.png){width="45%" height="45%" fig-align="center"}
 
@@ -343,6 +348,11 @@ a few things we learn from the plot:
 - the posterior is a Beta distribution with parameters $\alpha+z$ and $\beta+N-z$
 - a+b=N
 :::
+
+## Analytical Approach
+#### Prior  ... what is Gamma distribution?
+
+similar to beta distribution, gamma distribution is a convenient choice for the prior because it is a **conjugate prior** to the Poisson likelihood function.
 
 ## Jupyter Notebook
 
