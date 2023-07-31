@@ -77,7 +77,7 @@ Suppose that the probability that one arrives on time to work is 90%. The only o
 
 **But ...** 
 
-<br>
+
 
 ::: columns
 ::: {.column width="50%"}
@@ -97,8 +97,10 @@ If not, how they should be adapted to the new situation?
 . . .
 
 
-
-> This is where [Bayesian Statistics]{style="background-color: yellow;"} steps in and provide answers
+::: goal
+This is where Bayesian Statistics steps in and provide answers
+Calculate the mean loan amount.
+:::
 
 ## Bayes rule {.smaller}
 
