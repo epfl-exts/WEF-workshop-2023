@@ -27,9 +27,36 @@ execute:
 jupyter: python3
 ---
 
+## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover" }
+
+ 
+[Goal of This Session:]{style="font-size: 1.5em; font-weight: bold;"}
+
+<br>
+
+
+:heavy_check_mark: Python
+
+<br>
+
+:heavy_check_mark: Statistical Distributions
+
+<br>
+
+:heavy_check_mark: Bayesian Statistics
+
+<br>
+
+&#9744; [I: Bayesians vs Frequentists]{style="color:#ff412c;"}
+
+&#9744; [II: Introduction into AB Testing]{style="color:#ff412c;"}
+
+
 ## Statistical Inference
 
 <br> <br>
+
+
 
 ```{mermaid}
 flowchart LR
@@ -149,9 +176,35 @@ frequentists reason horizontally, with mu fixed and x varying, while Bayesian in
 -   **Bayesians**: they take the only [observable]{style="color:red;"} realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
 :::
 
-##
+## Introduction to A/B testing
 
-[shinylive](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMASxlWICcyACAZwAsaJs2B3KGUIcAOhDoNmLGINQAbYmTk0ARlmzzFLKGxbyyYiU1YQArvWzbdEVGIBmjYjHZceLI1ICC6PC0aUAEzhGX1Mae0dnNkIaHAw2MkFdD1YVOESxMTRUAH0wlgBeFjCsKABzOBy7OTCAgAoxFiaXbl4BIQ4MMg44eHjTVGCexzqASjxG5pK5KGxiUzIcthoglShGBohm7eKaUog4OSWVuDWNyZ2dgGIWABUaJTgLy6m9jgAWTZfvlhEwAAliHwWAFiHBdKh1rB0sFdMQ7CxunAWAAhdJQEE0BKMVQLGikFjCKAQCqInouNDI+HuMgQxxrFQ0ZRkSxBCDLFksOymCCEMj4iAAfj+z2+41FLxu3FQC3YyiCjAllxK0oWS3lwQaKD+vj+AAUofAKIxtDqWAAGXwAVktLCt4q2PyaKpsarYGvOYBUZv1hphJu9+At1tt9omjqdJVQWoAcoo4IhtCwAHzBlgqFMWv4OsXh75R4mHHIybhfJ27DDzMgyxaaMha6DwHKoAJ2bN5l455oO0aZCBiIIItjBABumtVZF8VZrvmHbGWpFGiGeAAFpwtV-4IAqsAp61A5GQCn9PCw9QARABi2eeg5YjcqLbsY2XEZ2NgwjGJoJg8TgcHqABGABOAA2AAOc1IMA3s322G5h1YJE-GJUlzQAHgKAAPTDAKVFgsMKe9MGUdlIUIOA6ltQCQ1g759F3RQ6iw3w0kSLBW2Y3wJwwKAxm410yAwFQxnGX4vQAWjNOQ+AKABmOiXgY-lHi1VB6SgRlmVZSgOUsbleX5AlqTRDIwEUy4GOwGY0jkLUbzg5oGKwmzDns8z8IYuQ4Aqbc6gUQhjy9cEDCDBxoVIApLwPYdYM8w94g4IExj7LJ0CI7xo2yPIaFnUdgl8VZTDKApbkYUw4FgsAAF88HAB9qH8ABHMJ-Hgcg2C6LCyHwIhSAoKhkE4Vp+EEYQaoAXSAA)
+- A/B testing is a method of comparing two versions of a webpage or app against each other to determine which one performs better.
+- AB testing is essentially an experiment where two or more variants of a page are shown to users at random, and statistical analysis is used to determine which variation performs better for a given conversion goal.
+- We have a website and we want to increase the number of visitors that click on a button.
+- We have two versions of the website: A and B.
+- We want to know which version is better.
+- We want to know how much better it is.
+- We want to know how much data we need to collect to be sure that we have a good estimate of the difference between the two versions.
+
+
+
+## Definitioins
+
+- conversion
+- Bernoulli and value conversions
+- uplift
+- prior
+- likelihood
+- posterior
+- HDI
+- underlying assumptions in AB testing
+
+::: goal
+how to do AB testing in a Bayesian way
+:::
+
+
+<!-- [shinylive](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMASxlWICcyACAZwAsaJs2B3KGUIcAOhDoNmLGINQAbYmTk0ARlmzzFLKGxbyyYiU1YQArvWzbdEVGIBmjYjHZceLI1ICC6PC0aUAEzhGX1Mae0dnNkIaHAw2MkFdD1YVOESxMTRUAH0wlgBeFjCsKABzOBy7OTCAgAoxFiaXbl4BIQ4MMg44eHjTVGCexzqASjxG5pK5KGxiUzIcthoglShGBohm7eKaUog4OSWVuDWNyZ2dgGIWABUaJTgLy6m9jgAWTZfvlhEwAAliHwWAFiHBdKh1rB0sFdMQ7CxunAWAAhdJQEE0BKMVQLGikFjCKAQCqInouNDI+HuMgQxxrFQ0ZRkSxBCDLFksOymCCEMj4iAAfj+z2+41FLxu3FQC3YyiCjAllxK0oWS3lwQaKD+vj+AAUofAKIxtDqWAAGXwAVktLCt4q2PyaKpsarYGvOYBUZv1hphJu9+At1tt9omjqdJVQWoAcoo4IhtCwAHzBlgqFMWv4OsXh75R4mHHIybhfJ27DDzMgyxaaMha6DwHKoAJ2bN5l455oO0aZCBiIIItjBABumtVZF8VZrvmHbGWpFGiGeAAFpwtV-4IAqsAp61A5GQCn9PCw9QARABi2eeg5YjcqLbsY2XEZ2NgwjGJoJg8TgcHqABGABOAA2AAOc1IMA3s322G5h1YJE-GJUlzQAHgKAAPTDAKVFgsMKe9MGUdlIUIOA6ltQCQ1g759F3RQ6iw3w0kSLBW2Y3wJwwKAxm410yAwFQxnGX4vQAWjNOQ+AKABmOiXgY-lHi1VB6SgRlmVZSgOUsbleX5AlqTRDIwEUy4GOwGY0jkLUbzg5oGKwmzDns8z8IYuQ4Aqbc6gUQhjy9cEDCDBxoVIApLwPYdYM8w94g4IExj7LJ0CI7xo2yPIaFnUdgl8VZTDKApbkYUw4FgsAAF88HAB9qH8ABHMJ-Hgcg2C6LCyHwIhSAoKhkE4Vp+EEYQaoAXSAA) -->
 
 
 ## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}

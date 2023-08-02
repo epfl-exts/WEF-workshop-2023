@@ -10,7 +10,7 @@ format:
   revealjs:
     code-copy: true
     code-link: true
-    incremental: true
+    incremental: false
     embed-resources: false
     smaller: true
     scrollable: false
@@ -31,14 +31,30 @@ execute:
 jupyter: python3
 ---
 
-## Introduction
+## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover" }
+
+ 
+[Goal of This Session:]{style="font-size: 1.5em; font-weight: bold;"}
+
+<br>
+
+
+:heavy_check_mark: Python
+
+:heavy_check_mark: Statistical Distributions
+
+:heavy_check_mark: Bayesian Statistics
+
+:heavy_check_mark: Bayesians vs Frequentists
+
+:heavy_check_mark: AB Testing
+
+&#9744; [AB Testing in Python]{style="color:#ff412c;"}
+
+
+## Recall from Yesterday
 
 - A/B testing is a method of comparing two versions of a webpage or app against each other to determine which one performs better.
-- AB testing is essentially an experiment where two or more variants of a page are shown to users at random, and statistical analysis is used to determine which variation performs better for a given conversion goal.
-
-
-## Defining the problem
-
 - We have a website and we want to increase the number of visitors that click on a button.
 - We have two versions of the website: A and B.
 - We want to know which version is better.
@@ -46,14 +62,15 @@ jupyter: python3
 - We want to know how much data we need to collect to be sure that we have a good estimate of the difference between the two versions.
 - We consider Bernoulli conversion
 
+
 ## Definitions
-### Parameters
+#### Parameters
 
 - $\theta_A$ is the conversion rate for version A
 - $\theta_B$ is the conversion rate for version B
 - $\frac{\theta_B}{\theta_A}-1$ is the uplift of version B compared to version A
 
-### Priors
+#### Priors
 
 -  conversion rates $\theta$ are independent
 -  conversion rates $\theta$ are Beta distributed
@@ -63,21 +80,25 @@ $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
 
 ## Definitions
 
-### Likelihoods
+#### Likelihoods
 
 -  data for version A and B are independent
 -  data for version A and B are Bernoulli distributed
 
-### Posterior
+#### Posterior
 
 -  posterior is Beta distributed
 
 
-## PyMC
 
-We use PyMC library to do the Bayesian inference for the A/B testing problem.
 
-TALK ABOUT PYMC HERE
+
+## ![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){width="150px" height="150px" fig-align="left"} 
+
+**PyMC** is a python library for Bayesian statistical modeling. We use it to do the Bayesian inference for the A/B testing problem. 
+
+
+<br>
 
 ```{python}
 #| echo: false
@@ -101,7 +122,12 @@ plotting_defaults = dict(
 import pymc as pm
 ```
 
-## Setting up the problem in PyMC
+::: notes
+is a python library for Bayesian statistical modeling and model fitting which focuses on advanced Markov chain Monte Carlo and variational fitting algorithms. Its flexibility and extensibility make it applicable to a large suite of problems. Along with core sampling functionality, PyMC includes methods for summarizing output, plotting, goodness-of-fit and convergence diagnostics.
+:::
+
+
+## Define parameters in PyMC
 
 
 ```{python}
@@ -435,7 +461,7 @@ rev &= \sum^{\# \text{payers}} rev_i \\
 ::: notes
 :::
 
-## Summary
+## Priors and Likelihoods
 
 Let's complete the setting by bringing in the variants A and B:
 
@@ -482,11 +508,81 @@ $\mu$ here represents the average revenue per visitor, including those who don't
 
 ## Posterior
 
-We have two posteriors:
+<br>
 
-$$\theta_A, \theta_B \sim \mathrm{Beta}(\alpha_1 + conv_A, \beta_1 + N_A - conv_A)$$
+We have four posteriors:
 
-$$\lambda_A, \lambda_B \sim \mathrm{Gamma}(\alpha_2 + rev_A, \beta_2 + conv_A)$$
+<br>
+
+$$\theta: \left\{
+    \begin{array}{ll}
+    \theta_A \sim \mathrm{Beta}(\alpha_1 + conv_A, \beta_1 + N_A - conv_A) \\
+    \theta_B \sim \mathrm{Beta}(\alpha_1 + conv_B, \beta_1 + N_B - conv_B) 
+    \end{array}
+\right.$$
+
+<br>
+
+$$\lambda: \left\{
+    \begin{array}{ll}
+    \lambda_A \sim \mathrm{Gamma}(\alpha_2 + rev_A, \beta_2 + conv_A) \\
+    \lambda_B \sim \mathrm{Gamma}(\alpha_2 + rev_B, \beta_2 + conv_B) 
+    \end{array}
+\right.$$
+
+## Summary
+
+<br>
+
+![](img/frame.jpg){width="70%" height="70%" fig-align="left"}
+
+
+::: columns
+::: {.column width="30%" .fragment}
+$$\theta: \left\{
+    \begin{array}{ll}
+    \theta_A  \sim \mathrm{Beta}(\alpha_1, \beta_1) \\
+    \theta_B \sim \mathrm{Beta}(\alpha_1, \beta_1) 
+    \end{array}
+\right.$$
+:::
+
+::: {.column width="10%" .fragment}
+![](img/AdobeStock_607420431.png){width="70%" height="70%" fig-align="right"}
+:::
+
+::: {.column width="60%" .fragment}
+$$\begin{array}{ll}
+    \theta_A \sim \mathrm{Beta}(\alpha_1 + conv_A, \beta_1 + N_A - conv_A) \\
+    \theta_B \sim \mathrm{Beta}(\alpha_1 + conv_B, \beta_1 + N_B - conv_B) 
+    \end{array}$$
+:::
+
+:::
+
+<br>
+
+::: columns
+::: {.column width="30%" .fragment}
+$$\lambda: \left\{
+    \begin{array}{ll}
+    \lambda_A \sim \mathrm{Gamma}(\alpha_2, \beta_2) \\
+    \lambda_B \sim \mathrm{Gamma}(\alpha_2, \beta_2) 
+    \end{array}
+\right.$$
+:::
+::: {.column width="10%" .fragment}
+![](img/AdobeStock_607420431.png){width="70%" height="70%" fig-align="right"}
+:::
+::: {.column width="60%" .fragment}
+$$\begin{array}{ll}
+    \lambda_A \sim \mathrm{Gamma}(\alpha_2 + rev_A, \beta_2 + conv_A) \\
+    \lambda_B \sim \mathrm{Gamma}(\alpha_2 + rev_B, \beta_2 + conv_B) 
+    \end{array}$$
+:::
+:::
+
+
 
 ## Creating this model in PyMC
 
@@ -560,3 +656,23 @@ with pm.Model() as example_model:
     # draw posterior samples
     trace = pm.sample(draws=10, return_inferencedata=True)
 ```
+
+
+## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
+
+![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
+
+After the coffee break:
+
+-   Open the Jupyter notebook in `Day2-02/hands-on.ipynb`
+-   Follow the instructions in the notebook, and run the codes.
+-   You will be able to find the solution to the exercise in the `Day2-02/hands-on-solution.ipynb` notebook by the end of the day.
+
+::: footer
+:::
+
+## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg"  background-size="cover"}
+
+::: footer
+
+:::

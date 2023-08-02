@@ -32,12 +32,26 @@ jupyter: python3
 
 ---
 
+
+
+## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover"}
+
+ 
+[Goal of This Session:]{style="font-size: 1.5em; font-weight: bold;"}
+
+<br>
+
+[A quick refresher on Python]{style="color:#ff412c; font-weight: bold;"}
+
+
 ## Data analysis with Python
 #### A quick refresher
 
-Durig the next hour, you will be working with the `Swiss communes` data {{< fa database >}} collected from multiple public resources published by the Federal Statistical Office of Switzerland. 
+Durig the next hour, you will be working with the `Swiss communes` data {{< fa database >}} collected from multiple public resources which are published by the Federal Statistical Office of Switzerland. 
 
 The data is available in the `data` folder of the course repository.
+
+
 
 ## Swiss Communes Data {{< fa database >}}
 

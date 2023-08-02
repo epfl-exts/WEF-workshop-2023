@@ -34,6 +34,21 @@ execute:
 jupyter: python3
 ---
 
+## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover"}
+
+ 
+[Goal of This Session:]{style="font-size: 1.5em; font-weight: bold;"}
+
+<br>
+
+
+:heavy_check_mark: Python
+
+<br>
+
+&#9744; [Statistical Distributions]{style="color:#ff412c;"}
+
+
 ## Statistical Distributions
 #### A high level view
 

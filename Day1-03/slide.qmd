@@ -32,6 +32,26 @@ jupyter: python3
 
 ---
 
+
+## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover"}
+
+ 
+[Goal of This Session:]{style="font-size: 1.5em; font-weight: bold;"}
+
+<br>
+
+
+:heavy_check_mark: Python
+
+<br>
+
+:heavy_check_mark: Statistical Distributions
+
+<br>
+
+&#9744; [Bayesian Statistics]{style="color:#ff412c;"}
+
+
 ## Bayes rule 
 
 <br> <br>
