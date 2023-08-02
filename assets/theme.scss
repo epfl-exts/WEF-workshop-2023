@@ -1,27 +1,33 @@
 /*-- scss:defaults --*/
 
 // fonts
-@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+// @import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+
 
 $font-family-sans-serif: "Palatino Linotype", sans-serif;
 $presentation-heading-color: #00589b;
 $presentation-title-slide-text-align: "left";
 $presentation-subtitle-slide-text-align: "left";
 $presentation-h2-font-size: 1.4em;
+// $presentation-font-size-root: 1.2em;
+$mainFontSize: 35px;
+
+
 
 $link-color: #ffc72c;
 
 $selection-color: #030303;
 $selection-background-color: #ffc72c;
 
-$code-block-font-size: 0.8em;
+$code-block-font-size: 0.65em;
 $code-selection-background-color: #f02e2e;
 $code-color: #cc0000;
 $code-block-bg: #f2f2f2;
 $codeFont: monospace;
 
 
-/*-- scss:rules --*/
+
+
 .blackbox {
   color: #ec7474;
   background-color: transparent;
@@ -51,6 +57,15 @@ $codeFont: monospace;
   background-color: #E6E6E6;
 }
 
+.reveal .slide .goal {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #ccddeb;
+}
+
 .reveal .custom-title {
   position: absolute;
   color: #00589b;
@@ -68,49 +83,42 @@ $codeFont: monospace;
   top: 300px;
 }
 
-.reveal .custom-twitter a {
-  position: absolute;
-  color: #1DA1F2;
-  font-size: 1.3em;
-  text-align: right;
-  right: 20px;
-  top: 470px;
-}
+// .reveal .custom-twitter a {
+//   position: absolute;
+//   color: #1DA1F2;
+//   font-size: 1.3em;
+//   text-align: right;
+//   right: 20px;
+//   top: 470px;
+// }
 
-.reveal .custom-url a {
-  position: absolute;
-  color: #00589b;
-  font-size: 1.5em;
-  text-align: right;
-  right: 20px;
-  top: 570px;
-}
+// .reveal .custom-url a {
+//   position: absolute;
+//   color: #00589b;
+//   font-size: 1.5em;
+//   text-align: right;
+//   right: 20px;
+//   top: 570px;
+// }
 
-details>summary {
-  font-size: 0.75em;
-}
+// details>summary {
+//   font-size: 0.75em;
+// }
 
-.small {
-  font-size: 0.75em;
-}
+// .small {
+//   font-size: 0.75em;
+// }
 
-.reveal .slide .in-out {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-  padding-left: 1em;
-  background: #E8E8E8;
-  font-family: $font-family-monospace;
-  font-size: 0.6em;
-}
+// .reveal .slide .in-out {
+//   margin-top: 0.5em;
+//   margin-bottom: 0.5em;
+//   padding-top: 0.1em;
+//   padding-bottom: 0.1em;
+//   padding-left: 1em;
+//   background: #E8E8E8;
+//   font-family: $font-family-monospace;
+//   font-size: 0.6em;
+// }
 
 
-.reveal .slide .goal {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-  padding-left: 1em;
-  background: #ccddeb;
-}
+

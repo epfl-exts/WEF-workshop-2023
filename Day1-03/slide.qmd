@@ -8,12 +8,13 @@ editor:
   render-on-save: false
 format:
   revealjs:
+    code-copy: true
+    code-link: true
     embed-resources: false
     smaller: true
-    scrollable: true
+    scrollable: false
     theme: ../assets/theme.scss 
     logo: ../assets/img/logo_red.png
-    footer: '<https://www.extensionschool.ch>'
     code-fold: true
     code-line-numbers: false
     slide-number: true

@@ -101,6 +101,8 @@ refs:
 - quarto blog: https://www.apreshill.com/blog/2022-04-we-dont-talk-about-quarto/
 - quarto blog: https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/
 - quarto blog https://apps.machlis.com/shiny/quartotips/
+- quarto blog https://www.emilhvitfeldt.com/post/slidecraft-code-output/
+- quarto blog https://www.emilhvitfeldt.com/post/slidecraft-colors-fonts/#finding-fonts
 
 
 helpers

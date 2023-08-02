@@ -2,20 +2,23 @@
 title: Bayesian AB Testing
 subtitle: Bernoulli and Value Conversions
 author: EPFL Extension School
+institute: World Economic Forum
+date: 2023-09-29
 editor:
-  render-on-save: true
+  render-on-save: false
 format:
   revealjs:
     code-copy: true
     code-link: true
     incremental: true
-    code-color-bg: "#2d2d2d"
     embed-resources: false
     smaller: true
-    scrollable: true
-    theme: simple
-    logo: img/logo_red.png
+    scrollable: false
+    theme: ../assets/theme.scss 
+    # theme: simple
+    logo: ../assets/img/logo_red.png
     code-fold: true
+    code-line-numbers: false
     slide-number: true
     chalkboard:
       buttons: true
