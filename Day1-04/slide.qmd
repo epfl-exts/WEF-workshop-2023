@@ -163,5 +163,6 @@ Optional hands-on session:
 -   Open the Jupyter notebook in `Day1-04/hands-on.ipynb`
 -   Follow the instructions in the notebook, and run the codes.
 
-::: footer
+::: notes
+let them run code in the notebook that does AB testing with synthetic data based on frequentist approach, and say thaz they will learn bayesian approach tomorrow
 :::
