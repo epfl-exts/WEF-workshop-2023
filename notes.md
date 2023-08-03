@@ -103,6 +103,7 @@ refs:
 - quarto blog https://apps.machlis.com/shiny/quartotips/
 - quarto blog https://www.emilhvitfeldt.com/post/slidecraft-code-output/
 - quarto blog https://www.emilhvitfeldt.com/post/slidecraft-colors-fonts/#finding-fonts
+- CAPE https://drive.google.com/drive/u/0/folders/11FSi-4A0EXdM6_WshwGNud9q34UPzG3Q
 
 
 helpers
@@ -172,3 +173,11 @@ to check what makes code slow, I uninstalled the following extensions:
 quarto questions:
 - how to change text-selection color?
 - how to fit the backgrund image to the slide? the cover and contain doesn't work
+
+
+how to design hands on sessions:
+- start with simple things which can be done individually (in DAY1) and then move to more complex things which can be done in groups (in DAY2)
+- there should be a clear goal for each hands on session
+- there should be a clear time limit for each hands on session
+- there should be atleast a session where they do things on their own, and I will be there to help them only
+
