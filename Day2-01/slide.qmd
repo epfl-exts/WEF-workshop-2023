@@ -64,30 +64,39 @@ jupyter: python3
 
 
 ## Definitions
+
+<br>
+
 #### Parameters
 
 - $\theta_A$ is the conversion rate for version A
 - $\theta_B$ is the conversion rate for version B
 - $\frac{\theta_B}{\theta_A}-1$ is the uplift of version B compared to version A
 
+<br>
+
 #### Priors
 
--  conversion rates $\theta$ are independent
--  conversion rates $\theta$ are Beta distributed
+-  Conversion rates $\theta$ are Beta distributed:
 $$\theta_A \sim Beta(\alpha_A, \beta_A)$$
 $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
--  conversion rates share the same parameters $\alpha_A=\beta_A=\alpha_B=\beta_B=100$
+-  For simplicity, they follow the same distribution: $\alpha_A=\beta_A=\alpha_B=\beta_B$
 
 ## Definitions
 
+<br>
+
 #### Likelihoods
 
--  data for version A and B are independent
--  data for version A and B are Bernoulli distributed
+- Conversions are happenning independently
+-  Data for version A and B are Bernoulli distributed
+
+<br>
 
 #### Posterior
 
--  posterior is Beta distributed
+- Posterior is also Beta distributed but with different parameters
+- If no conjugate priors are used, we can still sample from the posterior
 
 
 
@@ -613,7 +622,7 @@ purchase_alpha, purchase_beta = [9000, 900]
 #| echo: true
 #| eval: false
 #| code-fold: false
-#| code-line-numbers: 1|3,17|3-15|5-8|11-15|17-29|19-22|25-29|32|32,37|35-36
+#| code-line-numbers: 1|3,17|3-15|5-8|11-15|17-29|19-22|25-29|32|32,37|35-36|41
 with pm.Model() as example_model:
 
     #-----------------------------------------------conversion rate model

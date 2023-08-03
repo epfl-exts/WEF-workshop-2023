@@ -190,7 +190,9 @@ frequentists reason horizontally, with mu fixed and x varying, while Bayesian in
 
 ## Definitioins
 
-- conversion
+- conversion: Conversion rate is the proportion of visitors that click on the button.
+
+
 - Bernoulli and value conversions
 - uplift
 - prior
