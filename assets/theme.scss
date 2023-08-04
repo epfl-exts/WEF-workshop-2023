@@ -25,7 +25,11 @@ $code-color: #cc0000;
 $code-block-bg: #f2f2f2;
 $codeFont: monospace;
 
-
+// to have image inline with text
+.center{
+  margin: 0!important;
+  height: 40px;
+}
 
 
 .blackbox {
