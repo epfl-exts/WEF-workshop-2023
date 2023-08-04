@@ -5,7 +5,7 @@ author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-29
 editor:
-  render-on-save: false
+  render-on-save: true
 format:
   revealjs:
     code-copy: true
@@ -63,51 +63,111 @@ jupyter: python3
 - We consider Bernoulli conversion
 
 
-## Definitions
+## Setting up the Model
 
 <br>
 
+
+::: columns
+::: {.column width="70%" }
+
 #### Parameters
 
-- $\theta_A$ is the conversion rate for version A
-- $\theta_B$ is the conversion rate for version B
+- $\theta_A$ is the conversion probability for version A
+- $\theta_B$ is the conversion probability for version B
 - $\frac{\theta_B}{\theta_A}-1$ is the uplift of version B compared to version A
+:::
+::: {.column width="30%" }
+![](img/AdobeStock_248944797.jpeg){width="75%" height="75%" fig-align="left"}
+:::
+:::
 
 <br>
 
 #### Priors
+::: columns
+::: {.column width="70%" }
+
 
 -  Conversion rates $\theta$ are Beta distributed:
 $$\theta_A \sim Beta(\alpha_A, \beta_A)$$
 $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
--  For simplicity, they follow the same distribution: $\alpha_A=\beta_A=\alpha_B=\beta_B$
+-  For simplicity, parameters and distributions are the same: $\alpha_A=\beta_A=\alpha_B=\beta_B$
+::: 
+::: {.column width="30%" }
+![](img/AdobeStock_105107192.jpeg){width="75%" height="75%" fig-align="left"}
+:::
+:::
 
-## Definitions
+
+
+
+
+## Setting up the Model
 
 <br>
 
+
+
+::: columns
+::: {.column width="70%" }
 #### Likelihoods
 
-- Conversions are happenning independently
--  Data for version A and B are Bernoulli distributed
+- Both versions have the same number of `visitors` 
+- `conversions` are happenning independently
+-  Number of `conversions` are Bernoulli distributed for both versions
+:::
+::: {.column width="30%" }
+![](img/AdobeStock_124620223.jpeg){width="75%" height="65%" fig-align="left"}
+:::
+:::
+
 
 <br>
 
-#### Posterior
+#### Posteriors
 
-- Posterior is also Beta distributed but with different parameters
-- If no conjugate priors are used, we can still sample from the posterior
+::: columns
+::: {.column width="70%" }
+- Remember that in this case posteriors are also Beta distributed, thanks to the conjugate priors
+- No worries if we don't have a closed form solution for the posterior, we get them via sampling methods
+::: 
+::: {.column width="30%" }
+![](img/AdobeStock_109501465.jpeg){width="75%" height="75%" fig-align="left"}
+:::
+:::
 
 
+::: notes
+visitors are like the trials or coin flips in the Bernoulli distribution. We have 1000 trials for each variant.
+conversions are like the successes or number of heads in the Bernoulli distribution. We have 200 successes for each variant.
+:::
 
 
+## What do we want to know?
 
-## ![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){width="150px" height="150px" fig-align="left"} 
+<br>
+Our goal is to find out which version is better, and that's why we need the uplift $\frac{\theta_B}{\theta_A}-1$:
+
+- if the uplift > 0, then version B is better
+- if the uplift < 0, then version A is better
+- if the uplift = 0, then there is no difference between the two versions
+
+::: box
+Luckily we get the whole posterior distribution of the uplift, not just these three states
+:::
+
+this is where we need ![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){width="150px" height="150px" fig-align="left"} 
+
+
 
 **PyMC** is a python library for Bayesian statistical modeling. We use it to do the Bayesian inference for the A/B testing problem. 
 
-
 <br>
+
+```{.python}
+import pymc as pm
+```
 
 ```{python}
 #| echo: false
@@ -127,16 +187,16 @@ plotting_defaults = dict(
 )
 ```
 
-```{.python}
-import pymc as pm
-```
+
 
 ::: notes
 is a python library for Bayesian statistical modeling and model fitting which focuses on advanced Markov chain Monte Carlo and variational fitting algorithms. Its flexibility and extensibility make it applicable to a large suite of problems. Along with core sampling functionality, PyMC includes methods for summarizing output, plotting, goodness-of-fit and convergence diagnostics.
 :::
 
 
-## Define parameters in PyMC
+## Define Parameters in ![](img/PyMC.png){.center}
+
+```{python}
 
 
 ```{python}
@@ -149,10 +209,10 @@ is a python library for Bayesian statistical modeling and model fitting which fo
 variants  = ['A', 'B']
 
 # each variant has 1000 trail 
-trials    = [1000, 1000]
+visitors    = [1000, 1000]
 
 # 200 of which leads to success
-successes = [200, 200]
+conversion = [200, 200]
 
 # let's define parameters for a weak prior for the conversion rates
 weak_alpha, weak_beta = [100, 100]
@@ -175,7 +235,7 @@ plt.show()
 
 
 
-## Creating a model in PyMC
+## Creating a Model in ![](img/PyMC.png){.center}
 
 ```{python}
 #| echo: true
@@ -192,8 +252,8 @@ with pm.Model() as example_model:
     
     # Likelihood (sampling distribution) of observations
     obs = pm.Binomial("y", 
-                      n        = trials, 
-                      observed = successes, 
+                      n        = visitors, 
+                      observed = conversion, 
                       p        = theta,
                       shape    = 2) 
     
@@ -222,13 +282,14 @@ and closes it after the sampling is done.
 Any time you declare a pymc mvariable inside a with statement (or context manager), it gets added to the model. Pymc is a high level language.
 :::
 
-## Checking the model specification
+## Checking the Model Specification
 
 Unobserved Random Variables:
 
 ```{python}
-#| code-block-bg: true
-#| code-block-border-left: "#31BAE9"
+#| echo: true
+#| eval: true
+#| code-fold: false
 example_model.unobserved_RVs  
 ```
 
@@ -237,14 +298,15 @@ example_model.unobserved_RVs
 Observed Random Variables:
 
 ```{python}
-#| code-block-bg: true
-#| code-block-border-left: "#31BAE9"
+#| echo: true
+#| eval: true
+#| code-fold: false
 example_model.observed_RVs  
 ```
 
+<br>
+
 ```{python}
-#| code-block-bg: true
-#| code-block-border-left: "#31BAE9"
 #| echo: true
 #| eval: true
 #| code-fold: false
@@ -277,7 +339,7 @@ weak_outcome.columns = ['theta_A','theta_B','uplift']
 ```
 
 
-## Ploting the output
+## Ploting the Output
 
 ::: panel-tabset
 ### plot
@@ -330,13 +392,13 @@ plt.show()
 
 :::
 
-## Changing the output type
+## Changing the Output Type
 
 ```{python}
 #| echo: true
 #| eval: true
 #| code-fold: false
-#| code-line-numbers: 21,22
+#| code-line-numbers: 22,23
 with pm.Model() as example_model:
 
     # Priors for unknown model parameters
@@ -347,9 +409,9 @@ with pm.Model() as example_model:
     
     # Likelihood (sampling distribution) of observations
     obs = pm.Binomial("y", 
-                      n = trials, 
+                      n = visitors, 
                       p = theta, 
-                      observed = successes,
+                      observed = conversion,
                       shape = 2) 
     
     # Difference between variants
@@ -357,11 +419,11 @@ with pm.Model() as example_model:
                                         theta[1] / theta[0] - 1)
 
     # Draw samples from the prior
-    trace = pm.sample(draws=1000, return_inferencedata=True, progressbar=False)
-
+    trace = pm.sample(draws=1000, 
+                      return_inferencedata=True)
 ```
 
-## Changing the output type
+## Changing the Output Type
 
 
 ```{python}
@@ -389,7 +451,7 @@ as an example, for theta we have 4 chains, each with 1000 draws. So for theta_A 
 :::
 
 
-## Exploring the posterior
+## Exploring the Posterior
 
 
 ```{python}
@@ -400,7 +462,7 @@ as an example, for theta we have 4 chains, each with 1000 draws. So for theta_A 
 pm.summary(trace, var_names=["theta", "uplift"]).T
 ```
 
-## Exploring the posterior
+## Exploring the Posterior
 
 we can also use the ArviZ library for plotting. The main advantage is that it works pretty well with the output data. Also, it gives the HDI for the Relative Uplift distribution.
 
@@ -425,7 +487,7 @@ what is HDI?
 
 - We should consider Value Conversion
 
-## Definitions
+## Setting up the Model
 
 Suppose that a single visitor $i$ has a probability $\theta$ of paying at all. So, we can model the conversion as a Bernoulli trial:
 
@@ -534,8 +596,8 @@ $$\theta: \left\{
 
 $$\lambda: \left\{
     \begin{array}{ll}
-    \lambda_A \sim \mathrm{Gamma}(\alpha_2 + rev_A, \beta_2 + conv_A) \\
-    \lambda_B \sim \mathrm{Gamma}(\alpha_2 + rev_B, \beta_2 + conv_B) 
+    \lambda_A \sim \mathrm{Gamma}(\alpha_2 + conv_A, \beta_2 + rev_A) \\
+    \lambda_B \sim \mathrm{Gamma}(\alpha_2 + conv_B, \beta_2 + rev_B) 
     \end{array}
 \right.$$
 
@@ -585,15 +647,16 @@ $$\lambda: \left\{
 :::
 ::: {.column width="60%" .fragment}
 $$\begin{array}{ll}
-    \lambda_A \sim \mathrm{Gamma}(\alpha_2 + rev_A, \beta_2 + conv_A) \\
-    \lambda_B \sim \mathrm{Gamma}(\alpha_2 + rev_B, \beta_2 + conv_B) 
+    \lambda_A \sim \mathrm{Gamma}(\alpha_2 + conv_A, \beta_2 + rev_A) \\
+    \lambda_B \sim \mathrm{Gamma}(\alpha_2 + conv_B, \beta_2 + rev_B) 
     \end{array}$$
 :::
 :::
 
 
 
-## Creating this model in PyMC
+<!-- ## Let's do this in ![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){.center} -->
+## Let's do this in ![](img/PyMC.png){.center}
 
 <!-- ```{python}
 #| echo: false
