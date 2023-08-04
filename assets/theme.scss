@@ -41,6 +41,7 @@ $codeFont: monospace;
   height: 100%;
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/CSS/border
 .info-box {
   margin-top: 10px;
   margin-right: 10px;
@@ -55,10 +56,10 @@ $codeFont: monospace;
 .box {
   margin-top: 10px;
   margin-right: 10px;
-  border: 5px solid #006DAE;
+  border: 4mm ridge rgba(182, 211, 241, 0.6);;
   padding: 10px;
   font-size: 26px;
-  background-color: #E6E6E6;
+  background-color: #f1ebeb;
 }
 
 .reveal .slide .goal {
