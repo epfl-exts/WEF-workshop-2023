@@ -75,7 +75,7 @@ jupyter: python3
 
 - $\theta_A$ is the conversion probability for version A
 - $\theta_B$ is the conversion probability for version B
-- $\frac{\theta_B}{\theta_A}-1$ is the uplift of version B compared to version A
+<!-- - $\frac{\theta_B}{\theta_A}-1$ is the uplift of version B compared to version A -->
 :::
 ::: {.column width="30%" }
 ![](img/AdobeStock_248944797.jpeg){width="75%" height="75%" fig-align="left"}
@@ -92,7 +92,7 @@ jupyter: python3
 -  Conversion rates $\theta$ are Beta distributed:
 $$\theta_A \sim Beta(\alpha_A, \beta_A)$$
 $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
--  For simplicity, parameters and distributions are the same: $\alpha_A=\beta_A=\alpha_B=\beta_B$
+-  For simplicity we assume $\alpha_A=\beta_A=\alpha_B=\beta_B$
 ::: 
 ::: {.column width="30%" }
 ![](img/AdobeStock_105107192.jpeg){width="75%" height="75%" fig-align="left"}
@@ -107,21 +107,18 @@ $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
 
 <br>
 
-
-
 ::: columns
 ::: {.column width="70%" }
 #### Likelihoods
-
 - Both versions have the same number of `visitors` 
-- `conversions` are happenning independently
 -  Number of `conversions` are Bernoulli distributed for both versions
 :::
 ::: {.column width="30%" }
-![](img/AdobeStock_124620223.jpeg){width="75%" height="65%" fig-align="left"}
+![](img/AdobeStock_124620223.jpeg){width="75%" fig-align="left"}
 :::
 :::
 
+<br>
 
 #### Posteriors
 
@@ -129,7 +126,6 @@ $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
 ::: {.column width="70%" }
 - Remember that in this case posteriors are also Beta distributed, thanks to the conjugate priors
 - No worries if we don't have a closed form solution for the posterior, we get them via sampling methods
-- Posteriors can be different for each version
 ::: 
 ::: {.column width="30%" }
 ![](img/AdobeStock_109501465.jpeg){width="75%" height="75%" fig-align="left"}
@@ -137,9 +133,22 @@ $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
 :::
 
 
+
+
 ::: notes
 visitors are like the trials or coin flips in the Bernoulli distribution. We have 1000 trials for each variant.
 conversions are like the successes or number of heads in the Bernoulli distribution. We have 200 successes for each variant.
+:::
+
+## Remarks
+
+<br>
+
+::: {.callout-note title="Notes" appearance="simple" icon=true} 
+- Priors can be different for each version
+- Number of visitors can be different for each version
+- Conversions are happenning independently
+- Posteriors can turn out to be different for each version
 :::
 
 
