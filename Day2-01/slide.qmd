@@ -123,14 +123,13 @@ $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
 :::
 
 
-<br>
-
 #### Posteriors
 
 ::: columns
 ::: {.column width="70%" }
 - Remember that in this case posteriors are also Beta distributed, thanks to the conjugate priors
 - No worries if we don't have a closed form solution for the posterior, we get them via sampling methods
+- Posteriors can be different for each version
 ::: 
 ::: {.column width="30%" }
 ![](img/AdobeStock_109501465.jpeg){width="75%" height="75%" fig-align="left"}
@@ -147,27 +146,47 @@ conversions are like the successes or number of heads in the Bernoulli distribut
 ## What do we want to know?
 
 <br>
-Our goal is to find out which version is better, and that's why we need the uplift $\frac{\theta_B}{\theta_A}-1$:
+Our goal is to find out which version is better, and that's why we need the `uplift` $\frac{\theta_B}{\theta_A}-1$:
 
-- if the uplift > 0, then version B is better
-- if the uplift < 0, then version A is better
-- if the uplift = 0, then there is no difference between the two versions
+- if the `uplift > 0`, then version B is better
+- if the `uplift < 0`, then version A is better
+- if the `uplift = 0`, then there is no difference between the two versions
 
+<!-- ::: {style="text-align: center"}
 ::: box
-Luckily we get the whole posterior distribution of the uplift, not just these three states
+Luckily we get the whole distribution of the uplift, not just these three states
+:::
+::: -->
+::: fragment
+::: callout-tip
+Luckily we get the whole distribution of the uplift, not just these three states 😃
+:::
 :::
 
-this is where we need ![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){width="150px" height="150px" fig-align="left"} 
+<!-- ## ![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){width="150px" height="150px" fig-align="left"} -->
 
+::: fragment
+::: columns
+::: {.column width="60%" }
+This is where we need PyMC 🌱
 
+It is a Python library for Bayesian statistical modeling, and we use it to do the Bayesian inference for the A/B testing problem.
 
-**PyMC** is a python library for Bayesian statistical modeling. We use it to do the Bayesian inference for the A/B testing problem. 
-
-<br>
+We can simply import it by:
 
 ```{.python}
 import pymc as pm
 ```
+:::
+
+::: {.column width="40%" }
+![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){width="95%" height="95%" fig-align="left"}
+:::
+:::
+:::
+
+
+
 
 ```{python}
 #| echo: false
@@ -265,8 +284,7 @@ with pm.Model() as example_model:
     trace = pm.sample(draws=1000, return_inferencedata=False, progressbar=False)
 ```
 
-
-![](img/Screenshot%202023-07-16%20at%2016.12.14.png)
+![](img/Screenshot%202023-07-16%20at%2016.12.14.png){width="80%" height="80%" fig-align="left"}
 
 ::: notes
 how to explain the with statement in pymc?
@@ -314,8 +332,6 @@ example_model.observed_RVs
 trace
 ```
 
-
-
 <br>
 
 ```{python}
@@ -326,6 +342,9 @@ trace.theta.shape,  trace.uplift.shape
 ```
 
 <br>
+
+
+## Ploting the Output
 
 ```{python}
 #| echo: true
@@ -339,7 +358,6 @@ weak_outcome.columns = ['theta_A','theta_B','uplift']
 ```
 
 
-## Ploting the Output
 
 ::: panel-tabset
 ### plot
