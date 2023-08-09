@@ -384,8 +384,6 @@ trace
 trace.theta.shape,  trace.uplift.shape
 ```
 
-<br>
-
 
 ## Ploting the Output
 
@@ -688,7 +686,7 @@ $$\lambda_A = \lambda_B \sim \mathrm{Gamma}(\alpha_2, \beta_2)$$
 
 
 
-## Posterior
+## Posteriors
 
 <br>
 
@@ -766,21 +764,20 @@ $$\begin{array}{ll}
 
 ## What Do We Want to Know?
 
-<br>
+
 Our goal is to find out which version is more profitable, so we should compare the `revenue per visitor` between A and B.
 
-We obtain the `revenue per visitor` for each variants by:
+We obtain the `revenue per visitor` for each variant by:
 
-$$\mu_A =  \dfrac{\theta_A}{\lambda_A}$$
-$$\mu_B =  \dfrac{\theta_B}{\lambda_B}$$
+$$\mu_A =  \dfrac{\theta_A}{\lambda_A}, \quad  \mu_B =  \dfrac{\theta_B}{\lambda_B}$$
 
 and the relative uplift is:
 
-$$\mathrm{uplift} = \mu_B / \mu_A - 1$$
+$$uplift = \frac{\mu_B}{\mu_A} - 1$$
 
 - if the `uplift > 0`, then version B is more profitable
 - if the `uplift < 0`, then version A is more profitable
-- if the `uplift = 0`, then there is no difference between the two versions
+- if the `uplift = 0`, then both are equally profitable
 
 
 ::: fragment
@@ -796,7 +793,7 @@ $\mu$ here represents the average revenue per visitor, including those who don't
 :::
 
 <!-- ## Let's do this in ![](https://cdn.rawgit.com/pymc-devs/pymc/main/docs/logos/svg/PyMC_banner.svg){.center} -->
-## Let's do this in ![](img/PyMC.png){.center}
+## Creating the Model in ![](img/PyMC.png){.center}
 
 <!-- ```{python}
 #| echo: false
