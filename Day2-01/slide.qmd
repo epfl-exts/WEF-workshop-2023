@@ -387,7 +387,7 @@ trace.theta.shape,  trace.uplift.shape
 
 ## Ploting the Output
 
-x
+
 
 ```{python}
 #| echo: true
@@ -400,7 +400,7 @@ weak_outcome = pd.concat([pd.DataFrame(trace['theta']),
 weak_outcome.columns = ['theta_A','theta_B','uplift']
 ```
 
-
+<br>
 
 ::: panel-tabset
 ### plot
@@ -410,7 +410,7 @@ weak_outcome.columns = ['theta_A','theta_B','uplift']
 #| code-fold: false
 #| code-line-numbers: 5,9,13
 # let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift
-fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True)
+fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True, sharex=True)
 
 # plot the distribution of theta_A
 ax[0].hist(weak_outcome['theta_A'],bins=50,)
@@ -434,7 +434,7 @@ plt.show()
 
 
 # let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift
-fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True)
+fig, ax = plt.subplots(1, 3, figsize=(12, 3), sharey=True, sharex=True)
 
 # plot the distribution of theta_A
 ax[0].hist(weak_outcome['theta_A'],bins=50,)
@@ -636,7 +636,7 @@ So we need:
 
 <br>
 
-> We should go the same way as before:\ we need to [define]{style="background-color: yellow;"} the `priors` and `likelihoods`, and [obtain]{style="background-color: yellow;"} `posteriors` for $\theta$ and $\lambda$.
+> We should go the same way as before:\ we need to define the `priors` and `likelihoods`, and obtain `posteriors` for $\theta$ and $\lambda$.
 
 ## What Do We Need?
 #### Likelihoods
@@ -691,29 +691,29 @@ rev &= \sum^{\# \text{payers}} rev_i \\
 
 Let's complete the setting by bringing in the variants A and B:
 
-We have two `conversion` **likelihoods**:
+We have two [conversion likelihoods]{style="background-color: Lightyellow;"}:
 
 \begin{align*}
-conv_A &\sim \mathrm{Binomial}(N_A, \theta_A) \\
-conv_B &\sim \mathrm{Binomial}(N_B, \theta_B) \\
+conv_A &\sim \mathrm{Binomial}(N_A, \color{red}{\theta_A}) \\
+conv_B &\sim \mathrm{Binomial}(N_B, \color{red}{\theta_B}) \\
 \end{align*}
 
-and our **prior** about conversion probabilities are:
+and our [prior]{style="background-color: rgba(255, 99, 71, 0.2);"} about conversion probabilities are:
 
-$$\theta_A = \theta_B \sim \mathrm{Beta}(\alpha_1, \beta_1)$$
+$$\color{red}{\theta_A} = \color{red}{\theta_B} \sim \mathrm{Beta}(\alpha_1, \beta_1)$$
 
 <br>
 
-We have two `revenue` **likelihoods**:
+We have two [revenue likelihoods]{style="background-color: Lightyellow;"}:
 
 \begin{align*}
-rev_A &\sim \mathrm{Gamma}(conv_A, \lambda_A) \\
-rev_B &\sim \mathrm{Gamma}(conv_B, \lambda_B)
+rev_A &\sim \mathrm{Gamma}(conv_A, \color{red}{\lambda_A}) \\
+rev_B &\sim \mathrm{Gamma}(conv_B, \color{red}{\lambda_B})
 \end{align*}
 
-and our **prior** about the amounts spent are:
+and our [prior]{style="background-color: rgba(255, 99, 71, 0.2);"} about the amounts spent are:
 
-$$\lambda_A = \lambda_B \sim \mathrm{Gamma}(\alpha_2, \beta_2)$$
+$$\color{red}{\lambda_A} = \color{red}{\lambda_B} \sim \mathrm{Gamma}(\alpha_2, \beta_2)$$
 
 ::: notes
 :::
