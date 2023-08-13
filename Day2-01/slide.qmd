@@ -387,6 +387,8 @@ trace.theta.shape,  trace.uplift.shape
 
 ## Ploting the Output
 
+x
+
 ```{python}
 #| echo: true
 #| eval: true
@@ -623,7 +625,9 @@ In this setting, we have two priors, one for $\theta$ and one for $\lambda$. So,
 ## What Do We Need?
 
 <br>
-Our goal is to find out `revenue per visitor`. The expected revenue per visitor is $\frac{\theta}{\lambda}$. So we need:
+Our goal is to find out `revenue per visitor`. The expected revenue per visitor is $\frac{\theta}{\lambda}$. 
+
+So we need:
 
 - the posterior of $\theta$
 - the posterior of $\lambda$
@@ -632,24 +636,52 @@ Our goal is to find out `revenue per visitor`. The expected revenue per visitor 
 
 <br>
 
-> We should go the same way as before:\ we need to define the priors, likelihoods and posteriors for $\theta$ and $\lambda$.
+> We should go the same way as before:\ we need to [define]{style="background-color: yellow;"} the `priors` and `likelihoods`, and [obtain]{style="background-color: yellow;"} `posteriors` for $\theta$ and $\lambda$.
 
 ## What Do We Need?
 #### Likelihoods
 
-Let's extend the setting for more than just a single visitor:
+In reality we have more than just a single visitor.
+
+<br>
+
+The total conversions follows a Binomial distribution:
+
+::: columns
+::: {.column width="70%" }
 
 \begin{align*}
 conv &=  \sum^{\# \text{visitors}} conv_i \\
 &= \sum^{\# \text{visitors}}\mathrm{Bernoulli}(\theta)
 \sim \mathrm{Binomial}(\# \text{visitors}, \theta)
 \end{align*}
+:::
+::: {.column width="30%" }
+![](img/AdobeStock_607420431.png){width="25%" fig-align="left"}
+:::
+:::
+
+<br>
+
+The total revenue follows a Gamma distribution:
+
+::: columns
+::: {.column width="70%" }
 
 \begin{align*}
 rev &= \sum^{\# \text{payers}} rev_i \\
 &= \sum^{\# \text{payers}}\mathrm{Exponential}(\lambda)
 \sim \mathrm{Gamma}(\# \text{payers}, \lambda)
 \end{align*}
+:::
+::: {.column width="30%" }
+![](img/AdobeStock_607420431.png){width="25%" fig-align="left"}
+:::
+:::
+
+
+
+
 
 ::: notes
 :::
@@ -659,25 +691,27 @@ rev &= \sum^{\# \text{payers}} rev_i \\
 
 Let's complete the setting by bringing in the variants A and B:
 
-We have two conversion **likelihoods**:
+We have two `conversion` **likelihoods**:
 
 \begin{align*}
 conv_A &\sim \mathrm{Binomial}(N_A, \theta_A) \\
 conv_B &\sim \mathrm{Binomial}(N_B, \theta_B) \\
 \end{align*}
 
-and our **prior** about conversion probablies are:
+and our **prior** about conversion probabilities are:
 
 $$\theta_A = \theta_B \sim \mathrm{Beta}(\alpha_1, \beta_1)$$
 
-We have two revenue **likelihoods**:
+<br>
+
+We have two `revenue` **likelihoods**:
 
 \begin{align*}
 rev_A &\sim \mathrm{Gamma}(conv_A, \lambda_A) \\
 rev_B &\sim \mathrm{Gamma}(conv_B, \lambda_B)
 \end{align*}
 
-aNd our **prior** about the amounts spent are:
+and our **prior** about the amounts spent are:
 
 $$\lambda_A = \lambda_B \sim \mathrm{Gamma}(\alpha_2, \beta_2)$$
 
@@ -686,7 +720,7 @@ $$\lambda_A = \lambda_B \sim \mathrm{Gamma}(\alpha_2, \beta_2)$$
 
 
 
-## Posteriors
+<!-- ## Posteriors
 
 <br>
 
@@ -708,7 +742,7 @@ $$\lambda: \left\{
     \lambda_A \sim \mathrm{Gamma}(\alpha_2 + conv_A, \beta_2 + rev_A) \\
     \lambda_B \sim \mathrm{Gamma}(\alpha_2 + conv_B, \beta_2 + rev_B) 
     \end{array}
-\right.$$
+\right.$$ -->
 
 ## Summary
 
