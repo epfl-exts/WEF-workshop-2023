@@ -59,8 +59,8 @@ Distributions describe how values are spread over certain range.
 Values can … 
 
 
-- come from natural phenomena
-- or come from an experiment
+- come from natural phenomena or
+- come from an experiment
 - be frequent or infrequent in certain parts of the range
 - be discrete or continuous 
 - be available to us or not
@@ -93,29 +93,26 @@ So we have statistical distributions
 <span class="fragment" fragment-index=2>`Beta`, </span>
 <span class="fragment" fragment-index=3>`Gamma`, . . .</span>
 
-::: {.fragment fragment-index=1 .fade-in .absolute top="370" left="50" }
+::: {.fragment fragment-index=1 .absolute top="370" left="50" width="200"}
 ![](img/normal.png)
 :::
+::: {.fragment fragment-index=1 .absolute top="470" left="50" width="300"}
+![](img/normal1.png)
+:::
 
-::: {.fragment fragment-index=2 .fade-in  .absolute top="470" left="350" }
+::: {.fragment fragment-index=2 .absolute top="570" left="400" width="200"}
 ![](img/beta.png)
 :::
+::: {.fragment fragment-index=2 .absolute top="300"  left="380"  width="300"}
+![](img/beta1.png)
+:::
 
-::: {.fragment fragment-index=3 .absolute top="370" right="80"}
+::: {.fragment fragment-index=3 .absolute top="370" right="80" width="150"}
 ![](img/gamma.png)
 :::
-
-## Statistical Distributions
-#### Properties
-
-::: {.r-stack}
-![](img/normal.png){.fragment}
-
-![](img/beta.png){.fragment }
-
-![](img/gamma.png){.fragment}
+::: {.fragment fragment-index=3 .absolute top="470" right="10" width="300"}
+![](img/gamma1.png)
 :::
-
 
 ## Statistical Distributions
 #### Properties
@@ -172,19 +169,9 @@ How big is the gap? 🧐
 certain property: eg mean in Normal or proportion p in Bernoulli
 :::
 
-## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
 
-![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
 
-Let's begin:
-
-- Open the Jupyter notebook in `Day1-02/hands-on.ipynb`
-- Follow the instructions in the notebook, and provide your answers in the code cells
-
-::: footer
-:::
-
-## Example: Normal distribution
+## Hands-on session: Example of Normal distribution
 
 <br>
 
@@ -203,7 +190,7 @@ mean, var, skew, kurt = norm.stats(m, s, moments='mvsk')
 display(mean, var, skew, kurt)
 ```
 
-## Example: Normal distribution
+## Hands-on session: Example of Normal distribution
 
 <br>
 
@@ -243,11 +230,23 @@ display(sample)
 
 :::
 
-## Solutions
+## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
+
+![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
+
+Let's begin:
+
+- Open the Jupyter notebook in `Day1-02/hands-on.ipynb`
+- Follow the instructions in the notebook, and provide your answers in the code cells
+- You will be able to find the solution notebook by the end of the day in `Day1-02/hands-on-solution.ipynb`
+
+::: footer
+:::
+<!-- ## Solutions
 
 ::: info-box
 You will be able to find the solution notebook by the end of the day in `Day1-02/hands-on-solution.ipynb`
-:::
+::: -->
 
 ## {chalkboard-buttons="false" background-image="../assets/img/Lunch_AdobeStock_561720123.jpeg"  background-size="100%, cover" background-position="center" background-opacity="0.5"}
 
