@@ -360,6 +360,8 @@ Common A/B testing mistakes:
 
 > highest density interval
 
+## {chalkboard-buttons="false" background-image="../assets/img/QA_AdobeStock_206674448.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.9" background-size="cover"}
+
 
 <!-- ::: columns
 ::: {.column width="60%" }

@@ -248,6 +248,8 @@ Let's begin:
 You will be able to find the solution notebook by the end of the day in `Day1-02/hands-on-solution.ipynb`
 ::: -->
 
+## {chalkboard-buttons="false" background-image="../assets/img/QA_AdobeStock_206674448.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.9" background-size="cover"}
+
 ## {chalkboard-buttons="false" background-image="../assets/img/Lunch_AdobeStock_561720123.jpeg"  background-size="100%, cover" background-position="center" background-opacity="0.5"}
 
 ::: footer
