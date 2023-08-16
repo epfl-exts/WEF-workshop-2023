@@ -1,5 +1,5 @@
 ---
-title: Bayesian AB Testing
+title: Bayesian AB Testing 
 subtitle: Bernoulli and Value Conversions
 author: EPFL Extension School
 institute: World Economic Forum
@@ -8,6 +8,7 @@ editor:
   render-on-save: true
 format:
   revealjs:
+    auto-stretch: false
     code-copy: true
     code-link: true
     incremental: false
@@ -24,12 +25,18 @@ format:
       buttons: true
     preview-links: auto
     menu: false
+title-slide-attributes:
+  data-background-image: img/AdobeStock_430543026.jpeg
+  data-visibility: hidden
 from: markdown+emoji
 execute:
   enabled: true
   cache: true
 jupyter: python3
 ---
+
+
+## {chalkboard-buttons="false" background-image="img/AdobeStock_430543026.jpeg"  background-size="cover" }
 
 ## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover" }
 
@@ -41,7 +48,7 @@ jupyter: python3
 
 :heavy_check_mark: Python
 
-:heavy_check_mark: Statistical Distributions
+:heavy_check_mark: Statistical Distributions & Inference
 
 :heavy_check_mark: Bayesian Statistics
 
@@ -50,7 +57,6 @@ jupyter: python3
 :heavy_check_mark: AB Testing
 
 &#9744; [AB Testing in Python]{style="color:#ff412c;"}
-
 
 ## AB Testing
 
@@ -61,7 +67,7 @@ jupyter: python3
 - We have two versions of the website: `A` and `B`
 :::
 ::: {.column width="40%" }
-![](img/AdobeStock_519277519.jpeg){width="75%" fig-align="left"}
+![](img/AdobeStock_532613325.jpeg){width="75%" fig-align="left"}
 :::
 :::
 
@@ -183,6 +189,10 @@ Each visitor action to `convert` or not is Bernoulli distributed with conversion
 - Number of visitors can be different for each version
 - Conversions are happenning independently
 :::
+
+
+
+![](img/AdobeStock_601177870.jpeg){width="75%" height="75%" fig-align="center"}
 
 
 ## What Do We Want to Know?
