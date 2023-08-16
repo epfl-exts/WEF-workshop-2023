@@ -128,7 +128,7 @@ Suppose that there is a sensor in this room that measures the temperature. I tak
 ::: incremental
 -   10 values ranging from 18C^0^ to 22 C^0^
 -   I am interested in the average temperature, which is 20 based on the data
--   I conclude that $\bar{x}=20$ is an unbiased estimator of $\mu$
+-   I conclude that $\bar{x}=20$ is an unbiased estimator of $\theta$
 -   There is a Frequentist in the room!
 :::
 
@@ -141,7 +141,7 @@ Then you tell me that there is an issue with the sensor, as it caps values above
 <br>
 
 ::: incremental
--   You argue that $\bar{x}=20$ is no longer an unbiased estimator of $\mu$
+-   You argue that $\bar{x}=20$ is no longer an unbiased estimator of $\theta$
 -   That's true even though my 10 values were between 18 to 22
 -   Future realisations of the measurements could be large
 :::
@@ -153,9 +153,9 @@ Then you tell me that there is an issue with the sensor, as it caps values above
 As a Bayesian, you argue that: ☞ 🕖 ⏩️ 🧐<br>
 
 ::: incremental
--   You can have a prior about the parameter $\mu$
+-   You can have a prior about the parameter $\theta$
 -   Then, the 10 observed values can serve as a piece of evidence
--   That leads to a posterior about $\mu$
+-   That leads to a posterior about $\theta$
 :::
 
 ## Frequentism vs Bayesianism
@@ -174,9 +174,9 @@ frequentists reason horizontally, with mu fixed and x varying, while Bayesian in
 -   Frequentism replaces the choice of a prior with the choice of a method t(x), designed to answer the specific question at hand. This adds an arbitrary element to the inferential process
 - In the absence of genuine prior information, a whiff of subjectivity hangs over Bayesian results, even those based on uninformative priors. Classical frequentism claimed for itself the high ground of scientific objectivity
 
-**Frequentist**: they assume that we can [repeatedly]{.rn rn-type="highlight" rn-color="red"} have realisations of the measurements from the sensor, but we are able to only observe one such realisations, and infer $\mu$. The imaginary repeated realsations can constitute the whole spectrum of values for $\mu$
+**Frequentist**: they assume that we can [repeatedly]{.rn rn-type="highlight" rn-color="red"} have realisations of the measurements from the sensor, but we are able to only observe one such realisations, and infer $\theta$. The imaginary repeated realsations can constitute the whole spectrum of values for $\theta$
 
-- **Bayesians**: they take the only [observable]{style="color:red;"} realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
+- **Bayesians**: they take the only [observable]{style="color:red;"} realisation, and infer the whole spectrum of values for $\theta$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\theta$.
 :::
 
 ## {chalkboard-buttons="false" background-image="img/AdobeStock_81141285.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.6" background-size="cover"}
