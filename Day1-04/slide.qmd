@@ -1,25 +1,26 @@
 ---
 title: Statistical Inference
-subtitle: Frequentism vs Bayesianism
+subtitle: Frequentists vs Bayesians
 author: EPFL Extension School
+institute: World Economic Forum
+date: 2023-09-28
 editor:
-  render-on-save: true
+  render-on-save: false
 format:
   revealjs:
+    code-copy: true
+    code-link: true
     embed-resources: false
     smaller: true
-    scrollable: true
-    theme: simple
-    logo: img/logo_red.png
-    footer: '<https://www.extensionschool.ch>'
+    scrollable: false
+    theme: ../assets/theme.scss 
+    logo: ../assets/img/logo_red.png
     code-fold: true
     slide-number: true
     chalkboard:
       buttons: true
     preview-links: auto
     menu: false
-    mermaid:
-      theme: forest
 from: markdown+emoji
 execute:
   enabled: true
@@ -39,7 +40,7 @@ jupyter: python3
 
 <br>
 
-:heavy_check_mark: Statistical Distributions
+:heavy_check_mark: Statistical Distributions & Inference
 
 <br>
 
@@ -47,9 +48,9 @@ jupyter: python3
 
 <br>
 
-&#9744; [I: Bayesians vs Frequentists]{style="color:#ff412c;"}
+&#9744; [Frequentists vs Bayesians]{style="color:#ff412c;"}
 
-&#9744; [II: Introduction into AB Testing]{style="color:#ff412c;"}
+&#9744; [Introduction into AB Testing]{style="color:#ff412c;"}
 
 
 ## Statistical Inference
@@ -66,7 +67,7 @@ flowchart LR
 ::: fragment
 <br>
 
-### Frequentism VS Bayesianism
+### Frequentists VS Bayesians
 
 <br> <br>
 :::
@@ -74,8 +75,8 @@ flowchart LR
 ::: fragment
 | [approach]{style="color:green;"} | <font color="green">property</font> | <font color="green">evidence</font> | <font color="green"> property </font> |
 |:----------------:|:------------------:|:----------------:|:----------------:|
-|           Frequentism            |                 \-                  |             observe $x$             |           learn about $\mu$           |
-|           Bayesianism            |          prior about $\mu$          |             observe $x$             |           learn about $\mu$           |
+|           Frequentists            |                 \-                  |             observe $x$             |           learn about $\theta$           |
+|           Bayesians            |          prior about $\theta$          |             observe $x$             |           learn about $\theta$           |
 :::
 
 ::: incremental 
@@ -102,17 +103,19 @@ press c and use marker to circle around observe x for Freq approach. This approa
 ![](img/coin_flip-0.png){.absolute .fragment} 
 ![](img/coin_flip-2.png){.fragment .fade-in}
 
+. . . 
+
+Statistical methods that rely on [**sampling distributions**]{style="color:#ff332c"} are sometimes called [**frequentist**]{style="color:#ff332c"} methods.
+
+
 ::: notes
 notice that the graph has 11 numbers on the x axis because we're gonna repeat the experminet of flipping the coin 11 times, and each time we get different heads ratio. The binomial probability distribution in this figure is also called a sampling distribution. This terminology stems from the idea that any set of N flips is a representative sample of the behavior of the coin. If we were to repeatedly run experiments with a fair coin, such that in every experiment we flip the coin exactly N times, then, in the long run, the probability of getting each possible z (# of heads) would be the distribution shown in this plot.
 
 note that p(head)=0.5 is fixed by null hypothesis. The ratios on the x axis are coming from the samples
 :::
 
-## Sampling distribution
 
-<br> <br>
 
-Statistical methods that rely on [**sampling distributions**]{style="color:#ff332c"} are sometimes called [**frequentist**]{style="color:#ff332c"} methods.
 
 ## Example
 
@@ -167,14 +170,174 @@ As a Bayesian, you argue that: ☞ 🕖 ⏩️ 🧐<br>
 ::: notes
 frequentists reason horizontally, with mu fixed and x varying, while Bayesian inference proceeds vertically, with x fixed, according to the posterior distribution of mu.
 
--   Bayesian inference requires a prior distribution g(mu). When past experience provides g, there is every good reason to employ Bayes' theorem.
+- Bayesian inference requires a prior distribution g(mu). When past experience provides g, there is every good reason to employ Bayes' theorem.
 -   Frequentism replaces the choice of a prior with the choice of a method t(x), designed to answer the specific question at hand. This adds an arbitrary element to the inferential process
--   In the absence of genuine prior information, a whiff of subjectivity hangs over Bayesian results, even those based on uninformative priors. Classical frequentism claimed for itself the high ground of scientific objectivity
+- In the absence of genuine prior information, a whiff of subjectivity hangs over Bayesian results, even those based on uninformative priors. Classical frequentism claimed for itself the high ground of scientific objectivity
 
 **Frequentist**: they assume that we can [repeatedly]{.rn rn-type="highlight" rn-color="red"} have realisations of the measurements from the sensor, but we are able to only observe one such realisations, and infer $\mu$. The imaginary repeated realsations can constitute the whole spectrum of values for $\mu$
 
--   **Bayesians**: they take the only [observable]{style="color:red;"} realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
+- **Bayesians**: they take the only [observable]{style="color:red;"} realisation, and infer the whole spectrum of values for $\mu$. They don't rely on any other imaginary realisation. However they need to rely on a prior about $\mu$.
 :::
+
+## {chalkboard-buttons="false" background-image="img/AdobeStock_81141285.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.6" background-size="cover"}
+
+<!-- ### Introduction to A/B testing { style="color:#fcf6f5;" } -->
+
+## What is A/B testing?
+
+<br> 
+
+::: columns
+::: {.column width="60%" }
+- It is about comparing the performance of `two versions of a subject`. 
+- It tests a control version against a variant of it, and determines which of the two versions better leads to a `target action`.
+:::
+::: {.column width="40%" }
+![](img/AdobeStock_622804216.jpeg){width="80%" fig-align="left"}
+:::
+:::
+
+::: columns
+::: {.column width="60%" }
+- It is used in understanding the `user engagement` and behavior on services or products.
+- As an examples, in marketing, it is used to test which version of an `online advertisement` leads to more sales.  
+::: 
+::: {.column width="40%" }
+![](img/AdobeStock_480543921.jpeg){width="80%" fig-align="left"}
+:::
+:::
+
+::: notes
+- Version A might be used at present (thus forming the control group), while version B is modified in some respect vs. A (thus forming the treatment group). 
+- In general, it helps determine what is and isn’t working in the marketing campaign.
+- The big downside of multivariate testing is that you need an enormous amount of traffic for results to be statistically meaningful. 
+- bayes vs freq: if you’re testing a new feature for the first time or with a different user segment, those priors may not be relevant. The less similar a test is to a previous one, the better off you are starting fresh with a pure frequentist analysis
+- bayes vs freq: freq need more data (hence more visitors tested and over longer durations)
+- bayes vs freq: in freq you feel like you're doing a math problem, in bayes you're dealing with an everyday life problem
+:::
+
+## Implementing A/B Testing
+
+<!-- <br> -->
+
+::: columns
+::: {.column width="60%" }
+#### Do you research, understand the:
+  - Business
+  - Product
+  - Users
+:::
+::: {.column width="40%" }
+![](img/AdobeStock_260295411.jpeg){width="55%" fig-align="left"}
+:::
+:::
+
+::: columns
+::: {.column width="60%" }
+#### Formulate the problem
+  -  Analyze past data
+  -  Define the goal of the test
+  -  Choose the metrics to measure
+  <!-- -  Decide on the sample size   -->
+::: 
+::: {.column width="40%" }
+![](img/AdobeStock_527930015.jpeg){width="55%" fig-align="left"}
+:::
+:::
+
+::: columns
+::: {.column width="60%" }
+#### Run the test
+  -  Randomly assign users to groups
+  -  Record the results
+  -  Monitor the outcomes
+::: 
+::: {.column width="40%" }
+![](img/AdobeStock_382722926.jpeg){width="55%" fig-align="left"}
+:::
+:::
+
+## Implementing A/B Testing
+
+<br><br>
+
+::: columns
+::: {.column width="60%" }
+#### Statistical analysis of the results: 
+  - Frequentist approach
+  - <span class="fragment highlight-blue" fragment-index=3>Bayesian approach</span>
+:::
+::: {.column width="40%" }
+![](img/AdobeStock_95004747.jpeg){width="80%" fig-align="left"}
+:::
+:::
+
+<br>
+
+::: columns
+::: {.column width="60%" }
+#### Conclude the test
+  -  Decide whether to stop or continue the test
+  -  Implement the winning variation
+  -  Monitor the results
+::: 
+::: {.column width="40%" }
+![](img/AdobeStock_502864568.jpeg){width="80%" fig-align="left"}
+:::
+:::
+
+::: {.fragment fragment-index=1}
+::: {.absolute top="13%" bottom="55%"  right="62%" width="420" }
+::: {.blackbox}
+:::
+:::
+:::
+
+<!-- - Do you research: understand the business, the product, and its users
+- Formulate the problem
+  -  Analyze past data
+  -  Define the goal of the test
+  -  Choose the metrics to measure
+  -  Decide on the sample size
+- Run the test
+  -  Randomly assign users to groups
+  -  Record the results
+- Statistical analysis of the results: Frequentist and Bayesian
+- Conclude the test
+  -  Decide whether to stop or continue the test
+  -  Implement the winning variation
+  -  Monitor the results -->
+
+
+::: notes
+- Once the test is running, performance should be monitored in real time. Because the test may not go as expected, and should be stopped or adjusted.
+
+- stop or continue: Take what you learned and formulate your next round of testing.
+A/B testing and experimentation strategy are all about building feedback loops. Findings lead to more findings, optimization leads to further optimization, and rising customer engagement leads to more engagement. 
+
+- Statistical analysis of the results: 5% vs 7% then go for B, but a more rigorous approach would involve applying statistical testing to determine if the differences in response rates between A and B were statistically significant (that is, highly likely that the differences are real, repeatable, and not due to random chance)
+:::
+
+
+## Slide Title {visibility="hidden"}
+
+Tips to improve your A/B testing:
+- break your testing audience into some common sense segments, eg: By demographics, By geography, New vs. returning visitors
+- START SIMPLE, then REFINE YOUR SEGMENTS: 
+Experimentation is an iterative process, meaning you must take it step by step. Once you have meaningful results for these higher-level segments, you can go more granular and try to discover important nuances about smaller and smaller ones.
+- FAVOR RECENT DATA:
+Business moves fast. Your experimentation data should move even faster. 
+
+Common A/B testing mistakes:
+- lack of domain knowledge
+- not enough data
+- not enough time
+- not enough traffic
+- not enough conversions
+- not enough patience
+
+
+
 
 ## Introduction to A/B testing
 
@@ -209,7 +372,7 @@ how to do AB testing in a Bayesian way
 <!-- [shinylive](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMASxlWICcyACAZwAsaJs2B3KGUIcAOhDoNmLGINQAbYmTk0ARlmzzFLKGxbyyYiU1YQArvWzbdEVGIBmjYjHZceLI1ICC6PC0aUAEzhGX1Mae0dnNkIaHAw2MkFdD1YVOESxMTRUAH0wlgBeFjCsKABzOBy7OTCAgAoxFiaXbl4BIQ4MMg44eHjTVGCexzqASjxG5pK5KGxiUzIcthoglShGBohm7eKaUog4OSWVuDWNyZ2dgGIWABUaJTgLy6m9jgAWTZfvlhEwAAliHwWAFiHBdKh1rB0sFdMQ7CxunAWAAhdJQEE0BKMVQLGikFjCKAQCqInouNDI+HuMgQxxrFQ0ZRkSxBCDLFksOymCCEMj4iAAfj+z2+41FLxu3FQC3YyiCjAllxK0oWS3lwQaKD+vj+AAUofAKIxtDqWAAGXwAVktLCt4q2PyaKpsarYGvOYBUZv1hphJu9+At1tt9omjqdJVQWoAcoo4IhtCwAHzBlgqFMWv4OsXh75R4mHHIybhfJ27DDzMgyxaaMha6DwHKoAJ2bN5l455oO0aZCBiIIItjBABumtVZF8VZrvmHbGWpFGiGeAAFpwtV-4IAqsAp61A5GQCn9PCw9QARABi2eeg5YjcqLbsY2XEZ2NgwjGJoJg8TgcHqABGABOAA2AAOc1IMA3s322G5h1YJE-GJUlzQAHgKAAPTDAKVFgsMKe9MGUdlIUIOA6ltQCQ1g759F3RQ6iw3w0kSLBW2Y3wJwwKAxm410yAwFQxnGX4vQAWjNOQ+AKABmOiXgY-lHi1VB6SgRlmVZSgOUsbleX5AlqTRDIwEUy4GOwGY0jkLUbzg5oGKwmzDns8z8IYuQ4Aqbc6gUQhjy9cEDCDBxoVIApLwPYdYM8w94g4IExj7LJ0CI7xo2yPIaFnUdgl8VZTDKApbkYUw4FgsAAF88HAB9qH8ABHMJ-Hgcg2C6LCyHwIhSAoKhkE4Vp+EEYQaoAXSAA) -->
 
 
-## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
+<!-- ## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
 
 ![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
 
@@ -220,4 +383,4 @@ Optional hands-on session:
 
 ::: notes
 let them run code in the notebook that does AB testing with synthetic data based on frequentist approach, and say thaz they will learn bayesian approach tomorrow
-:::
+::: -->
