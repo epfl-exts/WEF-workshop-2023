@@ -45,7 +45,7 @@ jupyter: python3
 
 <br>
 
-:heavy_check_mark: Statistical Distributions
+:heavy_check_mark: Statistical Distributions & Inference
 
 <br>
 
@@ -120,7 +120,6 @@ If not, how they should be adapted to the new situation?
 
 ::: goal
 This is where Bayesian Statistics steps in and provide answers
-Calculate the mean loan amount.
 :::
 
 ## Bayes rule {.smaller}
@@ -153,7 +152,16 @@ press c to activate the chalk and circle on the P(arrive on time \| it's raining
 
 More formally, Bayes rule says:
 
-$$P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text{arrive on time})}{P(rain)}$$
+
+
+![](img/AdobeStock_628760640.jpeg){width="55%" height="30%" fig-align="center"}
+
+<br>
+
+::: fragment
+$P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text{arrive on time})}{P(rain)}$
+:::
+
 
 ## Bayes rule: an example
 
@@ -162,7 +170,7 @@ $$P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text
 ::: incremental
 -   **My prior**: 90% of WEF employees are on time
 
--   **Evidence**: a speaker at the forum will be from WEF NY office
+-   **Evidence**: a speaker at the annual meeting will be from WEF NY office
 
 -   What is my **posterior**? what is the probability that the speaker will be on time?
 :::
@@ -224,7 +232,7 @@ We are usually interested in the full posterior **distribution** and not only in
 
 > [**Numerical Methods**:]{style="color: #6ebef0;"}
 
-- They are based on Markov Chain Monte Carlo (MCMC) `sampling` methods
+- They are based on Markov Chain Monte Carlo `sampling` methods
 - Examples are Metropolis-Hastings, Gibbs, and No-U-Turn Sampler (NUTS) methods
 - We will use these techniques in the hands-on sessions tomorrow
 
@@ -440,7 +448,7 @@ Let's begin:
 ::: footer
 :::
 
-## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg"  background-size="cover"}
+## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_70396911.jpeg" background-size="99.8%"}
 
 ::: footer
 
