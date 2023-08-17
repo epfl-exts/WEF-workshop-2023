@@ -47,15 +47,18 @@ jupyter: python3
 ## Data analysis with Python
 #### A quick refresher
 
-Durig the next hour, you will be working with the `Swiss communes` data {{< fa database >}} collected from multiple public resources which are published by the Federal Statistical Office of Switzerland. 
+<br>
+
+Durig the next hour, you will be working with the `Swiss communes` data {{< fa database >}} published by the Federal Statistical Office of Switzerland. 
 
 The data is available in the `data` folder of the course repository.
 
 
+## Data analysis with Python
 
-## Swiss Communes Data {{< fa database >}}
+#### Swiss Communes Data 
 
-
+::: small-font-df
 ```{python}
 #| echo: false
 #| eval: true 
@@ -66,27 +69,29 @@ import pandas as pd
 df = pd.read_csv('data/communes.csv')
 df.sample(3).T
 ```
+:::
 
-. . .
-
-::: {.absolute top="13%" bottom="5%" left="20%" width="245" }
+::: fragment
+::: {.absolute top="18%" bottom="7%"  left="22%" width="245" }
 ::: {.blackbox}
 :::
 :::
+:::
 
-. . .
 
-::: {.absolute top="38%" bottom="50%" left="20%" width="650" }
+::: fragment
+::: {.absolute top="41%" bottom="48%" left="20%" width="610" }
 ::: {.blackbox}
 :::
 :::
+:::
 
-. . .
-
-::: {.absolute top="62%" bottom="20%" left="20%" width="650"}
+::: fragment
+::: {.absolute top="62%" bottom="22%" left="20%" width="610"}
 ::: {.blackbox}
 :::
 :::
+::: 
 
 ## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
 
@@ -96,21 +101,23 @@ Let's begin:
 
 -   Open the Jupyter notebook in `Day1-01/hands-on.ipynb`
 -   Follow the instructions in the notebook, and provide your answers in the code cells
+-   You will be able to find the solution notebook by the end of the day in `Day1-01/hands-on-solution.ipynb`
+
 
 ::: footer
 :::
 
 ## Solutions
 
-::: info-box
+<!-- ::: info-box
 You will be able to find the solution notebook by the end of the day in `Day1-01/hands-on-solution.ipynb`
-:::
+::: -->
 
 <br>
 
 #### A. Importing and cleaning
 
-
+::: small-font-df
 ```{python}
 #| echo: true
 #| eval: true 
@@ -329,11 +336,11 @@ fig, axes = plt.subplots(nrows = 1,
                          ncols = 2,
                          figsize = (12, 4), sharey=True)
 
-sns.scatterplot(data=df, x="East coordinate", y="North coordinate", hue='Elevation', ax=axes[0])
+sns.scatterplot(data=df, x="East coordinate", y="North coordinate", hue='Elevation', ax=axes[0], s=15)
 axes[0].legend(loc='upper left')
 axes[0].set_title('Commune map of Switzerland')
 
-sns.scatterplot(data=df, x="East coordinate", y="North coordinate", hue='Language', ax=axes[1])
+sns.scatterplot(data=df, x="East coordinate", y="North coordinate", hue='Language', ax=axes[1], s=15)
 axes[1].legend(loc='upper left')
 axes[1].set_title('Commune map of Switzerland')
 
@@ -341,6 +348,7 @@ fig.tight_layout()
 plt.show()
 ```
 
+:::
 
 
 

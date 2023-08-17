@@ -67,7 +67,7 @@ jupyter: python3
 - We have two versions of the website: `A` and `B`
 :::
 ::: {.column width="40%" }
-![](img/AdobeStock_532613325.jpeg){width="75%" fig-align="left"}
+![](img/AdobeStock_532613325.jpeg){width="70%" fig-align="left"}
 :::
 :::
 
@@ -77,7 +77,7 @@ jupyter: python3
 - We can use AB testing to compare the two versions  
 ::: 
 ::: {.column width="40%" }
-![](img/AdobeStock_120197715.jpeg){width="75%" height="75%" fig-align="left"}
+![](img/AdobeStock_120197715.jpeg){width="65%" height="65%" fig-align="left"}
 :::
 :::
 

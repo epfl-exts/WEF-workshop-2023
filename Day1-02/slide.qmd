@@ -46,7 +46,7 @@ jupyter: python3
 
 <br>
 
-&#9744; [Statistical Distributions]{style="color:#ff412c;"}
+&#9744; [Statistical Distributions and Inference]{style="color:#ff412c;"}
 
 
 ## Statistical Distributions
@@ -54,7 +54,7 @@ jupyter: python3
 
 <br>
 
-Distributions describe how values are spread over certain range.
+Distributions describe how values are spread over certain ranges.
 
 Values can … 
 
@@ -84,11 +84,11 @@ values can be available to us or not e.g.
 
 <br>
 
-> Distributions are all around us, so it makes sense to formulate them ❗ 
+> Distributions are all around us, so it makes sense to formulate them in a general way. 
 
 <br>
 
-So we have statistical distributions 
+That's where we have statistical distributions: e.g.
 <span class="fragment" fragment-index=1>`Normal`, </span>
 <span class="fragment" fragment-index=2>`Beta`, </span>
 <span class="fragment" fragment-index=3>`Gamma`, . . .</span>
@@ -119,21 +119,21 @@ So we have statistical distributions
 
 <br>
 
-The shape of statistical distributions can be characterized by: 
+The shape of statistical distributions can be characterized by their parameters, or more generally by: 
 
 - a measure of center, e.g. mean
 - a measure of spread, e.g. variance
 - a measure of asymmetry, e.g. skewness
 - a measure that describe its tails, e.g. kurtosis
 
-create images that show the mean etc, and use fragments to show them one by one, also use keynote to edit them
+<!-- create images that show the mean etc, and use fragments to show them one by one, also use keynote to edit them -->
 
 ## Statistical Distributions
 #### Properties
 
 <br>
 
-> You may see different names for distributions❗
+> You may see that distribution are named differently:
 
 <br>
 
@@ -149,9 +149,9 @@ probability `mass` function ☞ PMF
 
 <br>
 
-What if the distribution is unknown to us: 
+What if a distribution is unknown to us: 
 
-- we only observe realizations of it
+- we only observe a realization of it
 - we wish to know more, e.g. about a certain property of it
 - we can learn about the property from the realization
 
@@ -171,7 +171,7 @@ certain property: eg mean in Normal or proportion p in Bernoulli
 
 
 
-## Hands-on session: Example of Normal distribution
+## Example of Normal distribution
 
 <br>
 
@@ -190,12 +190,15 @@ mean, var, skew, kurt = norm.stats(m, s, moments='mvsk')
 display(mean, var, skew, kurt)
 ```
 
-## Hands-on session: Example of Normal distribution
+## Example of Normal distribution
 
 <br>
 
 ::: panel-tabset
+
 ### plot
+
+
 ```{python}
 #| echo: true
 #| eval: true

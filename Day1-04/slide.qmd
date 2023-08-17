@@ -73,10 +73,10 @@ flowchart LR
 :::
 
 ::: fragment
-| [approach]{style="color:green;"} | <font color="green">property</font> | <font color="green">evidence</font> | <font color="green"> property </font> |
+| [approach]{style="color:green;"} | <font color="green">prior about $\theta$</font> | <font color="green">evidence</font> | <font color="green"> outome </font> |
 |:----------------:|:------------------:|:----------------:|:----------------:|
-|           Frequentists            |                 \-                  |             observe $x$             |           learn about $\theta$           |
-|           Bayesians            |          prior about $\theta$          |             observe $x$             |           learn about $\theta$           |
+|           Frequentists            |                 No                  |             observe $x$             |           gain limited knowledge about $\theta$           |
+|           Bayesians            |          Yes          |             observe $x$             |           learn everything about $\theta$           |
 :::
 
 ::: incremental 
@@ -90,18 +90,18 @@ press c and use marker to circle around observe x for Freq approach. This approa
 
 ## Sampling distribution
 
-![image](img/coin_flip.png){.absolute .r-stretch  fig-align="center"} 
-![](img/coin_flip-4.png){.absolute .fragment} 
-![](img/coin_flip-3.png){.absolute .fragment} 
-![](img/coin_flip-1.png){.absolute .fragment} 
-![](img/coin_flip-10.png){.absolute .fragment} 
-![](img/coin_flip-6.png){.absolute .fragment} 
-![](img/coin_flip-8.png){.absolute .fragment} 
-![](img/coin_flip-9.png){.absolute .fragment} 
-![](img/coin_flip-5.png){.absolute .fragment} 
-![](img/coin_flip-7.png){.absolute .fragment} 
-![](img/coin_flip-0.png){.absolute .fragment} 
-![](img/coin_flip-2.png){.fragment .fade-in}
+![](img/coin_flip.png){.absolute .r-stretch  fig-align="center" width="50%"} 
+![](img/coin_flip-4.png){.absolute .fragment  width="50%"} 
+![](img/coin_flip-3.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-1.png){.absolute .fragment  width="50%"} 
+![](img/coin_flip-10.png){.absolute .fragment  width="50%"} 
+![](img/coin_flip-6.png){.absolute .fragment   width="50%"} 
+![](img/coin_flip-8.png){.absolute .fragment   width="50%"}
+![](img/coin_flip-9.png){.absolute .fragment   width="50%"}
+![](img/coin_flip-5.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-7.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-0.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-2.png){.fragment .fade-in  width="50%"}
 
 . . . 
 
@@ -150,7 +150,7 @@ Then you tell me that there is an issue with the sensor, as it caps values above
 
 <br> <br>
 
-As a Bayesian, you argue that: ☞ 🕖 ⏩️ 🧐<br>
+As a Bayesian, you argue that: 
 
 ::: incremental
 -   You can have a prior about the parameter $\theta$
