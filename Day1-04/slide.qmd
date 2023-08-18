@@ -1,32 +1,38 @@
 ---
 title: Statistical Inference
 subtitle: Frequentists vs Bayesians
-author: EPFL Extension School
 institute: World Economic Forum
+author: EPFL Extension School
 date: 2023-09-28
 editor:
-  render-on-save: false
+  render-on-save: true
 format:
   revealjs:
     code-copy: true
     code-link: true
-    embed-resources: false
+    embed-resources: true
     smaller: true
     scrollable: false
     theme: ../assets/theme.scss 
     logo: ../assets/img/logo_red.png
     code-fold: true
     slide-number: true
-    chalkboard:
-      buttons: true
+    # chalkboard:
+    #   buttons: true
     preview-links: auto
     menu: false
+title-slide-attributes:
+  data-background-image: img/AdobeStock_514049386.jpeg
+  data-background-size: cover
+  data-background-position: 100%, center
+  data-background-opacity: ".2" 
 from: markdown+emoji
 execute:
   enabled: true
   cache: false
 jupyter: python3
 ---
+
 
 ## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover" }
 
@@ -54,8 +60,8 @@ jupyter: python3
 
 
 ## Statistical Inference
-
-<br> <br>
+#### Objective
+<br> 
 
 
 
@@ -67,7 +73,7 @@ flowchart LR
 ::: fragment
 <br>
 
-### Frequentists VS Bayesians
+#### Frequentists vs Bayesians
 
 <br> <br>
 :::
@@ -80,8 +86,8 @@ flowchart LR
 :::
 
 ::: incremental 
-- Frequentists rely on the [**sampling distributions**]{style="color:#ff332c"}
-- What is [**sampling distributions**]{style="color:#ff332c"}? :thinking:
+- Frequentists rely on the [sampling distributions]{style="color:#ff332c"}
+- What is [sampling distributions]{style="color:#ff332c"}? :thinking:
 :::
 
 ::: notes
@@ -105,7 +111,7 @@ press c and use marker to circle around observe x for Freq approach. This approa
 
 . . . 
 
-Statistical methods that rely on [**sampling distributions**]{style="color:#ff332c"} are sometimes called [**frequentist**]{style="color:#ff332c"} methods.
+Statistical methods that rely on [sampling distributions]{style="color:#ff332c"} are sometimes called [frequentist]{style="color:#ff332c"} methods.
 
 
 ::: notes
@@ -116,8 +122,8 @@ note that p(head)=0.5 is fixed by null hypothesis. The ratios on the x axis are 
 
 
 
-
-## Example
+## Frequentists vs Bayesians
+#### Example
 
 <br> <br>
 
@@ -132,7 +138,8 @@ Suppose that there is a sensor in this room that measures the temperature. I tak
 -   There is a Frequentist in the room!
 :::
 
-## Example
+## Frequentists vs Bayesians
+#### Example
 
 <br> <br>
 
@@ -146,7 +153,8 @@ Then you tell me that there is an issue with the sensor, as it caps values above
 -   Future realisations of the measurements could be large
 :::
 
-## Example
+## Frequentists vs Bayesians
+#### Example
 
 <br> <br>
 
@@ -160,11 +168,11 @@ As a Bayesian, you argue that:
 
 ## Frequentism vs Bayesianism
 
-![](img/bayes%20-%20freq_bayes.jpg){.absolute bottom="20"}
+![](img/freq_bayes.jpg){.absolute bottom="20"}
 
-![](img/bayes%20-%20freq.jpg){.absolute .fragment .fade-in bottom="20"}
+![](img/freq.jpg){.absolute .fragment .fade-in bottom="20"}
 
-![](img/bayes%20-%20bayes.jpg){.absolute .fragment .fade-in bottom="20"}
+![](img/bayes.jpg){.absolute .fragment .fade-in bottom="20"}
 
 
 ::: notes

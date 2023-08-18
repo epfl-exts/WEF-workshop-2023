@@ -5,14 +5,14 @@ author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-29
 editor:
-  render-on-save: true
+  render-on-save: false
 format:
   revealjs:
     auto-stretch: false
     code-copy: true
     code-link: true
     incremental: false
-    embed-resources: false
+    embed-resources: true
     smaller: true
     scrollable: false
     theme: ../assets/theme.scss 
@@ -21,8 +21,8 @@ format:
     code-fold: true
     code-line-numbers: false
     slide-number: true
-    chalkboard:
-      buttons: true
+    # chalkboard:
+    #   buttons: true
     preview-links: auto
     menu: false
 title-slide-attributes:
@@ -146,7 +146,7 @@ $$\theta_B \sim Beta(\alpha_B, \beta_B)$$
 ::: columns
 ::: {.column width="70%" }
 #### Likelihoods
-- Both versions have the same number of `visitors` 
+- Both versions get `visitors` 
 - `conversion` is Bernoulli distributed with conversion probability $\theta$ 
 :::
 ::: {.column width="30%" }
@@ -529,6 +529,8 @@ explain the InferenceData object
 
 ## Exploring the Posterior
 
+<br><br>
+
 
 ```{python}
 #| echo: true
@@ -536,8 +538,9 @@ explain the InferenceData object
 #| code-fold: false
 
 pm.summary(trace, var_names=["theta", "uplift"]).loc[:, ["mean","sd", "hdi_3%", "hdi_97%"]]
-
 ```
+
+- DISCUSS THE OUTPUT
 
 ::: notes
 did you expect to have 0.25 as the mean for theta_A? why?
@@ -547,20 +550,38 @@ what is HDI?
 
 ## Exploring the Posterior
 
-we can also use the `ArviZ` library for plotting. The main advantage is that it works pretty well with the output data. Also, it gives the HDI for the Relative Uplift distribution.
+<br>
 
+We can also use the `ArviZ` library for plotting. The main advantage is that it works pretty well with the output data. Also, it gives the HDI for the Relative Uplift distribution.
+
+<br>
+
+::: columns
+::: {.column width="60%" }
 ```{python}
 #| echo: true
 #| eval: true
 #| code-fold: false
-#| code-line-numbers: 1,2
-arviz.plot_posterior(trace.posterior["uplift"], **plotting_defaults, figsize=(6, 4))
+#| code-line-numbers: 1,4
+arviz.plot_posterior(trace.posterior["uplift"], 
+                    **plotting_defaults, 
+                    figsize=(5, 3))
 
 plt.title("B vs. A Relative Uplift Distribution", fontsize=10)
 plt.axvline(x=0, color="red");
 ```
+<br/>
+
+:::
+::: {.column width="40%" }
 
 > We will work more with `InferenceData` and `ArviZ` in the hands-on session.
+
+
+- DISCUSS THE OUTPUT
+:::
+:::
+
 
 ## Value Conversion
 
@@ -655,7 +676,7 @@ In reality we have more than just a single visitor.
 
 <br>
 
-The total conversions follows a Binomial distribution:
+So, the total conversions follows a Binomial distribution:
 
 ::: columns
 ::: {.column width="70%" }
@@ -924,7 +945,7 @@ After the coffee break:
 ::: footer
 :::
 
-## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg"  background-size="cover"}
+## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg"  background-size="cover" background-opacity="0.8" }
 
 ::: footer
 
