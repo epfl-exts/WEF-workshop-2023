@@ -181,3 +181,6 @@ how to design hands on sessions:
 - there should be a clear time limit for each hands on session
 - there should be atleast a session where they do things on their own, and I will be there to help them only
 
+
+
+
