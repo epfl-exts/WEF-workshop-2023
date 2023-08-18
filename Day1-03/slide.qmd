@@ -10,7 +10,7 @@ format:
   revealjs:
     code-copy: true
     code-link: true
-    embed-resources: false
+    embed-resources: true
     smaller: true
     scrollable: false
     theme: ../assets/theme.scss 
@@ -18,8 +18,8 @@ format:
     code-fold: true
     code-line-numbers: false
     slide-number: true
-    chalkboard:
-      buttons: true
+    # chalkboard:
+    #   buttons: true
     preview-links: auto
     menu: false
 title-slide-attributes:
@@ -261,7 +261,7 @@ We are usually interested in the full posterior **distribution** and not only in
 
 Remember the Bayes rule:
 
-<div style="position:relative; width:640px; height:480px; margin:0 auto;">
+<div style="position:relative; width:640px; height:300px; margin:0 auto;">
   <img class="fragment" src="img/AdobeStock_628760640.jpeg"   style="position:absolute;top:0;left:0;" />
   <img class="fragment" src="img/AdobeStock_628760640_1.jpeg" style="position:absolute;top:0;left:0;" />
   <img class="fragment" src="img/AdobeStock_628760640_2.png" style="position:absolute;top:0;left:0;" />
@@ -564,7 +564,7 @@ Let's begin:
 ::: footer
 :::
 
-## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg" background-size="99.8%"}
+## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg" background-size="99.8%" background-opacity="0.8" }
 
 ::: footer
 

@@ -10,7 +10,7 @@ format:
   revealjs:
     code-copy: true
     code-link: true
-    embed-resources: false
+    embed-resources: true
     smaller: true
     scrollable: true
     theme: ../assets/theme.scss
@@ -18,8 +18,8 @@ format:
     code-fold: true
     code-line-numbers: false
     slide-number: true
-    chalkboard:
-      buttons: true
+    # chalkboard:
+    #   buttons: true
     preview-links: auto
     menu: false
 title-slide-attributes:
@@ -354,7 +354,7 @@ plt.show()
 
 
 
-## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg"  background-size="cover"}
+## {chalkboard-buttons="false" background-image="../assets/img/Coffee_AdobeStock_318442666.jpeg"  background-size="cover" background-opacity="0.8" }
 
 ::: footer
 
