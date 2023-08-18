@@ -12,7 +12,7 @@ format:
     code-link: true
     embed-resources: false
     smaller: true
-    scrollable: true
+    scrollable: false
     theme: ../assets/theme.scss
     logo: ../assets/img/logo_red.png
     code-fold: true
@@ -54,7 +54,9 @@ jupyter: python3
 
 <br>
 
-Distributions describe how values are spread over certain ranges.
+> Distributions describe how values are spread over certain ranges.
+
+<br>
 
 Values can … 
 
@@ -119,21 +121,29 @@ That's where we have statistical distributions: e.g.
 
 <br>
 
-The shape of statistical distributions can be characterized by their parameters, or more generally by: 
+> The shape of statistical distributions can be characterized by their parameters, 
+
+<br>
+
+or more generally by: 
 
 - a measure of center, e.g. mean
 - a measure of spread, e.g. variance
 - a measure of asymmetry, e.g. skewness
 - a measure that describe its tails, e.g. kurtosis
 
-<!-- create images that show the mean etc, and use fragments to show them one by one, also use keynote to edit them -->
+[note: add images for each case]{style="color:#ff412c;"}
+
 
 ## Statistical Distributions
 #### Properties
 
 <br>
 
-> You may see that distribution are named differently:
+> You may see that distribution are named differently.
+
+<br>
+For instance:
 
 <br>
 
@@ -143,17 +153,37 @@ probability `mass` function ☞ PMF
 
 `cumulative` distribution function ☞ CDF
 
+<br>
+
+Each of these functions has its own properties and purpose.
+
+[note: add images for each case]{style="color:#ff412c;"}
 
 ## Statistical Inference
 #### Hypothesis testing
 
 <br>
 
-What if a distribution is unknown to us: 
+> What if a distribution is unknown to us: 
 
 - we only observe a realization of it
 - we wish to know more, e.g. about a certain property of it
 - we can learn about the property from the realization
+
+<!-- <br> -->
+
+
+![](img/AdobeStock_430401370.jpeg){width="50%" height="50%" fig-align="center" }
+
+
+::: notes
+certain property: eg mean in Normal or proportion p in Bernoulli
+:::
+
+## Statistical Inference
+#### Hypothesis testing
+
+<br>
 
 > Learning from a realization versus learning from true distribution❓ 
 
@@ -164,14 +194,8 @@ How big is the gap? 🧐
 - this is an inferential question
 - the gap is negligible for large samples
 
-
-::: notes
-certain property: eg mean in Normal or proportion p in Bernoulli
-:::
-
-
-
-## Example of Normal distribution
+## Hands-on session warm-up
+#### Example of Normal distribution
 
 <br>
 
@@ -190,8 +214,8 @@ mean, var, skew, kurt = norm.stats(m, s, moments='mvsk')
 display(mean, var, skew, kurt)
 ```
 
-## Example of Normal distribution
-
+## Hands-on session warm-up
+#### Example of Normal distribution
 <br>
 
 ::: panel-tabset

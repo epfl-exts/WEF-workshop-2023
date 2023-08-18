@@ -23,7 +23,9 @@ format:
     preview-links: auto
     menu: false
 title-slide-attributes:
-  data-background-image: img/AdobeStock_591588621.jpeg
+  data-background-image: img/AdobeStock_589883406.jpeg
+  data-background-size: cover
+  data-background-opacity: "0.5"
 from: markdown+emoji
 execute:
   enabled: true

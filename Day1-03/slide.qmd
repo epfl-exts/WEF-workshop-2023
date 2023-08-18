@@ -22,6 +22,11 @@ format:
       buttons: true
     preview-links: auto
     menu: false
+title-slide-attributes:
+  data-background-image: img/AdobeStock_440229000.jpeg
+  data-background-size: cover
+  data-background-position: 100%, center
+  data-background-opacity: ".15" 
 from: markdown+emoji
 filters:
   - shinylive
@@ -29,7 +34,6 @@ execute:
   enabled: true
   cache: true
 jupyter: python3
-
 ---
 
 
@@ -80,7 +84,7 @@ jupyter: python3
 ::: {.column width="50%"}
 -   That's our perception about how likely these two events are
 
--   Let's call that our [prior]{style="color:#ff412c"} knowledge about the events
+-   Let's call that our [prior]{style="color: blue"} knowledge about the events
 :::
 
 ::: {.column width="50%"}
@@ -103,7 +107,7 @@ Suppose that the probability that one arrives on time to work is 90%. The only o
 ::: columns
 ::: {.column width="50%"}
 -   What if we start learning more about the 'situation'?
--   Should we stick to our [prior]{style="color:#ff412c"} idea about the events and their possibilities?
+-   Should we stick to our [prior]{style="color: blue"} idea about the events and their possibilities?
 :::
 
 ::: {.column width="50%"}
@@ -118,25 +122,27 @@ If not, how we should adapt our priors to the new situation?
 . . .
 
 
-::: goal
-This is where Bayesian Statistics steps in and provide answers
-:::
+<!-- ::: goal -->
+> This is where Bayesian Statistics steps in and provide answers
+<!-- ::: -->
+
+
 
 ## Bayes rule {.smaller}
 
-<br> Byes rule provides a simple passage from our [prior]{style="color:#ff412c"} idea to [new insight]{style="background-color: yellow;"}
+<br> Byes rule provides a simple passage from our [prior]{style="color: blue"} idea to [new insight]{style="background-color: #fadf43;"}
 
 ::: fragment
-![](img/bayes%20-%20rule.png){width="70%" height="70%" fig-align="center"}
+![](img/bayes-rule.jpeg){width="70%" height="70%" fig-align="center"}
 :::
 
 ::: fragment
-![](img/bayes%20-%20rule%20-%20example.jpg){width="70%" height="70%" fig-align="center"}
+![](img/bayes-rule-example.jpg){width="70%" height="70%" fig-align="center"}
 :::
 
 . . .
 
-Let's call the new idea a [posterior]{style="background-color: yellow;"}
+Let's call the new idea a [posterior]{style="background-color: #fadf43;"}
 
 . . .
 
@@ -152,101 +158,132 @@ press c to activate the chalk and circle on the P(arrive on time \| it's raining
 
 More formally, Bayes rule says:
 
+<div style="position:relative; width:640px; height:480px; margin:0 auto;">
+  <img class="fragment" src="img/AdobeStock_628760640.jpeg"   style="position:absolute;top:0;left:0;" />
+  <!-- <img class="fragment" src="img/AdobeStock_628760640_1.jpeg" style="position:absolute;top:0;left:0;" /> -->
+  <!-- <img class="fragment" src="img/AdobeStock_628760640_2.png" style="position:absolute;top:0;left:0;" /> -->
+</div>
+
+<!-- ![](img/AdobeStock_628760640.jpeg){width="55%" height="30%" fig-align="center"} -->
 
 
-![](img/AdobeStock_628760640.jpeg){width="55%" height="30%" fig-align="center"}
-
-
-::: fragment
+<!-- ::: fragment
 $P(\text{arrive on time} | rain) = \frac{P(rain | \text{arrive on time})P(\text{arrive on time})}{P(rain)}$
-:::
+::: -->
 
+<!-- ## Bayes rule
 
-## Bayes rule: an example
+<br> <br>
+
+More formally, Bayes rule says:
+
+<div class="r-stack" style="position:relative; width:640px; height:480px; margin:0 auto;">
+  <img class="fragment current-visible" src="img/AdobeStock_628760640.jpeg" style="position:absolute;top:0;left:0;">
+  <img class="fragment current-visible" src="img/AdobeStock_628760640_1.jpeg" style="position:absolute;top:0;left:0;">
+  <img class="fragment" src="img/AdobeStock_628760640_2.png" style="position:absolute;top:0;left:0;">
+</div> -->
+
+## Bayes rule
+#### An example 
 
 
 
 ::: incremental
 -   **My prior**: 90% of WEF employees are on time
 
--   **Evidence**: a speaker at the annual meeting will be from WEF NY office
+-   **New knowledge**: a speaker at the annual meeting will be from WEF NY office
 
 -   What is my **posterior**? what is the probability that the speaker will be on time?
 :::
 
+<div style="position:relative; width:640px; height:480px; margin:0 auto;">
+  <img class="fragment" src="img/bayes-example1.jpg"   style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/bayes-example2.jpg" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/bayes-example3.jpg" style="position:absolute;top:0;left:0;" />
+</div>
 
+<!-- ![](img/bayes-example1.jpg){.absolute .fragment width="70%" height="70%" fig-align="center"}
 
+![](img/bayes-example2.jpg){.absolute .fragment width="70%" height="70%" fig-align="center"}
 
-
-![](img/bayes-example1.jpg){.absolute .fragment width="70%" height="70%" }
-
-![](img/bayes-example2.jpg){.absolute .fragment width="70%" height="70%" }
-
-![](img/bayes-example3.jpg){.absolute .fragment width="70%" height="70%" }
-
+![](img/bayes-example3.jpg){.absolute .fragment width="70%" height="70%" fig-align="center"}
+ -->
 
 ::: notes
 posterior p(speaker is on time \| ny office) or posterior p(wef on time \| ny office)?
 :::
 
-## Bayes rule: an example {.smaller}
+## Bayes rule
+#### An example 
 
+<br> <br>
+<!-- ![](img/bayes-example3.jpg){width="60%" height="60%" fig-align="right"} -->
 
-
-![](img/bayes-example3.jpg){width="60%" height="60%" fig-align="center"}
-
-::: {style="font-size:14px"}
-::: fragment
-```{=tex}
+::: columns
+::: {.column width="35%" }
+::: {style="font-size:16px"}
 \begin{align}
 P(\text{on time}|\text{NY office})& = \frac{P(\text{NY office}|\text{on time})\times P(\text{on time})}{P(\text{NY office})} \\
 & = \frac{0.4 \times 0.9}{0.4 \times 0.9 + 0.8 \times 0.1} = 0.82
 \end{align}
-```
+:::
+:::
+::: {.column width="65%" }
+![](img/bayes-example3.jpg){width="80%" height="80%" fig-align="right"}
 :::
 :::
 
-. . .
 
-my prior has dropped from **90% to 82%**
 
+<!-- ::: {style="font-size:16px"}
+::: fragment
+\begin{align}
+P(\text{on time}|\text{NY office})& = \frac{P(\text{NY office}|\text{on time})\times P(\text{on time})}{P(\text{NY office})} \\
+& = \frac{0.4 \times 0.9}{0.4 \times 0.9 + 0.8 \times 0.1} = 0.82
+\end{align}
+:::
+::: -->
+
+::: fragment
+> My prior has dropped from **90% to 82%**
+:::
 
 ::: notes
 press c to activate the chalk and circle on the prior 90% and posterior 82% press c again to turn it off
 :::
 
+
 ## How to obtain the posterior?
 
+<br> 
 
-We are usually interested in the full posterior **distribution** and not only in the **point** estimates. There are at least two approaches to obtain the distribution:
+We are usually interested in the full posterior **distribution** and not only in the **point** estimates. 
 
+Remember the Bayes rule:
 
-> [**Analytical Methods**:]{style="color: #6ebef0;"}
+<div style="position:relative; width:640px; height:480px; margin:0 auto;">
+  <img class="fragment" src="img/AdobeStock_628760640.jpeg"   style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/AdobeStock_628760640_1.jpeg" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/AdobeStock_628760640_2.png" style="position:absolute;top:0;left:0;" />
+</div>
 
-- They are based on `exact` formulas and conjugate prior concept
-- Examples are Beta and Gamma distributions
-- We introduce these methods and will use them in the hands-on session today
+. . .
 
-. . . 
+Let's rewrite it as:
 
-> [**Numerical Methods**:]{style="color: #6ebef0;"}
+$$\color{#962cff}{P(\theta|data)} \propto \color{red}{P(data|\theta)}\times\color{blue}{P(\theta)}$$
 
-- They are based on Markov Chain Monte Carlo `sampling` methods
-- Examples are Metropolis-Hastings, Gibbs, and No-U-Turn Sampler (NUTS) methods
-- We will use these techniques in the hands-on sessions tomorrow
-
-
-::: notes
-In Bayesian inference, we are interested in the posterior **distribution** of the parameters of interest, and not only in the **point** estimates.
-So, question is how to obtain the posterior distribution? 
-:::
-
+Let's check each of this terms: what are the likelihood and prior? what is $\theta$?
 
 ## Analytical Approach
 
-Consider the example of flipping a coin, but other real-world examples include:
+Consider the example of flipping a coin. Then $\theta$ is the **probability** of getting a head. 
 
-The probability that:
+<br>
+
+Other real-world examples are the probability that:
+
+<br>
 
 - a person has a disease
 - a person buys a product
@@ -257,23 +294,57 @@ The probability that:
 - a baby is a girl
 - a widget on an assembly line is faulty
 
+
+## How to obtain the posterior?
+#### Step back: what's the big picture?
+
+We are usually interested in the full posterior **distribution** and not only in the **point** estimates. There are at least two approaches to obtain the distribution:
+
+::: fragment
+
+> [**Analytical Methods**:]{style="color: #6ebef0;"}
+
+- They are based on `exact` formulas and conjugate prior concept
+- Examples are Beta and Gamma distributions
+- We introduce these methods and will use them in the hands-on session today
+:::
+
+::: fragment
+
+> [**Numerical Methods**:]{style="color: #6ebef0;"}
+
+- They are based on Markov Chain Monte Carlo `sampling` methods
+- Examples are Metropolis-Hastings, Gibbs, and No-U-Turn Sampler (NUTS) methods
+- We will use these techniques in the hands-on sessions tomorrow
+:::
+
+::: notes
+In Bayesian inference, we are interested in the posterior **distribution** of the parameters of interest, and not only in the **point** estimates.
+So, question is how to obtain the posterior distribution? 
+:::
+
+
 ## Analytical Approach
 #### Objective: find out the posterior given a prior and likelihood
+
+<br>
+
 Here is what we want to do: 
 <!-- [violet]{style="color:#962cff"} <-- [blue]{style="color:blue"} + [red]{style="color:red"}  -->
 
-- we begin with some [prior]{style="color:blue"} distribution of the outcome of coin flips
-- we observe some [data]{style="color:red"} from the results of flipping the coin
-- we infer the [posterior]{style="color:#962cff"} distribution of credibility using Bayes’ rule
+- We begin with some [prior]{style="color:blue"} distribution of $\theta$
+- We observe some data from the results of flipping the coin. So we can find the [likelihood]{style="color:red"} of the data given the parameter $\theta$.
+- We infer the [posterior]{style="color:#962cff"} distribution using Bayes’ rule
 
-$$\color{#962cff}{posterior} : \frac{\color{red}{likelihood}\times\color{blue}{prior}}{\color{red}{evidence}}$$
+<br>
+<!-- $$\color{#962cff}{posterior} : \frac{\color{red}{likelihood}\times\color{blue}{prior}}{\color{red}{evidence}}$$
 
 or simply, $\color{#962cff}{posterior} \propto \color{red}{likelihood}\times\color{blue}{prior}$
 
 <br>
 
 
-Mathematically:
+Mathematically: -->
 
 <!-- $$\color{#962cff}{P(\theta|data)} = \frac{\color{red}{P(data|\theta)}\times\color{blue}{P(\theta)}}{\color{red}{P(data)}}$$ -->
 
@@ -289,48 +360,71 @@ The term “evidence” is in fact the “marginal likelihood” that refers spe
 ## Analytical Approach
 #### Likelihood ... but what is the likelihood?
 
-let's go back to the coin example:
+<br>
 
-the probability of each outcome can be calculated directly from the Bernoulli distribution which has the form:
+Let's go back to the coin example:
+
+The probability of each outcome can be calculated directly from the Bernoulli distribution which has the form:
 
 $$P(x|\theta) = \theta^x(1-\theta)^{1-x}$$
 
 where $x$ is the outcome of the coin flip (0 or 1) and $\theta$ is the probability of getting a head, and can be fixed to be 0.5, for example.
+
+<br>
 
 So, $P(x|\theta=0.5)$ is only a function of $x$.
 
 ## Analytical Approach
 #### Likelihood  ... but what if we fix $x$ and let $\theta$ vary?
 
+<br>
+
 In this case we get a function of $\theta$ that is called the (Bernoulli) likelihood function for $\theta$:
 
 $$P(x|\theta) = \theta^x(1-\theta)^{1-x}$$
 
-if we flip the coin N times and get $z=\sum_{i}x_i$  heads, then the likelihood function is:
+<br>
+
+If we flip the coin N times and get $z=\sum_{i}x_i$  heads, then the likelihood function is:
 
 $$P(x|\theta) = \theta^z(1-\theta)^{N-z}$$
 
-Now we only need to specify the prior: 
+Now we need to specify the prior: 
 
-$$\color{#962cff}{posterior} \propto \color{red}{likelihood}\times\color{blue}{prior}$$
+- Likelihood ✅
+- prior ❓
+- posterior ❓
+
+<!-- $$\color{#962cff}{posterior} \propto \color{red}{likelihood}\times\color{blue}{prior}$$ -->
 
 ## Analytical Approach
 #### Prior  ... what should be the prior?
 
-The prior $P(\theta)$ can be any function that gives probability for the values of $0 \leq \theta \leq 1$.
+<br>
 
-For example, we can choose a uniform prior, which means that all values of $\theta$ are equally likely. There are many other choices.
+- The prior $P(\theta)$ can be any function that gives probability for the values of $0 \leq \theta \leq 1$.
 
-In Statistics, there are many instance where the choice is simply a matter of convenience. That's the case here for the prior:
+- For example, we can choose a uniform prior, which means that all values of $\theta$ are equally likely. There are many other choices.
 
-The prior $P(\theta)$ ~ Beta distribution is a convenient choice because it is a **conjugate prior** to the Bernoulli likelihood function.
+- In Statistics, there are many instance where the choice is simply a matter of convenience. That's the case here for the prior:
+
+- The prior $P(\theta)$ ~ Beta distribution is a convenient choice because it is a **conjugate prior** to the Bernoulli likelihood function.
+
+<br>
+
+
+::: callout-tip
 
 Conjugate prior means that the posterior distribution is of the same form as the prior distribution:
 
-[prior]{style="color:red"} ~ Beta distribution $\rightarrow$ [posterior]{style="color:#962cff"} ~ Beta distribution
+[prior]{style="color:red"} ~ Beta distribution ➡️ [posterior]{style="color:#962cff"} ~ Beta distribution
+:::
 
 ## Analytical Approach
 #### Prior  ... what is Beta distribution?
+
+<br>
+
 
 Let's see what the Beta distribution looks like:
 
@@ -345,15 +439,27 @@ and $\alpha>0$ and $\beta>0$ are the shape parameters of the distribution, and $
 ## Analytical Approach
 #### Prior  ... what is Beta distribution?
 
+<br>
+
+
 Let's play with the [Beta distribution](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0qE2sEyoT0xHs7F6cHYACFMlBgfQkiw1Et6KR2GIoBAqh4yHoeGg4AB+GhgSZvd73PioJZcFQhFgMm5lZlLFbs0K-KC0-y0gAKkPgFBYOhF7AAjP55QAGPDy+k7d4zA685acAWXMCqOXiyXQmXG-AKpWq9VTTVa-ZYIXsAB87FV7FUbo9tI1XJaGveZQhRxOsj420dHwOizILOWWjIv2g8DyqCC9j99veQdaGvG2QgdBC8M4oQAboLdf44wn-OXOKtSONEG8AAJ1pYdwIQDlYRTJqDyMhFWnedhigAiADE-W9S+xU9UM-YJm2HXtbBgWESQTBEnA4I15QBOABsAA5ldf1QG7gAC8scREBIkk5UAHiKAA9v-L7x-Yol0wFQIE4CFCDgBplQwZVFVg09TzwABWZVC03XYDAHJQGh-fwMmSLBMzw-xdQwKAJjwcjVAmSZ2AAckGABaBi8HkQQigAJgw95sLIZ55GghjUWSfQnA2VR6BUMgrBCcDnisewzAgQgBNIBjeJubCfzmDJ5AaFgGIAEhoGhEWSYzNPvbDsD045DJMsUmnMvpLPGazMNabChKqPsGkUQgigYjIkjY9hHChUgihnYdywwmyR0SbhAQmIscnQYDfFQBpcgKegG0rUJ-HWMwKiKB4WDMOBxjAABfPBwGXahAgARwiQJ4HITgeh-Mh8CIUgKCoZAeHaIQRDEeqAF0gA) and see how it changes with $\alpha$ and $\beta$.
 
-
+::: fragment
 A few observations:
+:::
 
 ::: incremental
-- uniform distribution is a special case of the Beta distribution with $\alpha=\beta=1$
-- it can become a symmetric distribution e.g. with $\alpha=\beta=4$
-- it can become a right or left-skewed distribution e.g. with $\alpha=2$ and $\beta=5$
+- Uniform distribution is a special case of the Beta distribution with $\alpha=\beta=1$
+- Beta distributionf can become a symmetric distribution e.g. with $\alpha=\beta=4$
+- Beta distribution can become a right (or left)-skewed e.g. with $\alpha=2$ (for $\beta=5$)
+:::
+
+::: fragment
+We're almost there: 
+
+- Likelihood ✅
+- prior ✅
+- posterior ❓
 :::
 
 ::: notes
@@ -375,7 +481,7 @@ $\color{#962cff}{Beta(\alpha+z,\beta+N-z)} \propto \color{red}{\text{Bernoulli l
 
 <br>
 
-Let's have a little [show](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0vTg7AAQpkoPpiElQvRWOwxFAIFU9KorBD9CxkSwdBAgtDQhBFvIVOwVMMVNxiMQggB+GhgSZvd73PioJZcFQhFgcm5lblLFb80K-KCs-ysgAKm1gmVCOhl7AAjP51QAGPDq9k7d4zA6i5acCWXMCqNXyxXwCiE634DVa3X6qaGo37DCm8VnS0AORtkAsGUJxHs7Fq8U4ap1rrd2oNXo+JtsYvN-t+EDyfSgQVjztZ5hgYfYEfYeYLat1Gu1ieTKbKqF+rINQpajeuzfRxzysj42xT3sWZB5yy0ZGzSryqCC9jbHveXfYBvG2QgdBCkc4oQAbpLTf5R+P-LvOKtSONEG8AAInpZ3wLE0JYRRTqDyMhFVnedhygARAAxNs3m3dhoHgWd5wmG9PT2WwMBYdEQRgRI4DgRp1QATgANgADm1Qj9Q7dhSNuAAC3cOFxZCMUhbUAB4ilQZj1VIiFkmKCDMBUCBOFQKBCDgBptQwbVNTE7DsL1et103eDdnuQhAhESEyEEYh9HfVIdjhJxBFI+x6AqfwoAADzBbiDESMxVEnTgGk1dgACZ-GMipVgALzgIonLcr5xnkzltO0GEWHJMxKXoal6Fpeh6UZUiLLBYBtQAXTfJQGk4qB-FygAqArTQwHMq0c8Z2AK9gnIAWly8YioaEqAwmWqSrKuB8wqyZ2AAchYPr-BgTgihc4KbmSyzODSzLqLycy5gyeQGkGgASGgaFyta+om64UpmjL0OWbAluOBo+ppY4EoZIJdqm1KjvmshnnkES+vCyLoti+LEruva9luA7ZowCp8UaAHdnI0KOFQJwNlUegVDIKwgnoJJ8VUJZkQU95gfVTLJxyvpkn8DJkiwGDcv8EqoAmPAStUCZer61RaqG6koGWoo+rhgl-2Aob5EEMbIdafHCffYnYTJ2FKfsaXSY8dMyAwOnxgAag63MuoLenlfHDAmc1lq2u18rmf8Vm6jgPdkTesgOeFsazPkVBuCgIoxNw-wzvkHnmERfEUUAoD7sU1oHpmgnjoWv3Vr6jatpJqAdrFloJdj06ufOvrw7x6bgBj57XvevmURQ+Eg-50POHzm5M7eqpiQaRRCB5jIkg5xwlVIIogM-Xd07uTOwbWCZSNImyXoqbhljmBYlgniOWhsnhAWXjdcm43wW1yAp6DPfdQn8dYzAqIoHhYMw4HGMAAF88HASCEGQQIAEcIkCeByE4HpzLIPgIgpAKBUGQDwdoQgRBiAfulIAA) of this
+Let's have a little [show](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0vTg7AAQpkoPpiElQvRWOwxFAIFU9KorBD9CxkSwdBAgtDQhBFvIVOwVMMVNxiMQggB+GhgSZvd73PioJZcFQhFgcm5lblLFb80K-KCs-ysgAKm1gmVCOhl7AAjP51QAGPDq9k7d4zA6i5acCWXMCqNXyxXwCiE634DVa3X6qaGo37DCm8VnS0AORtkAsGUJxHs7Fq8U4ap1rrd2oNXo+JtsYvN-t+EDyfSgQVjztZ5hgYfYEfYeYLat1Gu1ieTKbKqF+rINQpajeuzfRxzysj42xT3sWZB5yy0ZGzSryqCC9jbHveXfYBvG2QgdBCkc4oQAbpLTf5R+P-LvOKtSONEG8AAInpZ3wLE0JYRRTqDyMhFVnedhygARAAxNs3m3dhoHgWd5wmG9PT2WwMBYdEQRgRI4DgRp1QATgANgADm1Qj9Q7dhSNuAAC3cOFxZCMUhbUAB4ilQZj1VIiFkmKCDMBUCBOFQKBCDgBptQwbVNTE7DsL1et103eDdnuQhAhESEyEEYh9HfVIdjhJxBFI+x6AqfwoAADzBbiDESMxVEnTgGk1dgACZ-GMipVgALzgIonLcr5xnkzltO0GEWHJMxKXoal6Fpeh6UZUiLLBYBtQAXTfJQGk4qB-FygAqArTQwHMq0c8Z2AK9gnIAWly8YioaEqAwmWqSrKuB8wqyZ2AAchYPr-BgTgihc4KbmSyzODSzLqLycy5gyeQGkGgASGgaFyta+om64UpmjL0OWbAluOBo+ppY4EoZIJdqm1KjvmshnnkES+vCyLoti+LEruva9luA7ZowCp8UaAHdnI0KOFQJwNlUegVDIKwgnoJJ8VUJZkQU95gfVTLJxyvpkn8DJkiwGDcv8EqoAmPAStUCZer61RaqG6koGWoo+rhgl-2Aob5EEMbIdafHCffYnYTJ2FKfsaXSY8dMyAwOnxgAag63MuoLenlfHDAmc1lq2u18rmf8Vm6jgPdkTesgOeFsazPkVBuCgIoxNw-wzvkHnmERfEUUAoD7sU1oHpmgnjoWv3Vr6jatpJqAdrFloJdj06ufOvrw7x6bgBj57XvevmURQ+Eg-50POHzm5M7eqpiQaRRCB5jIkg5xwlVIIogM-Xd07uTOwbWCZSNImyXoqbhljmBYlgniOWhsnhAWXjdcm43wW1yAp6DPfdQn8dYzAqIoHhYMw4HGMAAF88HASCEGQQIAEcIkCeByE4HpzLIPgIgpAKBUGQDwdoQgRBiAfulIAA) of this.
 
 
 ::: notes
@@ -387,12 +493,16 @@ a few things we learn from the plot:
 - a+b=N
 :::
 
-## Analytical Approach
+<!-- ## Analytical Approach
 #### Prior  ... what is Gamma distribution?
 
-similar to beta distribution, gamma distribution is a convenient choice for the prior because it is a **conjugate prior** to the Gamma likelihood function.
+<br>
 
-## Jupyter Notebook
+
+Similar to beta distribution, gamma distribution is a convenient choice for the prior because it is a **conjugate prior** to the Gamma likelihood function. -->
+
+## Hands-on session
+#### Warm-up
 
 <br>
 
@@ -415,7 +525,7 @@ plt.plot(x, beta_pdf)
 plt.xlabel('x values')
 plt.ylabel('f(x)')
 plt.title('Beta distribution')
-plt.show()
+plt.show()F
 ```
 ### plot
 ```{python}
