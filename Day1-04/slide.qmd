@@ -5,7 +5,7 @@ institute: World Economic Forum
 author: EPFL Extension School
 date: 2023-09-28
 editor:
-  render-on-save: true
+  render-on-save: false
 format:
   revealjs:
     code-copy: true
@@ -326,6 +326,10 @@ A/B testing and experimentation strategy are all about building feedback loops. 
 - Statistical analysis of the results: 5% vs 7% then go for B, but a more rigorous approach would involve applying statistical testing to determine if the differences in response rates between A and B were statistically significant (that is, highly likely that the differences are real, repeatable, and not due to random chance)
 :::
 
+## A/B testing example
+
+<br>
+
 
 ## Slide Title {visibility="hidden"}
 
@@ -343,10 +347,6 @@ Common A/B testing mistakes:
 - not enough traffic
 - not enough conversions
 - not enough patience
-
-
-
-
 
 ## A few Key Terms
 
@@ -367,6 +367,15 @@ Common A/B testing mistakes:
 ##### HDI
 
 > highest density interval
+
+
+## data vs prior
+
+- discuss the impact of sample size on the posterior distribution
+- discuss the impact of prior on the posterior distribution
+
+
+
 
 ## {chalkboard-buttons="false" background-image="../assets/img/Quiz_AdobeStock_439133763.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.9" background-size="cover"}
 
