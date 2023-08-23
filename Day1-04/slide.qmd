@@ -374,6 +374,8 @@ Common A/B testing mistakes:
 - discuss the impact of sample size on the posterior distribution
 - discuss the impact of prior on the posterior distribution
 
+## load synthetic dataset and explore it
+
 
 
 
