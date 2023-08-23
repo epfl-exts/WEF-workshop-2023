@@ -184,3 +184,8 @@ how to design hands on sessions:
 
 
 
+how to interpret the relation between likelihood and prior in Gamma case of handson 3?
+
+in prior with a=100 and b=50, the mean of lambda is 2. That means the mean payment is 0.5 according to the prior.
+
+in likelihood with n_payers, total_pay = 10, 5 we have 0.5 paid per persion on average. however the plot shows that the average lambda is 2. So the mean payment is 0.5 according to the likelihood.
