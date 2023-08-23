@@ -275,7 +275,7 @@ $$\color{#962cff}{P(\theta|data)} \propto \color{red}{P(data|\theta)}\times\colo
 
 Let's check each of this terms: what are the likelihood and prior? what is $\theta$?
 
-## Analytical Approach
+## What is $\theta$?
 
 Consider the example of flipping a coin. Then $\theta$ is the **probability** of getting a head. 
 
