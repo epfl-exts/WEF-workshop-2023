@@ -4,9 +4,9 @@
 
 ## Agenda
 
-### Day 1
+#### Day 1
 
-#### Morning Session: Data Analysis and Statistics (9:00  - 12:00 )
+##### Morning Session: Data Analysis and Statistics (9:00  - 12:00 )
 - **Objective**: Refresher on data analysis with Python and statistics.
 - **Agenda**:
   - 9:00  - 10:30 : [Data Analysis using Python](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-01)
@@ -14,7 +14,7 @@
   - 10:45  - 11:45 : [Statistical Distributions & Inference](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-02) + Quiz
   - 11:45  - 12:00 : Q&A 
 
-#### Afternoon Session: Bayesian Statistics and A/B Testing (13:00  - 16:00 )
+##### Afternoon Session: Bayesian Statistics and A/B Testing (13:00  - 16:00 )
 - **Objective**: Discover the power of Bayesian thinking and its role in A/B testing.
 - **Agenda**:
   - 13:00  - 14:30 : [Bayesian Statistics](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-03)
@@ -24,9 +24,9 @@
 
 
 
-### Day 2
+#### Day 2
 
-#### Morning Session: Deep Dive into A/B Testing (9:00  - 12:00 )
+##### Morning Session: Deep Dive into A/B Testing (9:00  - 12:00 )
 - **Objective**: Dive deeper into A/B testing concepts and methods.
 - **Agenda**:
   - 9:00  - 10:30 : [A/B Testing in PyMC](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01) + Quiz
@@ -35,7 +35,7 @@
   - 11:45  - 12:00 : Q&A 
 
 
-#### Afternoon Session: Implementing A/B Testing (13:00  - 16:00 )
+##### Afternoon Session: Implementing A/B Testing (13:00  - 16:00 )
 - **Objective**: Apply your newfound knowledge to implement A/B tests.
 - **Agenda**:
   - 13:00  - 14:30 : [Hands-on Session]()
