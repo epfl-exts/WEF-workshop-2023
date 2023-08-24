@@ -1,6 +1,10 @@
 # Introduction to A/B Testing
 
 ## Date: 28-29 September 2023
+## Learning Objectives
+- one
+- two
+- three
 
 ## Agenda
 
