@@ -64,4 +64,4 @@ Here is an overview
 - Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023/tree/main) and gather your resources for the quest!
 
 ## Contact Information
-- If you need guidance or have questions, send a message to [ir.khalilzadeh@epfl.ch].
+- If you need guidance or have questions, send a message to amir.khalilzadeh@epfl.ch.
