@@ -10,6 +10,7 @@
 
 ### Day 1
 
+#### Introduction to the workshop: (8:30 - 9:00)
 #### Morning Session: Data Analysis and Statistics (9:00  - 12:00 )
 - **Objective**: Refresher on data analysis with Python and statistics.
 - **Agenda**:
