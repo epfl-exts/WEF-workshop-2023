@@ -263,8 +263,8 @@ Remember the Bayes rule:
 
 <div style="position:relative; width:640px; height:300px; margin:0 auto;">
   <img class="fragment" src="img/AdobeStock_628760640.jpeg"   style="position:absolute;top:0;left:0;" />
-  <img class="fragment" src="img/AdobeStock_628760640_1.jpeg" style="position:absolute;top:0;left:0;" />
-  <img class="fragment" src="img/AdobeStock_628760640_2.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/AdobeStock_628760640_1.jpg" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/AdobeStock_628760640_2.jpg" style="position:absolute;top:0;left:0;" />
 </div>
 
 . . .
@@ -275,7 +275,8 @@ $$\color{#962cff}{P(\theta|data)} \propto \color{red}{P(data|\theta)}\times\colo
 
 Let's check each of this terms: what are the likelihood and prior? what is $\theta$?
 
-## What is $\theta$?
+## How to obtain the posterior?
+#### What is $\theta$?
 
 Consider the example of flipping a coin. Then $\theta$ is the **probability** of getting a head. 
 
