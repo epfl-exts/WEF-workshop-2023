@@ -10,7 +10,7 @@ format:
   revealjs:
     code-copy: true
     code-link: true
-    embed-resources: true
+    embed-resources: false
     smaller: true
     scrollable: false
     theme: ../assets/theme.scss 
@@ -18,8 +18,8 @@ format:
     code-fold: true
     code-line-numbers: false
     slide-number: true
-    # chalkboard:
-    #   buttons: true
+    chalkboard:
+      buttons: true
     preview-links: auto
     menu: false
 title-slide-attributes:
@@ -197,9 +197,9 @@ More formally, Bayes rule says:
 :::
 
 <div style="position:relative; width:640px; height:480px; margin:0 auto;">
-  <img class="fragment" src="img/bayes-example1.jpg"   style="position:absolute;top:0;left:0;" />
-  <img class="fragment" src="img/bayes-example2.jpg" style="position:absolute;top:0;left:0;" />
-  <img class="fragment" src="img/bayes-example3.jpg" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/bayes-example1.png"   style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/bayes-example2.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="img/bayes-example3.png" style="position:absolute;top:0;left:0;" />
 </div>
 
 <!-- ![](img/bayes-example1.jpg){.absolute .fragment width="70%" height="70%" fig-align="center"}
@@ -229,7 +229,7 @@ P(\text{on time}|\text{NY office})& = \frac{P(\text{NY office}|\text{on time})\t
 :::
 :::
 ::: {.column width="65%" }
-![](img/bayes-example3.jpg){width="80%" height="80%" fig-align="right"}
+![](img/bayes-example3.png){width="80%" height="80%" fig-align="right"}
 :::
 :::
 

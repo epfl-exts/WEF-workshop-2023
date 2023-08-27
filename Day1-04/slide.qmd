@@ -10,15 +10,15 @@ format:
   revealjs:
     code-copy: true
     code-link: true
-    embed-resources: true
+    embed-resources: false
     smaller: true
     scrollable: false
     theme: ../assets/theme.scss 
     logo: ../assets/img/logo_red.png
     code-fold: true
     slide-number: true
-    # chalkboard:
-    #   buttons: true
+    chalkboard:
+      buttons: true
     preview-links: auto
     menu: false
 title-slide-attributes:
@@ -168,11 +168,11 @@ As a Bayesian, you argue that:
 
 ## Frequentism vs Bayesianism
 
-![](img/freq_bayes.jpg){.absolute bottom="20"}
+![](img/freq_bayes.png){.absolute bottom="20"}
 
-![](img/freq.jpg){.absolute .fragment .fade-in bottom="20"}
+![](img/freq.png){.absolute .fragment .fade-in bottom="20"}
 
-![](img/bayes.jpg){.absolute .fragment .fade-in bottom="20"}
+![](img/bayes.png){.absolute .fragment .fade-in bottom="20"}
 
 
 ::: notes
