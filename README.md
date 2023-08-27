@@ -58,7 +58,7 @@ Here is an overview
 - [A/B Testing in PyMC](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01)
 
 ## Prerequisites
-- Ensure you have installed the workshop virtual environment for the hands-on sessions.
+- Ensure you have installed the workshop virtual environment for the hands-on sessions. You can download the workshop environment file `workshop.yml` from [here](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/assets) and find the installation instructions [here](https://github.com/epfl-exts/WEF-workshop-2023/blob/main/assets/installation/workshop.ipynb).
 
 ## Getting Started
 - Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023/tree/main) and gather your resources for the quest!
