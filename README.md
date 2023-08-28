@@ -1,12 +1,33 @@
 # Introduction to A/B Testing
+28-29 September 2023
 
-## Date: 28-29 September 2023
 ## Overview
-Here is an overview
+
+A/B testing is a powerful tool for product development and decision making. It is used to compare two versions of a product or service to determine which one performs better. In this workshop, we will learn how to use A/B testing to make data-driven decisions. We will start with a refresher on data analysis and statistics, and then dive into Bayesian statistics and A/B testing. We will learn how to implement A/B testing in Python using PyMC, and discuss various factors that can impact the test result. By the end of the workshop, you will be able to use A/B testing to make data-driven decisions in your projects.
+
 ## Learning Objectives
-- one
-- two
-- three
+
+- Understand the basics of Bayesian A/B testing
+- Be able to implement Bayesian A/B testing in Python to solve real-world problems
+- Be able to analyse the imact of sample size and prior beliefs on the results of A/B testing
+- Be able to communicate and explain results to non-technical audience
+
+
+## Prerequisites
+
+- Basic knowledge of Python
+- Basic knowledge of statistics
+
+
+## Getting Started
+
+Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023/tree/main) and gather your resources for the quest!
+
+<!-- {{< fa triangle-exclamation size=xl >}}  -->
+
+<i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #e84f4f;"></i> Ensure you have installed the workshop virtual environment for the hands-on sessions. You can download the workshop environment file `workshop.yml` from [here](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/assets) and find the installation instructions [here](https://github.com/epfl-exts/WEF-workshop-2023/blob/main/assets/installation/workshop.ipynb).
+
+
 
 ## Agenda
 
@@ -57,11 +78,7 @@ Here is an overview
 - [Bayesian Statistics](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-03)
 - [A/B Testing in PyMC](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01)
 
-## Prerequisites
-- Ensure you have installed the workshop virtual environment for the hands-on sessions. You can download the workshop environment file `workshop.yml` from [here](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/assets) and find the installation instructions [here](https://github.com/epfl-exts/WEF-workshop-2023/blob/main/assets/installation/workshop.ipynb).
 
-## Getting Started
-- Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023/tree/main) and gather your resources for the quest!
 
 ## Contact Information
 - If you need guidance or have questions, send a message to amir.khalilzadeh@epfl.ch.
