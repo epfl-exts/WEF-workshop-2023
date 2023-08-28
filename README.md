@@ -23,9 +23,12 @@ A/B testing is a powerful tool for product development and decision making. It i
 
 Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023/tree/main) and gather your resources for the quest!
 
-<!-- {{< fa triangle-exclamation size=xl >}}  -->
+<!-- <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #e84f4f;"></i>  -->
 
-<i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #e84f4f;"></i> Ensure you have installed the workshop virtual environment for the hands-on sessions. You can download the workshop environment file `workshop.yml` from [here](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/assets) and find the installation instructions [here](https://github.com/epfl-exts/WEF-workshop-2023/blob/main/assets/installation/workshop.ipynb).
+<img src="./assets/img/icon.png" width="25" /> Ensure you have installed the workshop virtual environment for the hands-on sessions. You can download the workshop environment file `workshop.yml` from [here](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/assets) and find the installation instructions [here](https://github.com/epfl-exts/WEF-workshop-2023/blob/main/assets/installation/workshop.ipynb).
+
+
+
 
 
 
