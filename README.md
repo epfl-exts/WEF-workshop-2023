@@ -25,7 +25,9 @@ Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023
 
 <!-- <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #e84f4f;"></i>  -->
 
-<img src="./assets/img/icon.png" width="25" /> Ensure you have installed the workshop virtual environment for the hands-on sessions. You can download the workshop environment file `workshop.yml` from [here](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/assets) and find the installation instructions [here](https://github.com/epfl-exts/WEF-workshop-2023/blob/main/assets/installation/workshop.ipynb).
+<!-- <img src="./assets/img/icon.png" width="25" />  -->
+
+:warning: Ensure you have installed the workshop virtual environment for the hands-on sessions. You can download the workshop environment file `workshop.yml` from [here](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/assets) and find the installation instructions [here](https://github.com/epfl-exts/WEF-workshop-2023/blob/main/assets/installation/workshop.ipynb).
 
 
 
