@@ -34,6 +34,55 @@ jupyter: python3
 
 ---
 
+## What's the Plan?
+
+
+<!---
+ https://mermaid.js.org/syntax/flowchart.html 
+--->
+
+
+
+```{mermaid}
+flowchart BT
+  A([Python]) -----> E([PyMC])
+  B([Statistics]) ---> D([A/B testing]) 
+  B([Statistics]) ---> C([Bayes Rule]) 
+  C([Bayes Rule]) --> D([A/B testing])  
+  C([Bayes Rule]) ---> F[(Bayesian A/B Testing in PyMC)]
+  E([PyMC]) --> F[(Bayesian A/B Testing in PyMC)]
+  D([AB testing])  ---> F[(Bayesian A/B Testing in PyMC)]
+```
+
+::: {.fragment fragment-index=0 .absolute top="40%" bottom="22%"  left="34%" width="330" }
+::: {.blackbox}
+:::
+:::
+::: {.fragment fragment-index=0 .absolute top="370" left="50" width="200"}
+[Day 1]{style="color:#ff412c; font-weight: normal; font-size: 2.0em;"}
+:::
+
+::: {.fragment fragment-index=1 .absolute top="9%" bottom="54%"  left="32%" width="375"}
+::: {.blackbox}
+:::
+:::
+::: {.fragment fragment-index=1 .absolute top="150" left="50" width="200"}
+[Day 2]{style="color:#ff412c; font-weight: normal; font-size: 2.0em;"}
+:::
+
+
+<!---
+ :::
+
+::: {.column width="30%" }
+```{mermaid}
+%%| fig-width: 16
+flowchart BT
+  X[Day 1] -------> Y[Day 2]
+```
+:::
+::: 
+--->
 
 
 ## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover"}
