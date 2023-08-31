@@ -127,12 +127,25 @@ That's where we have statistical distributions: e.g.
 
 or alternatively by: 
 
-- a measure of center, e.g. mean
-- a measure of spread, e.g. variance
-- a measure of asymmetry, e.g. skewness
-- a measure that describe its tails, e.g. kurtosis
+::: columns
+::: {.column width="50%" }
+- a measure of center, e.g. <span class="fragment highlight-red" fragment-index=0> mean </span>
+- a measure of spread, e.g. <span class="fragment highlight-red" fragment-index=1> variance </span>
+- a measure of asymmetry, e.g. <span class="fragment highlight-red" fragment-index=2> skewness </span>
+- a measure that describe its tails, e.g. <span class="fragment highlight-red" fragment-index=3> kurtosis </span>
+:::
+::: {.column width="50%" }
+<div style="position:relative; width:640px; height:480px; margin:0 auto;">
+  <img class="fragment current-visible" data-fragment-index="0" src="img/mean.png"     style="position:absolute;top:0;left:0;" />
+  <img class="fragment current-visible" data-fragment-index="1" src="img/variance.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment current-visible" data-fragment-index="2" src="img/skew.png"     style="position:absolute;top:0;left:0;" />
+  <img class="fragment current-visible" data-fragment-index="3" src="img/kurtosis.png" style="position:absolute;top:0;left:0;" />
+</div>
 
-[note: add images for each case]{style="color:#ff412c;"}
+::: 
+:::
+
+
 
 
 ## Statistical Distributions
@@ -147,17 +160,27 @@ For instance:
 
 <br>
 
+::: columns
+::: {.column width="50%" }
 probability `density` function ☞ PDF
 
 probability `mass` function ☞ PMF
 
 `cumulative` distribution function ☞ CDF
 
-<br>
+:::
+::: {.column width="50%" }
+<div style="position:relative; width:640px; height:480px; margin:0 auto;">
+  <img class="fragment current-visible" data-fragment-index="0" src="img/pdf.png"     style="position:absolute;top:0;left:0;" />
+  <img class="fragment current-visible" data-fragment-index="1" src="img/cdf.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment current-visible" data-fragment-index="2" src="img/pmf.png"     style="position:absolute;top:0;left:0;" />
+  </div>
+::: 
+:::
+<!---
+ Each of these functions has its own properties and purpose. 
+--->
 
-Each of these functions has its own properties and purpose.
-
-[note: add images for each case]{style="color:#ff412c;"}
 
 ## Statistical Inference
 #### Hypothesis testing
@@ -184,7 +207,7 @@ certain property: eg mean in Normal or proportion p in Bernoulli
 
 <br>
 
-> Learning from a realization versus learning from true distribution❓ 
+> Learning from a sample versus learning from full distribution❓ 
 
 <br>
 

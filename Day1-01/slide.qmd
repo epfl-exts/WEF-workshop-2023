@@ -53,7 +53,10 @@ jupyter: python3
 
 Durig the next hour, you will be working with the `Swiss communes` data {{< fa database >}} published by the Federal Statistical Office of Switzerland. 
 
-The data is available in the `data` folder of the course repository.
+The data is available in the `data` folder of the workshop repository.
+
+::: notes
+:::
 
 
 ## Data analysis with Python
