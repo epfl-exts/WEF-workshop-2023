@@ -5,7 +5,7 @@ institute: World Economic Forum
 author: EPFL Extension School
 date: 2023-09-28
 editor:
-  render-on-save: false
+  render-on-save: true
 format:
   revealjs:
     code-copy: true
@@ -82,7 +82,7 @@ flowchart LR
 | [approach]{style="color:green;"} | <font color="green">prior about $\theta$</font> | <font color="green">evidence</font> | <font color="green"> outome </font> |
 |:----------------:|:------------------:|:----------------:|:----------------:|
 |           Frequentists            |                 No                  |             observe $x$             |           gain limited knowledge about $\theta$           |
-|           Bayesians            |          Yes          |             observe $x$             |           learn everything about $\theta$           |
+|           Bayesians            |          Yes          |             observe $x$             |           obtain distribution of $\theta$           |
 :::
 
 ::: incremental 
@@ -134,9 +134,14 @@ Suppose that there is a sensor in this room that measures the temperature. I tak
 ::: incremental
 -   10 values ranging from 18C^0^ to 22 C^0^
 -   I am interested in the average temperature, which is 20 based on the data
--   I conclude that $\bar{x}=20$ is an unbiased estimator of $\theta$
+-   I conclude that $\bar{x}=20$ is a good estimator of $\theta$
 -   There is a Frequentist in the room!
 :::
+
+::: notes
+note that in this example theta is not the same as before. It could simply be the mean of the normal distribution that the temperature follows.
+:::
+
 
 ## Frequentists vs Bayesians
 #### Example
@@ -150,7 +155,7 @@ Then you tell me that there is an issue with the sensor, as it caps values above
 ::: incremental
 -   You argue that $\bar{x}=20$ is no longer an unbiased estimator of $\theta$
 -   That's true even though my 10 values were between 18 to 22
--   Future realisations of the measurements could be large
+-   Future realisations of the temperature could be large
 :::
 
 ## Frequentists vs Bayesians

@@ -5,12 +5,12 @@ author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-28
 editor:
-  render-on-save: True
+  render-on-save: true
 format:
   revealjs:
     code-copy: true
     code-link: true
-    embed-resources: true
+    embed-resources: false
     smaller: true
     scrollable: false
     theme: ../assets/theme.scss
@@ -18,8 +18,8 @@ format:
     code-fold: true
     code-line-numbers: false
     slide-number: true
-    # chalkboard:
-    #   buttons: true
+    chalkboard:
+      buttons: true
     preview-links: auto
     menu: false
 title-slide-attributes:
@@ -125,7 +125,7 @@ That's where we have statistical distributions: e.g.
 
 <br>
 
-or more generally by: 
+or alternatively by: 
 
 - a measure of center, e.g. mean
 - a measure of spread, e.g. variance
@@ -164,11 +164,10 @@ Each of these functions has its own properties and purpose.
 
 <br>
 
-> What if a distribution is unknown to us: 
+> What if we want to know more about parameters of a distribution: 
 
-- we only observe a realization of it
-- we wish to know more, e.g. about a certain property of it
-- we can learn about the property from the realization
+- we only observe a sample from the distribution
+- we can learn about the parameters from the sample
 
 <!-- <br> -->
 

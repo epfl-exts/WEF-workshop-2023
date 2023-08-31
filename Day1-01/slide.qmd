@@ -10,7 +10,7 @@ format:
   revealjs:
     code-copy: true
     code-link: true
-    embed-resources: true
+    embed-resources: false
     smaller: true
     scrollable: true
     theme: ../assets/theme.scss
@@ -18,8 +18,8 @@ format:
     code-fold: true
     code-line-numbers: false
     slide-number: true
-    # chalkboard:
-    #   buttons: true
+    chalkboard:
+      buttons: true
     preview-links: auto
     menu: false
 title-slide-attributes:
@@ -194,7 +194,7 @@ df.dropna(inplace = True)
 #| echo: true
 #| eval: true 
 #| code-fold: false
-df.describe().loc[['mean','min','max']].T.round(1)
+df.describe()
 ```
 
 <br>

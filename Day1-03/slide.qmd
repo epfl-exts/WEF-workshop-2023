@@ -5,7 +5,7 @@ author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-28
 editor:
-  render-on-save: false
+  render-on-save: true
 format:
   revealjs:
     code-copy: true
@@ -130,7 +130,7 @@ If not, how we should adapt our priors to the new situation?
 
 ## Bayes rule {.smaller}
 
-<br> Byes rule provides a simple passage from our [prior]{style="color: blue"} idea to [new insight]{style="background-color: #fadf43;"}
+<br> Bayes rule provides a simple passage from our [prior]{style="color: blue"} idea to [new insight]{style="background-color: #fadf43;"}
 
 ::: fragment
 ![](img/bayes-rule.jpeg){width="70%" height="70%" fig-align="center"}
@@ -189,9 +189,9 @@ More formally, Bayes rule says:
 
 
 ::: incremental
--   **My prior**: 90% of WEF employees are on time
+-   **My prior**: 90% of EPFL employees are on time
 
--   **New knowledge**: a speaker at the annual meeting will be from WEF NY office
+-   **New knowledge**: a speaker at the annual meeting will be from EPFL Biotech
 
 -   What is my **posterior**? what is the probability that the speaker will be on time?
 :::
@@ -220,15 +220,25 @@ posterior p(speaker is on time \| ny office) or posterior p(wef on time \| ny of
 <!-- ![](img/bayes-example3.jpg){width="60%" height="60%" fig-align="right"} -->
 
 ::: columns
-::: {.column width="35%" }
+::: {.column width="40%" }
+
+::: {style="font-size:16px"}
+-  **Prior**: $P(\text{on time})$
+-  **Likelihood**: $P(\text{Biotech}|\text{on time})$
+-  **Marginalization**: $P(\text{Biotech})$
+:::
+
+
 ::: {style="font-size:16px"}
 \begin{align}
-P(\text{on time}|\text{NY office})& = \frac{P(\text{NY office}|\text{on time})\times P(\text{on time})}{P(\text{NY office})} \\
+P(\text{on time}|\text{Biotech})& = \frac{P(\text{Biotech}|\text{on time})\times P(\text{on time})}{P(\text{Biotech})} \\
 & = \frac{0.4 \times 0.9}{0.4 \times 0.9 + 0.8 \times 0.1} = 0.82
 \end{align}
 :::
+
 :::
-::: {.column width="65%" }
+
+::: {.column width="60%" }
 ![](img/bayes-example3.png){width="80%" height="80%" fig-align="right"}
 :::
 :::
@@ -409,16 +419,20 @@ Now we need to specify the prior:
 
 - In Statistics, there are many instance where the choice is simply a matter of convenience. That's the case here for the prior:
 
-- The prior $P(\theta)$ ~ Beta distribution is a convenient choice because it is a **conjugate prior** to the Bernoulli likelihood function.
+- Beta distribution as a prior is a convenient choice because it is a **conjugate prior** to the Bernoulli likelihood function.
 
 <br>
 
 
 ::: callout-tip
 
-Conjugate prior means that the posterior distribution is of the same form as the prior distribution:
+[prior]{style="color:red"} ~ Beta distribution $\Rightarrow$  [posterior]{style="color:#962cff"} ~ Beta distribution.
 
-[prior]{style="color:red"} ~ Beta distribution ➡️ [posterior]{style="color:#962cff"} ~ Beta distribution
+In this case, the prior and posterior are in the same family of distributions, and we say that the prior is a conjugate prior to the likelihood function. Or both prior and posterior are conjugate distributions.
+:::
+
+::: notes
+explain why we are focusing on the beta distribution as a prior. we are interested in the conversion probability, which is a probability, so we need a distribution that is defined on the interval [0,1]. Beta distribution is a convenient choice because it is a conjugate prior to the Bernoulli likelihood function.
 :::
 
 ## Analytical Approach
@@ -451,8 +465,8 @@ A few observations:
 
 ::: incremental
 - Uniform distribution is a special case of the Beta distribution with $\alpha=\beta=1$
-- Beta distributionf can become a symmetric distribution e.g. with $\alpha=\beta=4$
-- Beta distribution can become a right (or left)-skewed e.g. with $\alpha=2$ (for $\beta=5$)
+- Beta distribution can become symmetric, e.g. with $\alpha=\beta=4$
+- Beta distribution can become right (or left)-skewed, e.g. with $\alpha=2$ (for $\beta=5$)
 :::
 
 ::: fragment
