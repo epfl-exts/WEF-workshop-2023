@@ -48,7 +48,7 @@ flowchart BT
   C([Bayes Rule]) --> D([A/B testing])  
   C([Bayes Rule]) ---> F[(Bayesian A/B Testing in PyMC)]
   E([PyMC]) --> F[(Bayesian A/B Testing in PyMC)]
-  D([AB testing])  ---> F[(Bayesian A/B Testing in PyMC)]
+  D([A/B testing])  ---> F[(Bayesian A/B Testing in PyMC)]
 ```
 
 
@@ -79,7 +79,7 @@ flowchart BT
 
 &#9744; [Frequentists vs Bayesians]{style="color:#ff412c;"}
 
-&#9744; [Introduction into AB Testing]{style="color:#ff412c;"}
+&#9744; [Introduction into A/B Testing]{style="color:#ff412c;"}
 
 
 ## Statistical Inference
@@ -441,7 +441,7 @@ Common A/B testing mistakes:
 ::: -->
 
 <!-- ::: goal
-How to do AB testing based on the Bayesian methods?
+How to do A/B testing based on the Bayesian methods?
 ::: -->
 
 
@@ -454,9 +454,9 @@ How to do AB testing based on the Bayesian methods?
 
 Optional hands-on session: 
 
--   Open the Jupyter notebook in `Day1-04/hands-on.ipynb`
+-   Open the Jupyter notebook in `Day1-04/handson.ipynb`
 -   Follow the instructions in the notebook, and run the codes.
 
 ::: notes
-let them run code in the notebook that does AB testing with synthetic data based on frequentist approach, and say thaz they will learn bayesian approach tomorrow
+let them run code in the notebook that does A/B testing with synthetic data based on frequentist approach, and say thaz they will learn bayesian approach tomorrow
 ::: -->

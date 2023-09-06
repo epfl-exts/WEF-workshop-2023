@@ -1,5 +1,5 @@
 ---
-title: Bayesian AB Testing 
+title: Bayesian A/B Testing 
 subtitle: Bernoulli and Value Conversions
 author: EPFL Extension School
 institute: World Economic Forum
@@ -54,11 +54,11 @@ jupyter: python3
 
 :heavy_check_mark: Bayesians vs Frequentists
 
-:heavy_check_mark: AB Testing
+:heavy_check_mark: A/B Testing
 
-&#9744; [AB Testing in Python]{style="color:#ff412c;"}
+&#9744; [A/B Testing in Python]{style="color:#ff412c;"}
 
-## AB Testing
+## A/B Testing
 
 
 ::: columns
@@ -74,7 +74,7 @@ jupyter: python3
 ::: columns
 ::: {.column width="60%" }
 - We want to know which version leads to more `subscriptions`
-- We can use AB testing to compare the two versions  
+- We can use A/B testing to compare the two versions  
 ::: 
 ::: {.column width="40%" }
 ![](img/AdobeStock_120197715.jpeg){width="65%" height="65%" fig-align="left"}
@@ -221,7 +221,7 @@ Luckily we get the whole distribution of the uplift, not just these three states
 ::: fragment
 ::: columns
 ::: {.column width="60%" }
-This is where we need PyMC 🌱, a Python library for Bayesian statistical modeling, and we use it to do the Bayesian inference for the AB testing problem.
+This is where we need PyMC 🌱, a Python library for Bayesian statistical modeling, and we use it to do the Bayesian inference for the A/B testing problem.
 
 We can simply import it by:
 
@@ -938,9 +938,10 @@ with pm.Model() as example_model:
 
 After the coffee break:
 
--   Open the Jupyter notebook in `Day2-02/hands-on.ipynb`
--   Follow the instructions in the notebook, and run the codes.
--   You will be able to find the solution to the exercise in the `Day2-02/hands-on-solution.ipynb` notebook by the end of the day.
+-   Open the Jupyter notebooks named `handson_1.ipynb` and `handson_2.ipynb` in the `Day2-02` folder.
+-   Follow the instructions in the notebooks and run the codes.
+-   If you had time and like to do more, you can also try the `handson_3.ipynb` notebook.
+-   You will be able to find the solution notebooks by the end of the day.
 
 ::: footer
 :::

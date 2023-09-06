@@ -51,7 +51,7 @@ flowchart BT
   C([Bayes Rule]) --> D([A/B testing])  
   C([Bayes Rule]) ---> F[(Bayesian A/B Testing in PyMC)]
   E([PyMC]) --> F[(Bayesian A/B Testing in PyMC)]
-  D([AB testing])  ---> F[(Bayesian A/B Testing in PyMC)]
+  D([A/B testing])  ---> F[(Bayesian A/B Testing in PyMC)]
 ```
 
 
@@ -595,9 +595,9 @@ plt.show()
 
 Let's begin:
 
--   Open the Jupyter notebook in `Day1-03/hands-on.ipynb`
+-   Open the Jupyter notebook in `Day1-03/handson.ipynb`
 -   Follow the instructions in the notebook, and run the codes.
--   You will be able to find the solution to the exercise in the `Day1-03/hands-on-solution.ipynb` notebook by the end of the day.
+-   You will be able to find the solution to the exercise in the `Day1-03/handson_solution.ipynb` notebook by the end of the day.
 
 ::: footer
 :::
