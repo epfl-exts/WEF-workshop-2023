@@ -42,23 +42,34 @@ jupyter: python3
 --->
 
 ```{mermaid}
+
 flowchart BT
-  A([Python]) -----> E([PyMC])
-  B([Statistics]) ---> D([A/B testing]) 
-  B([Statistics]) ---> C([Bayes Rule]) 
-  C([Bayes Rule]) --> D([A/B testing])  
-  C([Bayes Rule]) ---> F[(Bayesian A/B Testing in PyMC)]
-  E([PyMC]) --> F[(Bayesian A/B Testing in PyMC)]
-  D([A/B testing])  ---> F[(Bayesian A/B Testing in PyMC)]
+    A([Python]) -----> E([PyMC])
+    B([Statistics])--->D([A/B testing]) 
+    B([Statistics]) ---> C([Bayes Rule]) 
+    C([Bayes Rule]) --> D([A/B testing])  
+    C([Bayes Rule]) ---> F[(Bayesian A/B Testing in PyMC)]
+    E([PyMC]) --> F[(Bayesian A/B Testing in PyMC)]
+    D([A/B testing])  ---> F[(Bayesian A/B Testing in PyMC)]
+    click A "https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-01"
+    click B "https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-02"
+    click C "https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-03"
+    click D "https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-04"
+    click E "https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01"
+    click F "https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01"
+    linkStyle 1,2 stroke:#bcf5bc,stroke-width:6px
+%%    style A fill:#bcf5bc
+    style B fill:#bcf5bc
+%%    style C fill:#bcf5bc
+%%    style D fill:#bcf5bc
 ```
 
-
-
+<!---
 ::: {.absolute top="75%" bottom="15%"  left="35%" right="80%" width="260" }
 ::: {.blackbox}
 :::
 :::
-
+--->
 
 ## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover"}
 
