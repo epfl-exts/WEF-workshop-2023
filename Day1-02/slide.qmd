@@ -5,7 +5,7 @@ author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-28
 editor:
-  render-on-save: true
+  render-on-save: false
 format:
   revealjs:
     code-copy: true
@@ -71,6 +71,10 @@ flowchart BT
 :::
 --->
 
+::: notes
+in this session we review some relevant topic in statistics which is going to be the basis for the bayesan statistics as well as AB testin we will see in the next sessions
+:::
+
 ## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover"}
 
  
@@ -104,18 +108,17 @@ Values can …
 - be discrete or continuous 
 - be available to us or not
 
-
-
-
-
 ::: notes
-they describe how values are spread over a certain field. for instance, most of you are sitting in this part of the room and few or no one in the other areas or corners
+Distributions describe how values are spread over a certain field. for instance, most of you are sitting in this part of the room and few or no one in the other areas or corners.
+
 values can be frequent or infrequent in certain areas, e.g. think about how swiss population is spreaded across different regions
-values can come from natural phenomena, e.g. 
-values can come from an experiment, e.g.
-values can be discrete e.g.
-values can be continuous e.g.
-values can be available to us or not e.g.
+values can come from natural phenomena, e.g. age of people in a country
+values can come from an experiment, e.g. number of heads in a coin toss
+values can be discrete e.g. number of heads in a coin toss
+values can be continuous e.g. waiting time for a bus
+values can be available to us or not e.g. we can measure the height of people in a room, but we can not measure the height of all people in the world
+
+as you see Distributions are all around us, so it makes sense to formulate them in a general way. That's where we have statistical distributions: e.g. Normal, Beta, Gamma, . . .
 :::
 
 ## Statistical Distributions
@@ -153,6 +156,13 @@ That's where we have statistical distributions: e.g.
 ![](img/gamma1.png)
 :::
 
+::: notes
+Distributions are all around us, so it makes sense to formulate them in a general way. That's where we have statistical distributions: e.g. Normal, Beta, Gamma, . . .
+What I want to note here is also that range of values can be different for different distributions. For instance, Normal distribution is defined over all real numbers, while Beta distribution is defined over the range [0,1].
+
+but what about the shape of these distributions? what defines them? what are their properties? we will see in the next slides.
+:::
+
 ## Statistical Distributions
 #### Properties
 
@@ -182,11 +192,16 @@ or alternatively by:
 ::: 
 :::
 
-
+::: notes
+mean: how frequent values are in a certain area
+variance: how values are spreaded around the mean
+skewness: how frequent values are in a certain area in an asymmetric way
+kurtosis: how heavy the tails are
+:::
 
 
 ## Statistical Distributions
-#### Properties
+#### Types
 
 <br>
 
@@ -209,8 +224,8 @@ probability `mass` function ☞ PMF
 ::: {.column width="50%" }
 <div style="position:relative; width:640px; height:480px; margin:0 auto;">
   <img class="fragment current-visible" data-fragment-index="0" src="img/pdf.png"     style="position:absolute;top:0;left:0;" />
-  <img class="fragment current-visible" data-fragment-index="1" src="img/cdf.png" style="position:absolute;top:0;left:0;" />
-  <img class="fragment current-visible" data-fragment-index="2" src="img/pmf.png"     style="position:absolute;top:0;left:0;" />
+  <img class="fragment current-visible" data-fragment-index="1" src="img/pmf.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment current-visible" data-fragment-index="2" src="img/cdf.png"     style="position:absolute;top:0;left:0;" />
   </div>
 ::: 
 :::
@@ -228,6 +243,7 @@ probability `mass` function ☞ PMF
 
 - we only observe a sample from the distribution
 - we can learn about the parameters from the sample
+- how big is the gap? 🧐
 
 <!-- <br> -->
 
@@ -237,6 +253,11 @@ probability `mass` function ☞ PMF
 
 ::: notes
 certain property: eg mean in Normal or proportion p in Bernoulli
+
+How big is the gap? 🧐
+
+- this is an inferential question
+- the gap is negligible for large samples
 :::
 
 ## Statistical Inference
@@ -248,10 +269,8 @@ certain property: eg mean in Normal or proportion p in Bernoulli
 
 <br>
 
-How big is the gap? 🧐
+Can we learn from the full distribution? 
 
-- this is an inferential question
-- the gap is negligible for large samples
 
 ## Hands-on session warm-up
 #### Example of Normal distribution
@@ -286,7 +305,7 @@ display(mean, var, skew, kurt)
 #| echo: true
 #| eval: true
 #| code-fold: true
-#| code-line-numbers: 6,9
+#| code-line-numbers: 6,10
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
@@ -295,6 +314,7 @@ from scipy.stats import norm
 sample = norm.rvs(m, s, size = (100000,1)) 
 
 # plot probability distribution
+fig = plt.figure(figsize=(6, 4))
 plt.hist(sample, bins='auto', density=True) 
 
 plt.xlabel('sample values')
@@ -324,7 +344,7 @@ Let's begin:
 
 - Open the Jupyter notebook in `Day1-02/handson.ipynb`
 - Follow the instructions in the notebook, and provide your answers in the code cells
-- You will be able to find the solution notebook by the end of the day in `Day1-02/handson_solution.ipynb`
+- You will be able to find the solution notebook by the end of the day
 - [Please be back here at 11:30]{style="color:#ff412c; font-weight: bold;"}
 
 

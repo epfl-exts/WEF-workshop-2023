@@ -1,11 +1,11 @@
 ---
-title: Data Analysis using Python
+title: Data Analysis Using Python
 subtitle: A Quick Refresher
 author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-28
 editor:
-  render-on-save: true
+  render-on-save: false
 format:
   revealjs:
     code-copy: true
@@ -33,31 +33,6 @@ execute:
 jupyter: python3
 
 ---
-
-## What's the Plan?
-
-<br>
-
-<!---
-::: {.fragment fragment-index=0 .absolute top="46%" bottom="16%"  left="34%" width="330" }
-::: {.blackbox}
-:::
-:::
-
-::: {.fragment fragment-index=0 .absolute top="370" left="50" width="200"}
-[Day 1]{style="color:#ff412c; font-weight: normal; font-size: 2.0em;"}
-:::
-
-::: {.fragment fragment-index=1 .absolute top="15%" bottom="46%"  left="32%" width="375"}
-::: {.blackbox}
-:::
-:::
-
-::: {.fragment fragment-index=1 .absolute top="150" left="50" width="200"}
-[Day 2]{style="color:#ff412c; font-weight: normal; font-size: 2.0em;"}
-::: 
---->
-
 
 ## What's the Plan?
 #### This session
@@ -97,6 +72,30 @@ flowchart BT
 --->
 
 
+<!---
+::: {.fragment fragment-index=0 .absolute top="46%" bottom="16%"  left="34%" width="330" }
+::: {.blackbox}
+:::
+:::
+
+::: {.fragment fragment-index=0 .absolute top="370" left="50" width="200"}
+[Day 1]{style="color:#ff412c; font-weight: normal; font-size: 2.0em;"}
+:::
+
+::: {.fragment fragment-index=1 .absolute top="15%" bottom="46%"  left="32%" width="375"}
+::: {.blackbox}
+:::
+:::
+
+::: {.fragment fragment-index=1 .absolute top="150" left="50" width="200"}
+[Day 2]{style="color:#ff412c; font-weight: normal; font-size: 2.0em;"}
+::: 
+--->
+
+::: notes
+In this session we will have a quick refresher on Python because it is essential to the rest of the workshop especially for the hands-on sessions and of course we don't want to do all the simulations and the data analysis in Excel, and we use PyMC which is a Python library for Bayesian statistical modeling and we will use it for the A/B testing.
+:::
+
 ## {chalkboard-buttons="false" background-image="../assets/img/AdobeStock_536776996.jpeg"  background-size="cover"}
 
  
@@ -106,23 +105,26 @@ flowchart BT
 
 [A quick refresher on Python]{style="color:#ff412c; font-weight: bold;"}
 
+::: notes
+so the goal now is to have a quick refresher on Python, and to achieve this goal ...
+:::
 
 ## Data analysis with Python
-#### A quick refresher
+#### Swiss Communes Data
 
-<br>
 
 Durig the next hour, you will be working with the `Swiss communes` data {{< fa database >}} published by the Federal Statistical Office of Switzerland. 
 
-The data is available in the `data` folder of the workshop repository.
+<!-- The data is available in the `data` folder of the workshop repository. -->
 
-::: notes
-:::
+<!-- ::: notes
+... you will be working with a data set that contains information about the Swiss communes, and is available in the data folder of the workshop repository.
+::: -->
 
 
-## Data analysis with Python
+<!-- ## Data analysis with Python
 
-#### Swiss Communes Data 
+#### Swiss Communes Data  -->
 
 ::: small-font-df
 ```{python}
@@ -138,7 +140,7 @@ df.sample(3).T
 :::
 
 ::: fragment
-::: {.absolute top="18%" bottom="7%"  left="22%" width="245" }
+::: {.absolute top="28%" height="510"  left="22%" width="245" }
 ::: {.blackbox}
 :::
 :::
@@ -146,18 +148,27 @@ df.sample(3).T
 
 
 ::: fragment
-::: {.absolute top="41%" bottom="48%" left="20%" width="610" }
+::: {.absolute top="52%" bottom="37%" left="20%" width="610" }
 ::: {.blackbox}
 :::
 :::
 :::
 
 ::: fragment
-::: {.absolute top="62%" bottom="22%" left="20%" width="610"}
+::: {.absolute top="74%" bottom="11%" left="20%" width="610"}
 ::: {.blackbox}
 :::
 :::
 ::: 
+
+::: notes
+... you will be working with a data set that contains information about the Swiss communes, and is available in the data folder of the workshop repository.
+
+This is the list of columns you will see in the data. As you see there are names of canton and commnue, the language spoken in the commune, the number of residents, the percentage of residents in different age groups, the percentage area of the commune in different groups, the elevation, and the coordinates of the commune.
+
+You will use this data set to do some data analysis and visualization.
+:::
+
 
 ## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
 
@@ -166,8 +177,9 @@ df.sample(3).T
 Let's begin:
 
 -   Open the Jupyter notebook in `Day1-01/handson.ipynb`
+- Load the data in the same folder as the notebook
 -   Follow the instructions in the notebook, and provide your answers in the code cells
--   You will be able to find the solution notebook by the end of the day in `Day1-01/handson_solution.ipynb`
+-   You will be able to find the solution notebook by the end of the day
 -   [Please be back here at 10:00]{style="color:#ff412c; font-weight: bold;"}
 
 ::: footer
@@ -305,7 +317,7 @@ pd.crosstab(df['Commune'], df['Canton'])
 #| echo: true
 #| eval: true 
 #| code-fold: false
-#| code-line-numbers: 1|5
+
 import matplotlib.pyplot as plt
 
 top10 = df.sort_values(by=['Residents'], ascending=False).head(10)
@@ -336,7 +348,7 @@ plt.show()
 #| echo: true
 #| eval: true 
 #| code-fold: false
-#| code-line-numbers: 1|3
+
 import seaborn as sns
 
 sns.violinplot(x="Language", y="0-19 years",data=df,color='0.8')
@@ -352,7 +364,6 @@ plt.show()
 #| echo: true
 #| eval: true 
 #| code-fold: false
-#| code-line-numbers: 1,2,4|6-8
 fig, axes = plt.subplots(nrows = 1,
                          ncols = 3,
                          figsize = (12, 3), 
@@ -377,7 +388,6 @@ plt.show()
 #| echo: true
 #| eval: true 
 #| code-fold: false
-#| code-line-numbers: 1|3,4|5
 sns.pairplot(
             data=df, 
             y_vars='Agricultural area', 
@@ -397,7 +407,6 @@ plt.show()
 #| echo: true
 #| eval: true 
 #| code-fold: false
-#| code-line-numbers: 5,9|
 fig, axes = plt.subplots(nrows = 1,
                          ncols = 2,
                          figsize = (12, 4), sharey=True)
