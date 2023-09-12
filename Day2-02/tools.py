@@ -47,19 +47,6 @@ def get_posterior(priors, trials, successes):
 
     return trace
 
-
-
-def sample_size_effect(sample_sizes, prior, successes_rate):
-
-    trace_all = {}
-
-    for n in sample_sizes:
-        trace_all[n] =  get_posterior( priors    = prior, 
-                                        trials   = [n, n], 
-                                        successes= np.dot(successes_rate,n))
-    return trace_all
-
-
 #---------------------------------------------HANDS ON 2
 
 def get_data(variants, true_conversion_rates, true_mean_purchase, samples_per_variant):
