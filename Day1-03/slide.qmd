@@ -462,16 +462,16 @@ Now we need to specify the prior:
 
 ::: callout-tip
 
-[prior]{style="color:red"} ~ Beta distribution $\Rightarrow$  [posterior]{style="color:#962cff"} ~ Beta distribution.
+<!-- [prior]{style="color:red"} ~ Beta distribution $\Rightarrow$  [posterior]{style="color:#962cff"} ~ Beta distribution. -->
 
-In this case, the prior and posterior are in the same family of distributions, and we say that the prior is a conjugate prior to the likelihood function. Or both prior and posterior are conjugate distributions.
+When the prior and posterior are in the same family of distributions, we say that the prior is a conjugate prior to the likelihood function. Or both prior and posterior are conjugate distributions.
 :::
 
 ::: notes
 explain why we are focusing on the beta distribution as a prior. we are interested in the conversion probability, which is a probability, so we need a distribution that is defined on the interval [0,1]. Beta distribution is a convenient choice because it is a conjugate prior to the Bernoulli likelihood function.
 :::
 
-## Analytical Approach
+## Analytical Approach{data-visibility="hidden"}
 #### Prior  ... what is Beta distribution?
 
 <br>
@@ -491,19 +491,27 @@ and $\alpha>0$ and $\beta>0$ are the shape parameters of the distribution, and $
 #### Prior  ... what is Beta distribution?
 
 <br>
-
+$$P(\theta) = \frac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{B(\alpha,\beta)}, \hspace{20 mm} \alpha, \beta>0, 0 \leq \theta \leq 1$$
 
 Let's play with the [Beta distribution](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0qE2sEyoT0xHs7F6cHYACFMlBgfQkiw1Et6KR2GIoBAqh4yHoeGg4AB+GhgSZvd73PioJZcFQhFgMm5lZlLFbs0K-KC0-y0gAKkPgFBYOhF7AAjP55QAGPDy+k7d4zA685acAWXMCqOXiyXQmXG-AKpWq9VTTVa-ZYIXsAB87FV7FUbo9tI1XJaGveZQhRxOsj420dHwOizILOWWjIv2g8DyqCC9j99veQdaGvG2QgdBC8M4oQAboLdf44wn-OXOKtSONEG8AAJ1pYdwIQDlYRTJqDyMhFWnedhigAiADE-W9S+xU9UM-YJm2HXtbBgWESQTBEnA4I15QBOABsAA5ldf1QG7gAC8scREBIkk5UAHiKAA9v-L7x-Yol0wFQIE4CFCDgBplQwZVFVg09TzwABWZVC03XYDAHJQGh-fwMmSLBMzw-xdQwKAJjwcjVAmSZ2AAckGABaBi8HkQQigAJgw95sLIZ55GghjUWSfQnA2VR6BUMgrBCcDnisewzAgQgBNIBjeJubCfzmDJ5AaFgGIAEhoGhEWSYzNPvbDsD045DJMsUmnMvpLPGazMNabChKqPsGkUQgigYjIkjY9hHChUgihnYdywwmyR0SbhAQmIscnQYDfFQBpcgKegG0rUJ-HWMwKiKB4WDMOBxjAABfPBwGXahAgARwiQJ4HITgeh-Mh8CIUgKCoZAeHaIQRDEeqAF0gA) and see how it changes with $\alpha$ and $\beta$.
 
-::: fragment
-A few observations:
+<br>
+
+::: info-box
+Beta distribution can become flat, symmetric or asymmetric depending on the values of $\alpha$ and $\beta$
 :::
 
-::: incremental
+<!-- ::: fragment
+Observations:
+::: -->
+
+<!-- ::: incremental
 - Uniform distribution is a special case of the Beta distribution with $\alpha=\beta=1$
 - Beta distribution can become symmetric, e.g. with $\alpha=\beta=4$
 - Beta distribution can become right (or left)-skewed, e.g. with $\alpha=2$ (for $\beta=5$)
-:::
+::: -->
+
+<br>
 
 ::: fragment
 We're almost there: 
@@ -524,16 +532,20 @@ note that changing the values of $\alpha$ and $\beta$ changes the shape of the d
 
 ![](img/posterior.png){width="40%" height="40%" fig-align="center"}
 
-$\color{#962cff}{P(\theta|data)} \propto \color{red}{\theta^z(1-\theta)^{N-z}}\times\color{blue}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}$
+$$\color{#962cff}{P(\theta|data)} \propto \color{red}{\theta^z(1-\theta)^{N-z}}\times\color{blue}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}$$
 
-$\color{#962cff}{P(\theta|data)} \propto \theta^{z+\alpha-1}(1-\theta)^{N-z+\beta-1}$
+<!-- $\color{#962cff}{P(\theta|data)} \propto \theta^{z+\alpha-1}(1-\theta)^{N-z+\beta-1}$ -->
+::: fragment
 
-$\color{#962cff}{Beta(\alpha+z,\beta+N-z)} \propto \color{red}{\text{Bernoulli likelihood}} \times\color{blue}{Beta(\alpha,\beta)}$
+$$\color{#962cff}{Beta(\alpha+z,\beta+N-z)} \propto \color{red}{\text{Bernoulli likelihood (N, z, $\theta$)}} \times\color{blue}{Beta(\alpha,\beta)}$$
+:::
 
 <br>
 
+::: fragment
 Let's have a little [show](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMAHQgEsZViAnMgAgGcALeibTgHcoZQtzqNmbdjBGoANsTLz6AIyzYFS9lE7sFZCU1YcIAVybYdeiKjoAzFsRhde-dpJPsAgujzsWSgATOBZ-M3oHJxdOQnocDE4yET1PaVU4ZLo6NFQAfQj2AF52CKwoAHM4PPt5CKCACjp2Ftc+AWFRbgwybjh4RIBrTLFsBoBKPGbWsvkobGIzMjzOehDVKBYmiFbd0vpyiDh5FbW4Da3pvev2AGJ2ABV6ZTgrm5ay7gAWJrAACWIgnYQWIcD0vTg7AAQpkoPpiElQvRWOwxFAIFU9KorBD9CxkSwdBAgtDQhBFvIVOwVMMVNxiMQggB+GhgSZvd73PioJZcFQhFgcm5lblLFb80K-KCs-ysgAKm1gmVCOhl7AAjP51QAGPDq9k7d4zA6i5acCWXMCqNXyxXwCiE634DVa3X6qaGo37DCm8VnS0AORtkAsGUJxHs7Fq8U4ap1rrd2oNXo+JtsYvN-t+EDyfSgQVjztZ5hgYfYEfYeYLat1Gu1ieTKbKqF+rINQpajeuzfRxzysj42xT3sWZB5yy0ZGzSryqCC9jbHveXfYBvG2QgdBCkc4oQAbpLTf5R+P-LvOKtSONEG8AAInpZ3wLE0JYRRTqDyMhFVnedhygARAAxNs3m3dhoHgWd5wmG9PT2WwMBYdEQRgRI4DgRp1QATgANgADm1Qj9Q7dhSNuAAC3cOFxZCMUhbUAB4ilQZj1VIiFkmKCDMBUCBOFQKBCDgBptQwbVNTE7DsL1et103eDdnuQhAhESEyEEYh9HfVIdjhJxBFI+x6AqfwoAADzBbiDESMxVEnTgGk1dgACZ-GMipVgALzgIonLcr5xnkzltO0GEWHJMxKXoal6Fpeh6UZUiLLBYBtQAXTfJQGk4qB-FygAqArTQwHMq0c8Z2AK9gnIAWly8YioaEqAwmWqSrKuB8wqyZ2AAchYPr-BgTgihc4KbmSyzODSzLqLycy5gyeQGkGgASGgaFyta+om64UpmjL0OWbAluOBo+ppY4EoZIJdqm1KjvmshnnkES+vCyLoti+LEruva9luA7ZowCp8UaAHdnI0KOFQJwNlUegVDIKwgnoJJ8VUJZkQU95gfVTLJxyvpkn8DJkiwGDcv8EqoAmPAStUCZer61RaqG6koGWoo+rhgl-2Aob5EEMbIdafHCffYnYTJ2FKfsaXSY8dMyAwOnxgAag63MuoLenlfHDAmc1lq2u18rmf8Vm6jgPdkTesgOeFsazPkVBuCgIoxNw-wzvkHnmERfEUUAoD7sU1oHpmgnjoWv3Vr6jatpJqAdrFloJdj06ufOvrw7x6bgBj57XvevmURQ+Eg-50POHzm5M7eqpiQaRRCB5jIkg5xwlVIIogM-Xd07uTOwbWCZSNImyXoqbhljmBYlgniOWhsnhAWXjdcm43wW1yAp6DPfdQn8dYzAqIoHhYMw4HGMAAF88HASCEGQQIAEcIkCeByE4HpzLIPgIgpAKBUGQDwdoQgRBiAfulIAA) of this.
 
+:::
 
 ::: notes
 a few things we learn from the plot:
@@ -552,7 +564,7 @@ a few things we learn from the plot:
 
 Similar to beta distribution, gamma distribution is a convenient choice for the prior because it is a **conjugate prior** to the Gamma likelihood function. -->
 
-## Hands-on session
+## Hands-on session{data-visibility="hidden"}
 #### Warm-up
 
 <br>
@@ -602,15 +614,17 @@ plt.show()
 :::
 
 
-## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
+## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover" }
 
 ![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
 
 Let's begin:
 
 -   Open the Jupyter notebook in `Day1-03/handson.ipynb`
--   Follow the instructions in the notebook, and run the codes.
--   You will be able to find the solution to the exercise in the `Day1-03/handson_solution.ipynb` notebook by the end of the day.
+- Run the codes and provide your answers to the tasks in the notebook
+-   You will be able to find the solution notebook by the end of the day
+- [Please be back here at 14:00]{style="color:#ff412c; font-weight: bold;"}
+
 
 ::: footer
 :::
