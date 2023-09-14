@@ -130,7 +130,7 @@ flowchart LR
 press c and use marker to circle around observe x for Freq approach. This approach relies too much on the observed x and makes bold assumptions about the sample. So, the whole inference will become too much dependent on the observed x. Lets discuss this by a few examples, but before we need to know what is the wholy things about Frequentism.
 :::
 
-## Sampling distribution
+## Sampling Distribution
 
 ![](img/coin_flip.png){.absolute .r-stretch  fig-align="center" width="50%"} 
 ![](img/coin_flip-4.png){.absolute .fragment  width="50%"} 
@@ -232,7 +232,7 @@ frequentists reason horizontally, with mu fixed and x varying, while Bayesian in
 
 <!-- ### Introduction to A/B testing { style="color:#fcf6f5;" } -->
 
-## What is A/B testing?
+## What is A/B Testing?
 
 <br> 
 
@@ -290,7 +290,7 @@ frequentists reason horizontally, with mu fixed and x varying, while Bayesian in
   <!-- -  Decide on the sample size   -->
 ::: 
 ::: {.column width="40%" }
-![](img/AdobeStock_527930015.jpeg){width="50%" fig-align="left"}
+![](img/AdobeStock_527930015.jpeg){width="55%" fig-align="left"}
 :::
 :::
 
@@ -302,7 +302,7 @@ frequentists reason horizontally, with mu fixed and x varying, while Bayesian in
   -  Monitor the outcomes
 ::: 
 ::: {.column width="40%" }
-![](img/AdobeStock_128491416.jpeg){width="60%" fig-align="left"}
+![](img/AdobeStock_128491416.jpeg){width="70%" fig-align="left"}
 :::
 :::
 
@@ -367,10 +367,35 @@ A/B testing and experimentation strategy are all about building feedback loops. 
 - Statistical analysis of the results: 5% vs 7% then go for B, but a more rigorous approach would involve applying statistical testing to determine if the differences in response rates between A and B were statistically significant (that is, highly likely that the differences are real, repeatable, and not due to random chance)
 :::
 
-## A/B testing example
+## A/B Testing Examples
 
 <br>
 
+- **Amazon**: Personalized recommendations based on items in the
+shopping cart [[source]](http://glinden.blogspot.com/2006/04/early-amazon-shopping-cart.html)
+
+- **Amazon**: Buy with Prime increases shopper conversions by 25% [[source]](https://buywithprime.amazon.com/blog/proving-the-value-of-buy-with-prime-with-a-b-testing)
+
+- **LinkedIn**: Add more contacts vs top news articles [[source]](https://engineering.linkedin.com/mobile/mobile-ab-testing-linkedin-how-members-shape-our-apps)
+
+- **Netflix**: Personalized recommendations based on viewing history [[source]](https://netflixtechblog.com/its-all-a-bout-testing-the-netflix-experimentation-platform-4e1ca458c15)
+
+- **Airbnb**: Testing user interface, guest messaging feature, pricing feature, search ranking algorithm [[source]](https://medium.com/airbnb-engineering/experiments-at-airbnb-e2db3abf39e7)
+
+- Booking, Meta, Google, Twitter, Uber, Lyft, etc.
+
+::: notes
+Netflix, Amazon, and YouTube are still going strong because they are constantly testing and optimizing their products. They are constantly trying to improve the user experience and increase engagement. Or to remain relevant in the market.
+
+
+- **LinkedIn**: personalized job recommendations based on profile
+- **Netflix**: personalized recommendations based on viewing history
+- **Google**: personalized search results based on location
+- **Facebook**: personalized news feed based on friends and interests
+- **Twitter**: personalized news feed based on friends and interests
+
+- **LinkedIn**: the A/B test decides whether the top slot in the user's stream should encourage the user to add more contacts by importing her/his address book or show top news articles.
+:::
 
 ## Slide Title {visibility="hidden"}
 
@@ -393,32 +418,54 @@ Common A/B testing mistakes:
 
 <br> <br>
 
+::: columns
+::: {.column width="60%" }
 ##### Conversion Rate
 
 > proportion of visitors that perform the target action
+:::
+::: {.column width="40%" }
+![](img/AdobeStock_570461077.jpeg){width="55%" fig-align="left"}
+:::
+:::
 
-<br>
-
+::: columns
+::: {.column width="60%" }
 ##### Uplift 
 
 > difference between the conversion rates of the two variants
+::: 
+::: {.column width="40%" }
+![](img/AdobeStock_495906704.jpeg){width="50%" fig-align="left"}
+:::
+:::
 
-<br>
-
+::: columns
+::: {.column width="60%" }
 ##### HDI
 
 > highest density interval
+::: 
+::: {.column width="40%" }
+![](img/HDI.png){width="60%" fig-align="left"}
+:::
+:::
 
 
-## data vs prior
+## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover" }
 
-- discuss the impact of sample size on the posterior distribution
-- discuss the impact of prior on the posterior distribution
+![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
 
-## load synthetic dataset and explore it
+Let's begin:
+
+-   Open the Jupyter notebook in `Day1-04/handson.ipynb`
+- Run the codes and provide your answers to the tasks in the notebook
+-   You will be able to find the solution notebook by the end of the day
+- [Please be back here at 15:30]{style="color:#ff412c; font-weight: bold;"}
 
 
-
+::: footer
+:::
 
 ## {chalkboard-buttons="false" background-image="../assets/img/Quiz_AdobeStock_439133763.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.9" background-size="cover"}
 
@@ -460,16 +507,3 @@ How to do A/B testing based on the Bayesian methods?
 
 <!-- [shinylive](https://shinylive.io/py/app/#code=NobwRAdghgtgpmAXGKAHVA6VBPMAaMAYwHsIAXOcpMASxlWICcyACAZwAsaJs2B3KGUIcAOhDoNmLGINQAbYmTk0ARlmzzFLKGxbyyYiU1YQArvWzbdEVGIBmjYjHZceLI1ICC6PC0aUAEzhGX1Mae0dnNkIaHAw2MkFdD1YVOESxMTRUAH0wlgBeFjCsKABzOBy7OTCAgAoxFiaXbl4BIQ4MMg44eHjTVGCexzqASjxG5pK5KGxiUzIcthoglShGBohm7eKaUog4OSWVuDWNyZ2dgGIWABUaJTgLy6m9jgAWTZfvlhEwAAliHwWAFiHBdKh1rB0sFdMQ7CxunAWAAhdJQEE0BKMVQLGikFjCKAQCqInouNDI+HuMgQxxrFQ0ZRkSxBCDLFksOymCCEMj4iAAfj+z2+41FLxu3FQC3YyiCjAllxK0oWS3lwQaKD+vj+AAUofAKIxtDqWAAGXwAVktLCt4q2PyaKpsarYGvOYBUZv1hphJu9+At1tt9omjqdJVQWoAcoo4IhtCwAHzBlgqFMWv4OsXh75R4mHHIybhfJ27DDzMgyxaaMha6DwHKoAJ2bN5l455oO0aZCBiIIItjBABumtVZF8VZrvmHbGWpFGiGeAAFpwtV-4IAqsAp61A5GQCn9PCw9QARABi2eeg5YjcqLbsY2XEZ2NgwjGJoJg8TgcHqABGABOAA2AAOc1IMA3s322G5h1YJE-GJUlzQAHgKAAPTDAKVFgsMKe9MGUdlIUIOA6ltQCQ1g759F3RQ6iw3w0kSLBW2Y3wJwwKAxm410yAwFQxnGX4vQAWjNOQ+AKABmOiXgY-lHi1VB6SgRlmVZSgOUsbleX5AlqTRDIwEUy4GOwGY0jkLUbzg5oGKwmzDns8z8IYuQ4Aqbc6gUQhjy9cEDCDBxoVIApLwPYdYM8w94g4IExj7LJ0CI7xo2yPIaFnUdgl8VZTDKApbkYUw4FgsAAF88HAB9qH8ABHMJ-Hgcg2C6LCyHwIhSAoKhkE4Vp+EEYQaoAXSAA) -->
 
-
-<!-- ## {chalkboard-buttons="false" background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" background-position="center"  background-repeat="no-repeat" background-opacity="0.5" background-size="cover"}
-
-![](../assets/img/python-logo-inkscape.svg){width="30%" height="30%" fig-align="center"}
-
-Optional hands-on session: 
-
--   Open the Jupyter notebook in `Day1-04/handson.ipynb`
--   Follow the instructions in the notebook, and run the codes.
-
-::: notes
-let them run code in the notebook that does A/B testing with synthetic data based on frequentist approach, and say thaz they will learn bayesian approach tomorrow
-::: -->
