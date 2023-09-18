@@ -481,6 +481,7 @@ EPFL Extension School
 <aside class="notes">
 <p>notice that the graph has 11 numbers on the x axis because we’re gonna repeat the experminet of flipping the coin 11 times, and each time we get different heads ratio. The binomial probability distribution in this figure is also called a sampling distribution. This terminology stems from the idea that any set of N flips is a representative sample of the behavior of the coin. If we were to repeatedly run experiments with a fair coin, such that in every experiment we flip the coin exactly N times, then, in the long run, the probability of getting each possible z (# of heads) would be the distribution shown in this plot.</p>
 <p>note that p(head)=0.5 is fixed by null hypothesis. The ratios on the x axis are coming from the samples</p>
+<p>the issue with the frequentist approach is that sampling distribution can depend on the experimental design.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -680,7 +681,7 @@ EPFL Extension School
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="img/AdobeStock_128491416.jpeg" style="width:70.0%"></p>
+<p><img data-src="img/AdobeStock_128491416.jpeg" style="width:65.0%"></p>
 </figure>
 </div>
 </div>
@@ -811,6 +812,7 @@ EPFL Extension School
 </div>
 </div>
 </div>
+<p><br></p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <h5 id="uplift">Uplift</h5>
@@ -825,6 +827,10 @@ EPFL Extension School
 </div>
 </div>
 </div>
+</section>
+<section id="a-few-key-terms-1" class="slide level2">
+<h2>A few Key Terms</h2>
+<p><br></p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <h5 id="hdi">HDI</h5>
@@ -834,11 +840,51 @@ EPFL Extension School
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="img/HDI.png" style="width:60.0%"></p>
+<p><img data-src="img/HDI.png" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h5 id="rope">ROPE</h5>
+<blockquote>
+<p>regions of practical equivalence</p>
+</blockquote>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/ROPE.png" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Decision</strong>: A and B are different if the entire ROPE lies outside the 95% HDI</p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>ROPE: set it before the test HDI: get it after the test</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-2" class="slide level2" data-chalkboard-buttons="false" data-background-image="../assets/img/Handson_AdobeStock_316152114.jpeg" data-background-position="center" data-background-repeat="no-repeat" data-background-opacity="0.5" data-background-size="cover">
 <h2></h2>

@@ -154,6 +154,8 @@ Statistical methods that rely on [sampling distributions]{style="color:#ff332c"}
 notice that the graph has 11 numbers on the x axis because we're gonna repeat the experminet of flipping the coin 11 times, and each time we get different heads ratio. The binomial probability distribution in this figure is also called a sampling distribution. This terminology stems from the idea that any set of N flips is a representative sample of the behavior of the coin. If we were to repeatedly run experiments with a fair coin, such that in every experiment we flip the coin exactly N times, then, in the long run, the probability of getting each possible z (# of heads) would be the distribution shown in this plot.
 
 note that p(head)=0.5 is fixed by null hypothesis. The ratios on the x axis are coming from the samples
+
+the issue with the frequentist approach is that sampling distribution can depend on the experimental design.
 :::
 
 
@@ -302,7 +304,7 @@ frequentists reason horizontally, with mu fixed and x varying, while Bayesian in
   -  Monitor the outcomes
 ::: 
 ::: {.column width="40%" }
-![](img/AdobeStock_128491416.jpeg){width="70%" fig-align="left"}
+![](img/AdobeStock_128491416.jpeg){width="65%" fig-align="left"}
 :::
 :::
 
@@ -429,6 +431,8 @@ Common A/B testing mistakes:
 :::
 :::
 
+<br> 
+
 ::: columns
 ::: {.column width="60%" }
 ##### Uplift 
@@ -440,6 +444,10 @@ Common A/B testing mistakes:
 :::
 :::
 
+## A few Key Terms
+
+<br> 
+
 ::: columns
 ::: {.column width="60%" }
 ##### HDI
@@ -447,8 +455,30 @@ Common A/B testing mistakes:
 > highest density interval
 ::: 
 ::: {.column width="40%" }
-![](img/HDI.png){width="60%" fig-align="left"}
+![](img/HDI.png){width="70%" fig-align="left"}
 :::
+:::
+
+
+::: columns
+::: {.column width="60%" }
+##### ROPE
+
+>  regions of practical
+equivalence
+::: 
+::: {.column width="40%" }
+![](img/ROPE.png){width="70%" fig-align="left"}
+:::
+:::
+
+::: callout-note
+**Decision**: A and B are different if the entire ROPE lies outside the 95% HDI 
+:::
+
+::: notes
+ROPE: set it before the test
+HDI: get it after the test
 :::
 
 
