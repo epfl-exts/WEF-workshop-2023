@@ -703,7 +703,7 @@ Luckily we get the whole distribution of the uplift, not just these three states
 <section id="define-parameters-in" class="slide level2">
 <h2>Define Parameters in <img data-src="img/PyMC.png" class="center"></h2>
 <p><br></p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1,2|4,5|7,8|10,11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># let's define the variants A and B</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>variants  <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>]</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
@@ -714,7 +714,7 @@ Luckily we get the whole distribution of the uplift, not just these three states
 <span id="cb2-8"><a href="#cb2-8"></a>conversion <span class="op">=</span> [<span class="dv">200</span>, <span class="dv">200</span>]</span>
 <span id="cb2-9"><a href="#cb2-9"></a></span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="co"># let's define parameters for a prior for the conversion rates</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>alpha, beta <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a href="#cb2-11"></a>alpha, beta <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!-- #
 
@@ -732,7 +732,7 @@ plt.show()
 </section>
 <section id="creating-a-model-in" class="slide level2">
 <h2>Creating a Model in <img data-src="img/PyMC.png" class="center"></h2>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="1|4|5,6|7|10|11,12|4,13|7,14|4,17,18|21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> example_model:</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Priors for unknown model parameters</span></span>
@@ -780,38 +780,38 @@ plt.show()
 <section id="checking-the-model-specification" class="slide level2">
 <h2>Checking the Model Specification</h2>
 <p>Unobserved Random Variables:</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>example_model.unobserved_RVs  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="88">
 <pre><code>[theta, uplift]</code></pre>
 </div>
 </div>
 <p><br></p>
 <p>Observed Random Variables:</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>example_model.observed_RVs  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="89">
 <pre><code>[y]</code></pre>
 </div>
 </div>
 <p><br></p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>trace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="90">
 <pre><code>&lt;MultiTrace: 4 chains, 1000 iterations, 3 variables&gt;</code></pre>
 </div>
 </div>
 <p><br></p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>trace.theta.shape,  trace.uplift.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>((4000, 2), (4000,))</code></pre>
 </div>
 </div>
 </section>
 <section id="ploting-the-output" class="slide level2">
 <h2>Ploting the Output</h2>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's put the trace into a dataframe</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat([pd.DataFrame(trace[<span class="st">'theta'</span>]), </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                pd.DataFrame(trace[<span class="st">'uplift'</span>])],</span>
@@ -823,7 +823,7 @@ plt.show()
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">plot</a></li><li><a href="#tabset-1-2">show it</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="5,9,13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">3</span>), sharey<span class="op">=</span><span class="va">True</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -843,7 +843,7 @@ plt.show()
 </div>
 </div>
 <div id="tabset-1-2">
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <p><img data-src="slide_files/figure-revealjs/cell-11-output-1.png" width="947" height="292"></p>
 </div>
@@ -854,7 +854,7 @@ plt.show()
 </section>
 <section id="changing-the-output-type" class="slide level2">
 <h2>Changing the Output Type</h2>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="22,23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> example_model:</span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
 <span id="cb14-3"><a href="#cb14-3"></a>    <span class="co"># Priors for unknown model parameters</span></span>
@@ -899,7 +899,7 @@ plt.show()
 
     <div>
       <progress value="8000" class="" max="8000" style="width:300px; height:20px; vertical-align: middle;"></progress>
-      100.00% [8000/8000 00:01&lt;00:00 Sampling 4 chains, 0 divergences]
+      100.00% [8000/8000 00:02&lt;00:00 Sampling 4 chains, 0 divergences]
     </div>
     
 </div>
@@ -908,9 +908,9 @@ plt.show()
 <section id="changing-the-output-type-1" class="slide level2">
 <h2>Changing the Output Type</h2>
 <p>Let’s check the output:</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>trace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="95">
 
 
             <div>
@@ -920,8 +920,8 @@ plt.show()
               <ul class="xr-sections group-sections">
               
             <li class="xr-section-item">
-                  <input id="idata_posterior45a85d4e-07c5-4ce2-89ab-7b1586b5a7c6" class="xr-section-summary-in" type="checkbox">
-                  <label for="idata_posterior45a85d4e-07c5-4ce2-89ab-7b1586b5a7c6" class="xr-section-summary">posterior</label>
+                  <input id="idata_posterior5e16ce44-a25c-4a9d-93f5-0ed6f3a169aa" class="xr-section-summary-in" type="checkbox">
+                  <label for="idata_posterior5e16ce44-a25c-4a9d-93f5-0ed6f3a169aa" class="xr-section-summary">posterior</label>
                   <div class="xr-section-inline-details"></div>
                   <div class="xr-section-details">
                       <ul id="xr-dataset-coord-list" class="xr-var-list">
@@ -1295,62 +1295,62 @@ Coordinates:
   * draw         (draw) int64 0 1 2 3 4 5 6 7 ... 993 994 995 996 997 998 999
   * theta_dim_0  (theta_dim_0) int64 0 1
 Data variables:
-    theta        (chain, draw, theta_dim_0) float64 0.2509 0.2512 ... 0.2412
-    uplift       (chain, draw) float64 0.001253 0.02442 ... -0.07485 -0.09294
+    theta        (chain, draw, theta_dim_0) float64 0.2094 0.2154 ... 0.2036
+    uplift       (chain, draw) float64 0.02898 0.02898 ... 0.02555 0.05498
 Attributes:
-    created_at:                 2023-09-14T16:23:12.120008
+    created_at:                 2023-09-19T09:55:11.526932
     arviz_version:              0.16.0
     inference_library:          pymc
     inference_library_version:  5.5.0
-    sampling_time:              19.272015810012817
-    tuning_steps:               1000</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-909d53ff-8f4f-4146-91c4-c5ec11cc9895" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-909d53ff-8f4f-4146-91c4-c5ec11cc9895" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">chain</span>: 4</li><li><span class="xr-has-index">draw</span>: 1000</li><li><span class="xr-has-index">theta_dim_0</span>: 2</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-b99bc51a-bc4d-4f4f-a3f7-79d7dc7dbb79" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-b99bc51a-bc4d-4f4f-a3f7-79d7dc7dbb79" class="xr-section-summary">Coordinates: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">chain</span></div><div class="xr-var-dims">(chain)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3</div><input id="attrs-ce2b591c-714c-4e99-b383-9be809aacb71" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-ce2b591c-714c-4e99-b383-9be809aacb71" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-aaecc49f-925b-4af6-a2f0-3cf9d8d2a33e" class="xr-var-data-in" type="checkbox"><label for="data-aaecc49f-925b-4af6-a2f0-3cf9d8d2a33e" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1, 2, 3])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">draw</span></div><div class="xr-var-dims">(draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3 4 5 ... 995 996 997 998 999</div><input id="attrs-8a07d2e6-ca8c-4b52-af6f-f7848054f2f7" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-8a07d2e6-ca8c-4b52-af6f-f7848054f2f7" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-71b02f20-1e9d-4c66-acdc-9a3cd2926cbb" class="xr-var-data-in" type="checkbox"><label for="data-71b02f20-1e9d-4c66-acdc-9a3cd2926cbb" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([  0,   1,   2, ..., 997, 998, 999])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">theta_dim_0</span></div><div class="xr-var-dims">(theta_dim_0)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1</div><input id="attrs-258125e6-9d58-41cb-b34c-35630fd54975" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-258125e6-9d58-41cb-b34c-35630fd54975" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-fbc488b5-1d90-409f-81c9-8ebf4d3c84c5" class="xr-var-data-in" type="checkbox"><label for="data-fbc488b5-1d90-409f-81c9-8ebf4d3c84c5" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-de0df098-e65e-43a4-8ecd-9e11a2ee7c4c" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-de0df098-e65e-43a4-8ecd-9e11a2ee7c4c" class="xr-section-summary">Data variables: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>theta</span></div><div class="xr-var-dims">(chain, draw, theta_dim_0)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.2509 0.2512 ... 0.2659 0.2412</div><input id="attrs-7cd5ba27-3c04-4e58-872f-3aa17b1e6c91" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-7cd5ba27-3c04-4e58-872f-3aa17b1e6c91" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-3bf46b2e-637c-472c-8985-0ece8527f5d7" class="xr-var-data-in" type="checkbox"><label for="data-3bf46b2e-637c-472c-8985-0ece8527f5d7" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[[0.25089055, 0.251205  ],
-        [0.25339547, 0.25958239],
-        [0.25189537, 0.25781308],
+    sampling_time:              18.27219009399414
+    tuning_steps:               1000</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-a508ee66-a763-4ae0-b89d-c6563600e0f5" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-a508ee66-a763-4ae0-b89d-c6563600e0f5" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">chain</span>: 4</li><li><span class="xr-has-index">draw</span>: 1000</li><li><span class="xr-has-index">theta_dim_0</span>: 2</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-b80ae776-ec51-45f9-b70c-02cfd9fbb915" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-b80ae776-ec51-45f9-b70c-02cfd9fbb915" class="xr-section-summary">Coordinates: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">chain</span></div><div class="xr-var-dims">(chain)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3</div><input id="attrs-5f6048a6-0b79-4f76-ac0a-824eab0c9df7" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-5f6048a6-0b79-4f76-ac0a-824eab0c9df7" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-cb7b4e30-f40f-4bf9-aa42-d455bb8c5c51" class="xr-var-data-in" type="checkbox"><label for="data-cb7b4e30-f40f-4bf9-aa42-d455bb8c5c51" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1, 2, 3])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">draw</span></div><div class="xr-var-dims">(draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3 4 5 ... 995 996 997 998 999</div><input id="attrs-5724e9e8-347a-49b1-b7de-2c34e52ebe49" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-5724e9e8-347a-49b1-b7de-2c34e52ebe49" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-f02b737b-a912-41bf-ae91-ad5406c2a88f" class="xr-var-data-in" type="checkbox"><label for="data-f02b737b-a912-41bf-ae91-ad5406c2a88f" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([  0,   1,   2, ..., 997, 998, 999])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">theta_dim_0</span></div><div class="xr-var-dims">(theta_dim_0)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1</div><input id="attrs-fd26655d-ab33-4777-9691-dfef98c0e6bc" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-fd26655d-ab33-4777-9691-dfef98c0e6bc" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-768fbf27-1538-43f1-a59b-272bc4d9f20c" class="xr-var-data-in" type="checkbox"><label for="data-768fbf27-1538-43f1-a59b-272bc4d9f20c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-f0bdd073-a543-4e87-92fc-2343d12c922d" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-f0bdd073-a543-4e87-92fc-2343d12c922d" class="xr-section-summary">Data variables: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>theta</span></div><div class="xr-var-dims">(chain, draw, theta_dim_0)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.2094 0.2154 ... 0.193 0.2036</div><input id="attrs-5d7187c4-9d00-43bd-8d9d-dfc934558ac0" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-5d7187c4-9d00-43bd-8d9d-dfc934558ac0" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-b139e89c-8de2-4e55-ad59-195cc3a5c1fc" class="xr-var-data-in" type="checkbox"><label for="data-b139e89c-8de2-4e55-ad59-195cc3a5c1fc" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[[0.20937209, 0.21544031],
+        [0.20937209, 0.21544031],
+        [0.18578411, 0.19172663],
         ...,
-        [0.2214371 , 0.251992  ],
-        [0.2665213 , 0.25326272],
-        [0.25153546, 0.24939047]],
+        [0.19115618, 0.18798946],
+        [0.21459946, 0.216669  ],
+        [0.19604576, 0.18430353]],
 
-       [[0.26015529, 0.23893699],
-        [0.25084002, 0.25995677],
-        [0.2497653 , 0.24666967],
+       [[0.20617011, 0.20451001],
+        [0.20602158, 0.20909153],
+        [0.21136192, 0.21041967],
         ...,
-        [0.23689437, 0.25403793],
-        [0.27122599, 0.25703612],
-        [0.25754775, 0.25396837]],
+        [0.20332816, 0.20851232],
+        [0.19389191, 0.19576568],
+        [0.2029186 , 0.19558808]],
 
-       [[0.26624565, 0.2499812 ],
-        [0.23202244, 0.27040585],
-        [0.26419876, 0.23098849],
+       [[0.19989294, 0.20480675],
+        [0.20485683, 0.18168999],
+        [0.22534091, 0.21752482],
         ...,
-        [0.22503442, 0.24408894],
-        [0.21914547, 0.26376459],
-        [0.27831577, 0.24448509]],
+        [0.20079794, 0.18755524],
+        [0.19300281, 0.19622162],
+        [0.19475702, 0.20387853]],
 
-       [[0.24836751, 0.27782471],
-        [0.23229994, 0.2556578 ],
-        [0.2580915 , 0.26743527],
+       [[0.18781307, 0.20775013],
+        [0.22412981, 0.20901067],
+        [0.19290262, 0.19924031],
         ...,
-        [0.2743023 , 0.2351567 ],
-        [0.26483066, 0.24500763],
-        [0.26587536, 0.24116491]]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>uplift</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.001253 0.02442 ... -0.09294</div><input id="attrs-6eca24ac-118e-46bb-89d0-d9ad185fae2f" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-6eca24ac-118e-46bb-89d0-d9ad185fae2f" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-58e4e56f-48e9-4d3a-ae54-197e720d5bf2" class="xr-var-data-in" type="checkbox"><label for="data-58e4e56f-48e9-4d3a-ae54-197e720d5bf2" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[ 0.00125331,  0.02441607,  0.02349273, ...,  0.13798453,
-        -0.04974677, -0.00852759],
-       [-0.08156014,  0.03634491, -0.01239415, ...,  0.07236795,
-        -0.0523175 , -0.01389795],
-       [-0.06108814,  0.16542972, -0.12570181, ...,  0.08467384,
-         0.20360503, -0.12155501],
-       [ 0.11860327,  0.10055043,  0.03620333, ..., -0.14270973,
-        -0.07485175, -0.09293999]])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-58acb42b-64fb-4d14-922a-e94507937815" class="xr-section-summary-in" type="checkbox"><label for="section-58acb42b-64fb-4d14-922a-e94507937815" class="xr-section-summary">Indexes: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>chain</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-eca1cea1-3486-4b1f-9afb-cddd85aa9009" class="xr-index-data-in" type="checkbox"><label for="index-eca1cea1-3486-4b1f-9afb-cddd85aa9009" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1, 2, 3], dtype='int64', name='chain'))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>draw</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-2afe3d1a-2a71-470f-97e6-8219e38a5633" class="xr-index-data-in" type="checkbox"><label for="index-2afe3d1a-2a71-470f-97e6-8219e38a5633" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
+        [0.19810169, 0.22561612],
+        [0.195872  , 0.2008771 ],
+        [0.1930299 , 0.20364261]]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>uplift</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.02898 0.02898 ... 0.02555 0.05498</div><input id="attrs-d891b6f2-f5f2-4019-8b45-67f98e1c5629" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-d891b6f2-f5f2-4019-8b45-67f98e1c5629" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-c3c99a1e-cc5d-4a8a-a3b6-323881a29489" class="xr-var-data-in" type="checkbox"><label for="data-c3c99a1e-cc5d-4a8a-a3b6-323881a29489" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[ 0.0289829 ,  0.0289829 ,  0.03198617, ..., -0.01656614,
+         0.00964374, -0.05989534],
+       [-0.00805207,  0.01490108, -0.00445802, ...,  0.02549654,
+         0.00966398, -0.03612543],
+       [ 0.02458221, -0.11308795, -0.03468562, ..., -0.06595039,
+         0.01667756,  0.04683532],
+       [ 0.10615375, -0.06745707,  0.03285434, ...,  0.13889047,
+         0.02555288,  0.05497962]])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-b1e6d64c-c561-4dd9-b0ca-d02d471bacd2" class="xr-section-summary-in" type="checkbox"><label for="section-b1e6d64c-c561-4dd9-b0ca-d02d471bacd2" class="xr-section-summary">Indexes: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>chain</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-eaa1e84e-80b5-4843-bbaa-f87bbb255e2c" class="xr-index-data-in" type="checkbox"><label for="index-eaa1e84e-80b5-4843-bbaa-f87bbb255e2c" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1, 2, 3], dtype='int64', name='chain'))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>draw</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-4333c673-43e8-4bc0-8750-41708c42800f" class="xr-index-data-in" type="checkbox"><label for="index-4333c673-43e8-4bc0-8750-41708c42800f" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
             ...
             990, 991, 992, 993, 994, 995, 996, 997, 998, 999],
-           dtype='int64', name='draw', length=1000))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>theta_dim_0</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-75aca73a-b1d1-4177-913e-51aa336dcc88" class="xr-index-data-in" type="checkbox"><label for="index-75aca73a-b1d1-4177-913e-51aa336dcc88" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1], dtype='int64', name='theta_dim_0'))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-7e31baf1-6833-4cc8-8ce0-3ce4818a9155" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-7e31baf1-6833-4cc8-8ce0-3ce4818a9155" class="xr-section-summary">Attributes: <span>(6)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>created_at :</span></dt><dd>2023-09-14T16:23:12.120008</dd><dt><span>arviz_version :</span></dt><dd>0.16.0</dd><dt><span>inference_library :</span></dt><dd>pymc</dd><dt><span>inference_library_version :</span></dt><dd>5.5.0</dd><dt><span>sampling_time :</span></dt><dd>19.272015810012817</dd><dt><span>tuning_steps :</span></dt><dd>1000</dd></dl></div></li></ul></div></div><br></div>
+           dtype='int64', name='draw', length=1000))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>theta_dim_0</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-e85af4de-54b3-4c5b-973a-6f2e0b72076c" class="xr-index-data-in" type="checkbox"><label for="index-e85af4de-54b3-4c5b-973a-6f2e0b72076c" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1], dtype='int64', name='theta_dim_0'))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-546c8112-c986-4177-945a-414c272ef5eb" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-546c8112-c986-4177-945a-414c272ef5eb" class="xr-section-summary">Attributes: <span>(6)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>created_at :</span></dt><dd>2023-09-19T09:55:11.526932</dd><dt><span>arviz_version :</span></dt><dd>0.16.0</dd><dt><span>inference_library :</span></dt><dd>pymc</dd><dt><span>inference_library_version :</span></dt><dd>5.5.0</dd><dt><span>sampling_time :</span></dt><dd>18.27219009399414</dd><dt><span>tuning_steps :</span></dt><dd>1000</dd></dl></div></li></ul></div></div><br></div>
                       </ul>
                   </div>
             </li>
             
             <li class="xr-section-item">
-                  <input id="idata_sample_stats26cbcb0a-772f-4977-8af9-da8869e8390a" class="xr-section-summary-in" type="checkbox">
-                  <label for="idata_sample_stats26cbcb0a-772f-4977-8af9-da8869e8390a" class="xr-section-summary">sample_stats</label>
+                  <input id="idata_sample_stats12041a95-4aaa-4722-b350-cec09a8a0707" class="xr-section-summary-in" type="checkbox">
+                  <label for="idata_sample_stats12041a95-4aaa-4722-b350-cec09a8a0707" class="xr-section-summary">sample_stats</label>
                   <div class="xr-section-inline-details"></div>
                   <div class="xr-section-details">
                       <ul id="xr-dataset-coord-list" class="xr-var-list">
@@ -1723,123 +1723,123 @@ Coordinates:
   * chain                  (chain) int64 0 1 2 3
   * draw                   (draw) int64 0 1 2 3 4 5 ... 994 995 996 997 998 999
 Data variables: (12/17)
-    largest_eigval         (chain, draw) float64 nan nan nan nan ... nan nan nan
-    energy                 (chain, draw) float64 76.54 78.0 ... 78.47 77.67
-    step_size_bar          (chain, draw) float64 1.255 1.255 ... 1.074 1.074
-    index_in_trajectory    (chain, draw) int64 -3 3 1 3 -1 -3 ... -2 0 -2 2 -1 1
-    max_energy_error       (chain, draw) float64 -0.06055 0.5939 ... 0.08912
-    tree_depth             (chain, draw) int64 2 2 1 2 1 2 2 2 ... 2 2 1 2 2 1 1
-    ...                     ...
-    acceptance_rate        (chain, draw) float64 0.9903 0.7125 ... 1.0 0.9147
-    n_steps                (chain, draw) float64 3.0 3.0 1.0 3.0 ... 3.0 1.0 1.0
-    perf_counter_start     (chain, draw) float64 3.476e+05 ... 3.476e+05
+    energy_error           (chain, draw) float64 0.2013 0.0 ... -0.6722 0.04775
+    perf_counter_diff      (chain, draw) float64 0.0003528 ... 0.0003256
+    lp                     (chain, draw) float64 -11.48 -11.48 ... -10.65 -10.79
+    n_steps                (chain, draw) float64 3.0 3.0 3.0 3.0 ... 3.0 3.0 3.0
+    step_size_bar          (chain, draw) float64 1.142 1.142 ... 1.195 1.195
     reached_max_treedepth  (chain, draw) bool False False False ... False False
+    ...                     ...
     smallest_eigval        (chain, draw) float64 nan nan nan nan ... nan nan nan
-    perf_counter_diff      (chain, draw) float64 0.0003653 ... 0.0001691
+    tree_depth             (chain, draw) int64 2 2 2 2 1 2 1 2 ... 2 2 2 2 2 2 2
+    max_energy_error       (chain, draw) float64 0.6336 1.693 ... 0.04775
+    diverging              (chain, draw) bool False False False ... False False
+    step_size              (chain, draw) float64 1.034 1.034 ... 1.299 1.299
+    largest_eigval         (chain, draw) float64 nan nan nan nan ... nan nan nan
 Attributes:
-    created_at:                 2023-09-14T16:23:12.133961
+    created_at:                 2023-09-19T09:55:11.542695
     arviz_version:              0.16.0
     inference_library:          pymc
     inference_library_version:  5.5.0
-    sampling_time:              19.272015810012817
-    tuning_steps:               1000</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-936c24b1-8091-4844-90de-b77595f50eae" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-936c24b1-8091-4844-90de-b77595f50eae" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">chain</span>: 4</li><li><span class="xr-has-index">draw</span>: 1000</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-d7fa8fbd-77e2-4229-8164-514a93654d60" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-d7fa8fbd-77e2-4229-8164-514a93654d60" class="xr-section-summary">Coordinates: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">chain</span></div><div class="xr-var-dims">(chain)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3</div><input id="attrs-f28dfc38-dc73-4722-afae-2af076d357b1" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-f28dfc38-dc73-4722-afae-2af076d357b1" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-7ba6403f-6022-4994-ad1f-450c581682d1" class="xr-var-data-in" type="checkbox"><label for="data-7ba6403f-6022-4994-ad1f-450c581682d1" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1, 2, 3])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">draw</span></div><div class="xr-var-dims">(draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3 4 5 ... 995 996 997 998 999</div><input id="attrs-9c0f70e6-2d30-42e0-af86-02fb9444ad26" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-9c0f70e6-2d30-42e0-af86-02fb9444ad26" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-fd87f35f-ab9e-4ef3-9221-fc7110df8cc4" class="xr-var-data-in" type="checkbox"><label for="data-fd87f35f-ab9e-4ef3-9221-fc7110df8cc4" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([  0,   1,   2, ..., 997, 998, 999])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-30478781-9a26-440c-b81f-af4c7d94f78e" class="xr-section-summary-in" type="checkbox"><label for="section-30478781-9a26-440c-b81f-af4c7d94f78e" class="xr-section-summary">Data variables: <span>(17)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>largest_eigval</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">nan nan nan nan ... nan nan nan nan</div><input id="attrs-24e393eb-cd81-488b-ad57-910f48039dc5" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-24e393eb-cd81-488b-ad57-910f48039dc5" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-c5d7f228-4dee-4d3d-ba20-c86266e2b8b1" class="xr-var-data-in" type="checkbox"><label for="data-c5d7f228-4dee-4d3d-ba20-c86266e2b8b1" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[nan, nan, nan, ..., nan, nan, nan],
-       [nan, nan, nan, ..., nan, nan, nan],
-       [nan, nan, nan, ..., nan, nan, nan],
-       [nan, nan, nan, ..., nan, nan, nan]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>energy</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">76.54 78.0 76.72 ... 78.47 77.67</div><input id="attrs-6ef28258-071d-4cd7-809e-29e5c8ec11a4" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-6ef28258-071d-4cd7-809e-29e5c8ec11a4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-8df85732-73ca-4a12-ad30-09d8bbad44a6" class="xr-var-data-in" type="checkbox"><label for="data-8df85732-73ca-4a12-ad30-09d8bbad44a6" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[76.54022042, 77.99802474, 76.71858839, ..., 79.45767598,
-        78.67070255, 77.18931744],
-       [77.75456393, 77.24706417, 76.65044807, ..., 77.65073175,
-        78.48959274, 77.4459283 ],
-       [77.36977697, 79.30858912, 78.86485816, ..., 78.77220157,
-        80.76661024, 80.57859756],
-       [79.39884579, 79.16168389, 79.91632714, ..., 79.9004344 ,
-        78.47131765, 77.67483561]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>step_size_bar</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">1.255 1.255 1.255 ... 1.074 1.074</div><input id="attrs-3450d281-6db3-4617-b7ba-6181a6c1779d" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-3450d281-6db3-4617-b7ba-6181a6c1779d" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-195e1428-a224-4a27-bff5-5e384a4e9129" class="xr-var-data-in" type="checkbox"><label for="data-195e1428-a224-4a27-bff5-5e384a4e9129" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[1.25457985, 1.25457985, 1.25457985, ..., 1.25457985, 1.25457985,
-        1.25457985],
-       [1.18490516, 1.18490516, 1.18490516, ..., 1.18490516, 1.18490516,
-        1.18490516],
-       [1.18610879, 1.18610879, 1.18610879, ..., 1.18610879, 1.18610879,
-        1.18610879],
-       [1.07422683, 1.07422683, 1.07422683, ..., 1.07422683, 1.07422683,
-        1.07422683]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>index_in_trajectory</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">-3 3 1 3 -1 -3 ... -2 0 -2 2 -1 1</div><input id="attrs-6fbb715e-f794-42e9-ad87-4fd292ea9110" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-6fbb715e-f794-42e9-ad87-4fd292ea9110" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-ce410d9f-54fd-4545-a159-993f2c169ad8" class="xr-var-data-in" type="checkbox"><label for="data-ce410d9f-54fd-4545-a159-993f2c169ad8" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[-3,  3,  1, ..., -3,  3,  3],
-       [-2,  3, -2, ..., -1, -2,  1],
-       [ 1,  3,  3, ...,  2,  1, -2],
-       [ 2,  1,  2, ...,  2, -1,  1]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>max_energy_error</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">-0.06055 0.5939 ... -0.6254 0.08912</div><input id="attrs-ef1972e5-51f3-4c5f-baf0-a1c06bfa86f8" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-ef1972e5-51f3-4c5f-baf0-a1c06bfa86f8" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-790d81cc-f31f-43cb-b0e3-c721d370ec7c" class="xr-var-data-in" type="checkbox"><label for="data-790d81cc-f31f-43cb-b0e3-c721d370ec7c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[-0.06054934,  0.59387424, -0.0422492 , ...,  0.93073726,
-        -0.89684074, -0.36236027],
-       [ 0.39847288, -0.15231182, -0.08654404, ..., -0.18192253,
-         0.33056901, -0.5049677 ],
-       [ 0.17352954,  0.75168642, -0.63628051, ...,  0.49769406,
-        -0.5340899 , -0.60816696],
-       [ 0.24230884, -0.33071203,  0.90554593, ..., -0.74582922,
-        -0.62541297,  0.08912409]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>tree_depth</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">2 2 1 2 1 2 2 2 ... 2 2 2 1 2 2 1 1</div><input id="attrs-a871accb-84ff-47bd-9f24-a90e9e18a18b" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-a871accb-84ff-47bd-9f24-a90e9e18a18b" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-f07df3b8-3d9f-486d-bdf0-8b5eb42815e0" class="xr-var-data-in" type="checkbox"><label for="data-f07df3b8-3d9f-486d-bdf0-8b5eb42815e0" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[2, 2, 1, ..., 2, 2, 2],
-       [2, 2, 2, ..., 2, 2, 1],
-       [2, 2, 2, ..., 2, 2, 2],
-       [2, 2, 2, ..., 2, 1, 1]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lp</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">-76.39 -76.71 ... -77.15 -77.42</div><input id="attrs-1cea676c-fd19-430c-ae62-11fe00bdb798" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-1cea676c-fd19-430c-ae62-11fe00bdb798" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-8a16f9f4-c1f3-4c11-8d62-0995754e6aca" class="xr-var-data-in" type="checkbox"><label for="data-8a16f9f4-c1f3-4c11-8d62-0995754e6aca" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[-76.39007814, -76.70856995, -76.58706573, ..., -79.15334274,
-        -77.26598616, -76.39162183],
-       [-77.10683099, -76.69697635, -76.41878819, ..., -76.99775543,
-        -77.93052593, -76.61286698],
-       [-77.20438645, -78.73976781, -78.21098673, ..., -78.58731506,
-        -80.20849279, -78.92954821],
-       [-78.75740539, -77.52047945, -77.53384847, ..., -78.92230444,
-        -77.14958452, -77.42167624]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>step_size</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">1.151 1.151 1.151 ... 1.044 1.044</div><input id="attrs-4e083800-2440-4f0d-b1df-2e6566b540fe" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-4e083800-2440-4f0d-b1df-2e6566b540fe" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-b0ae8cad-18b3-430a-833c-c352ab3f0030" class="xr-var-data-in" type="checkbox"><label for="data-b0ae8cad-18b3-430a-833c-c352ab3f0030" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[1.15084535, 1.15084535, 1.15084535, ..., 1.15084535, 1.15084535,
-        1.15084535],
-       [1.39241959, 1.39241959, 1.39241959, ..., 1.39241959, 1.39241959,
-        1.39241959],
-       [1.24013567, 1.24013567, 1.24013567, ..., 1.24013567, 1.24013567,
-        1.24013567],
-       [1.04405378, 1.04405378, 1.04405378, ..., 1.04405378, 1.04405378,
-        1.04405378]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>process_time_diff</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.000365 0.000352 ... 0.000169</div><input id="attrs-6441c667-a184-41aa-81ec-d8e0f5d97133" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-6441c667-a184-41aa-81ec-d8e0f5d97133" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-b59b8c6b-3fca-4cc8-84d2-fead848c4051" class="xr-var-data-in" type="checkbox"><label for="data-b59b8c6b-3fca-4cc8-84d2-fead848c4051" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[0.000365, 0.000352, 0.00018 , ..., 0.000375, 0.000569, 0.000351],
-       [0.000363, 0.000362, 0.000353, ..., 0.000353, 0.00034 , 0.000172],
-       [0.000733, 0.000474, 0.000699, ..., 0.000451, 0.000377, 0.000384],
-       [0.00033 , 0.000343, 0.00033 , ..., 0.000331, 0.000171, 0.000169]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>energy_error</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">-0.06055 0.0958 ... -0.6254 0.08912</div><input id="attrs-3053ad07-3a9c-450e-b6e9-2371ae44eb25" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-3053ad07-3a9c-450e-b6e9-2371ae44eb25" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-d9aa9612-de92-4d51-a1bb-cb1f826fea81" class="xr-var-data-in" type="checkbox"><label for="data-d9aa9612-de92-4d51-a1bb-cb1f826fea81" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[-0.06054934,  0.09579904, -0.0422492 , ...,  0.90416232,
-        -0.79587919, -0.36236027],
-       [ 0.18726152, -0.14510931, -0.0776799 , ..., -0.10346131,
-         0.33056901, -0.5049677 ],
-       [ 0.17352954,  0.56635233, -0.17482574, ...,  0.49769406,
-         0.50358308, -0.39996147],
-       [ 0.21911998, -0.33071203, -0.07214744, ..., -0.20624245,
-        -0.62541297,  0.08912409]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>diverging</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">bool</div><div class="xr-var-preview xr-preview">False False False ... False False</div><input id="attrs-d5add3fe-5209-4452-91fc-c8af12309574" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-d5add3fe-5209-4452-91fc-c8af12309574" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-75ae9b00-9094-4011-9b16-e344b3d3669d" class="xr-var-data-in" type="checkbox"><label for="data-75ae9b00-9094-4011-9b16-e344b3d3669d" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[False, False, False, ..., False, False, False],
-       [False, False, False, ..., False, False, False],
-       [False, False, False, ..., False, False, False],
-       [False, False, False, ..., False, False, False]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>acceptance_rate</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.9903 0.7125 1.0 ... 1.0 0.9147</div><input id="attrs-4e7f347c-1454-4e9f-8c7c-396392406871" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-4e7f347c-1454-4e9f-8c7c-396392406871" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-1f6dcb21-d1ae-46b5-852c-4d73c9c436ea" class="xr-var-data-in" type="checkbox"><label for="data-1f6dcb21-d1ae-46b5-852c-4d73c9c436ea" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[0.99030638, 0.71248138, 1.        , ..., 0.59971461, 1.        ,
-        0.95426409],
-       [0.81167808, 0.96586449, 1.        , ..., 1.        , 0.83899317,
-        1.        ],
-       [0.87553003, 0.67972089, 1.        , ..., 0.81791558, 0.86812043,
-        1.        ],
-       [0.8626797 , 1.        , 0.71511244, ..., 1.        , 1.        ,
-        0.91473206]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>n_steps</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">3.0 3.0 1.0 3.0 ... 3.0 3.0 1.0 1.0</div><input id="attrs-1c87ddda-1c08-4c87-b031-bfb945afe259" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-1c87ddda-1c08-4c87-b031-bfb945afe259" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-04e709e6-85f2-4967-aea5-52d39f338d09" class="xr-var-data-in" type="checkbox"><label for="data-04e709e6-85f2-4967-aea5-52d39f338d09" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[3., 3., 1., ..., 3., 3., 3.],
-       [3., 3., 3., ..., 3., 3., 1.],
+    sampling_time:              18.27219009399414
+    tuning_steps:               1000</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-cf173b63-5549-4412-a4cc-13da04464f6b" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-cf173b63-5549-4412-a4cc-13da04464f6b" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">chain</span>: 4</li><li><span class="xr-has-index">draw</span>: 1000</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-72e8cc72-cdaa-4dfd-8c6a-889afb3dd57a" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-72e8cc72-cdaa-4dfd-8c6a-889afb3dd57a" class="xr-section-summary">Coordinates: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">chain</span></div><div class="xr-var-dims">(chain)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3</div><input id="attrs-5c774a70-57ed-4b60-821e-680c59c766ad" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-5c774a70-57ed-4b60-821e-680c59c766ad" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-dcc22543-db62-40ef-a823-205988315369" class="xr-var-data-in" type="checkbox"><label for="data-dcc22543-db62-40ef-a823-205988315369" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1, 2, 3])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">draw</span></div><div class="xr-var-dims">(draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1 2 3 4 5 ... 995 996 997 998 999</div><input id="attrs-ba72e0a1-58de-45e8-bdb4-94788a5a13c1" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-ba72e0a1-58de-45e8-bdb4-94788a5a13c1" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-70cf4c45-b9e8-4d52-bd94-d49c26d9d576" class="xr-var-data-in" type="checkbox"><label for="data-70cf4c45-b9e8-4d52-bd94-d49c26d9d576" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([  0,   1,   2, ..., 997, 998, 999])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-b0bd59d9-03d9-44de-98af-0f354e62b851" class="xr-section-summary-in" type="checkbox"><label for="section-b0bd59d9-03d9-44de-98af-0f354e62b851" class="xr-section-summary">Data variables: <span>(17)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>energy_error</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.2013 0.0 ... -0.6722 0.04775</div><input id="attrs-47afba75-3827-4d41-a9ed-00310f2c5d92" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-47afba75-3827-4d41-a9ed-00310f2c5d92" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-fda7fed7-6be5-41b4-82e2-298921c1d9e3" class="xr-var-data-in" type="checkbox"><label for="data-fda7fed7-6be5-41b4-82e2-298921c1d9e3" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[ 0.2012512 ,  0.        ,  0.00737001, ...,  0.18228916,
+         0.20763615, -0.13983696],
+       [-0.35301362,  0.06227983,  0.12337253, ..., -1.13410666,
+         0.00297214, -0.04353356],
+       [-0.24483796,  0.32592443,  0.39719716, ..., -0.29568362,
+        -0.07762519, -0.03093065],
+       [ 0.07315742,  0.38216978, -0.54938587, ...,  0.16086966,
+        -0.67219551,  0.04775064]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>perf_counter_diff</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.0003528 0.0003493 ... 0.0003256</div><input id="attrs-96912a55-145c-421c-96e9-8c5f50b6f113" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-96912a55-145c-421c-96e9-8c5f50b6f113" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-7768da93-65aa-49ef-96de-bf90dafcb675" class="xr-var-data-in" type="checkbox"><label for="data-7768da93-65aa-49ef-96de-bf90dafcb675" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[0.00035278, 0.00034935, 0.00036054, ..., 0.0003948 , 0.00068685,
+        0.00064501],
+       [0.00073487, 0.00033081, 0.00031689, ..., 0.00041643, 0.00037091,
+        0.00056979],
+       [0.0003626 , 0.00035528, 0.00074046, ..., 0.00034731, 0.00035856,
+        0.00034787],
+       [0.00033958, 0.00040536, 0.00057514, ..., 0.00031746, 0.00030635,
+        0.0003256 ]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>lp</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">-11.48 -11.48 ... -10.65 -10.79</div><input id="attrs-ec297d8a-942c-48dc-9c51-e48371cee261" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-ec297d8a-942c-48dc-9c51-e48371cee261" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-78a5c4c6-9460-4d92-b483-0e9a94cdbab7" class="xr-var-data-in" type="checkbox"><label for="data-78a5c4c6-9460-4d92-b483-0e9a94cdbab7" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[-11.47644573, -11.47644573, -11.54099908, ..., -11.37539246,
+        -11.9455978 , -11.50798478],
+       [-10.71983955, -10.88823956, -11.22372739, ..., -10.79187966,
+        -10.79366776, -10.67300196],
+       [-10.63315494, -11.80688654, -13.24216978, ..., -11.12673153,
+        -10.82115158, -10.71838764],
+       [-11.26173748, -12.43087599, -10.77134223, ..., -12.44128319,
+        -10.64772802, -10.78803508]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>n_steps</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">3.0 3.0 3.0 3.0 ... 3.0 3.0 3.0 3.0</div><input id="attrs-52e09a41-a8fa-4cc9-b739-21599730c789" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-52e09a41-a8fa-4cc9-b739-21599730c789" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-58a74117-e802-40e4-bddc-3221e69396a6" class="xr-var-data-in" type="checkbox"><label for="data-58a74117-e802-40e4-bddc-3221e69396a6" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[3., 3., 3., ..., 3., 3., 3.],
+       [3., 1., 1., ..., 3., 3., 3.],
        [3., 3., 3., ..., 3., 3., 3.],
-       [3., 3., 3., ..., 3., 1., 1.]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>perf_counter_start</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">3.476e+05 3.476e+05 ... 3.476e+05</div><input id="attrs-8c92b520-7928-4ccb-801b-f158f57ffa04" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-8c92b520-7928-4ccb-801b-f158f57ffa04" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-44eff58f-277b-4aec-be06-fa03fa1491f3" class="xr-var-data-in" type="checkbox"><label for="data-44eff58f-277b-4aec-be06-fa03fa1491f3" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[347637.91745419, 347637.91792491, 347637.91837804, ...,
-        347638.57233166, 347638.57287173, 347638.57355908],
-       [347637.935869  , 347637.93633693, 347637.93679762, ...,
-        347638.6263299 , 347638.62678404, 347638.62721719],
-       [347637.98990569, 347637.99083295, 347637.99145126, ...,
-        347638.72586988, 347638.72642483, 347638.72689553],
-       [347638.76833238, 347638.76875356, 347638.76918559, ...,
-        347639.17255351, 347639.17296747, 347639.17322063]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>reached_max_treedepth</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">bool</div><div class="xr-var-preview xr-preview">False False False ... False False</div><input id="attrs-675bdf13-bf0d-40d0-baaf-29b03a21fbfa" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-675bdf13-bf0d-40d0-baaf-29b03a21fbfa" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-941e328d-208c-45e6-ab66-0c182d8afead" class="xr-var-data-in" type="checkbox"><label for="data-941e328d-208c-45e6-ab66-0c182d8afead" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[False, False, False, ..., False, False, False],
+       [3., 3., 3., ..., 3., 3., 3.]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>step_size_bar</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">1.142 1.142 1.142 ... 1.195 1.195</div><input id="attrs-9bf14430-4eba-4c66-bc5b-a14ba10eb5bd" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-9bf14430-4eba-4c66-bc5b-a14ba10eb5bd" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-515ae3d1-39bc-4538-8927-b734d2115e76" class="xr-var-data-in" type="checkbox"><label for="data-515ae3d1-39bc-4538-8927-b734d2115e76" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[1.1417399 , 1.1417399 , 1.1417399 , ..., 1.1417399 , 1.1417399 ,
+        1.1417399 ],
+       [1.15595306, 1.15595306, 1.15595306, ..., 1.15595306, 1.15595306,
+        1.15595306],
+       [1.2251203 , 1.2251203 , 1.2251203 , ..., 1.2251203 , 1.2251203 ,
+        1.2251203 ],
+       [1.19486325, 1.19486325, 1.19486325, ..., 1.19486325, 1.19486325,
+        1.19486325]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>reached_max_treedepth</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">bool</div><div class="xr-var-preview xr-preview">False False False ... False False</div><input id="attrs-50c9b32d-8d05-436e-b041-9f21b067fcbb" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-50c9b32d-8d05-436e-b041-9f21b067fcbb" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-facefbe4-a8b2-47dc-ba18-49fcf04b1cf1" class="xr-var-data-in" type="checkbox"><label for="data-facefbe4-a8b2-47dc-ba18-49fcf04b1cf1" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[False, False, False, ..., False, False, False],
        [False, False, False, ..., False, False, False],
        [False, False, False, ..., False, False, False],
-       [False, False, False, ..., False, False, False]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>smallest_eigval</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">nan nan nan nan ... nan nan nan nan</div><input id="attrs-d3eccfa3-ef08-4407-9cac-772f8d656dd5" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-d3eccfa3-ef08-4407-9cac-772f8d656dd5" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-5f8ae1ee-a02c-466c-ac2c-0ac34b0de289" class="xr-var-data-in" type="checkbox"><label for="data-5f8ae1ee-a02c-466c-ac2c-0ac34b0de289" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[nan, nan, nan, ..., nan, nan, nan],
+       [False, False, False, ..., False, False, False]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>energy</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">12.47 14.93 12.14 ... 11.87 10.8</div><input id="attrs-a73d80de-1227-4d99-adbc-fbfc9a9d1880" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-a73d80de-1227-4d99-adbc-fbfc9a9d1880" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-e74b7947-05d6-4933-b199-9b0901359e95" class="xr-var-data-in" type="checkbox"><label for="data-e74b7947-05d6-4933-b199-9b0901359e95" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[12.47483092, 14.93359033, 12.14411785, ..., 11.53288895,
+        11.98572173, 12.06839131],
+       [11.75266249, 10.92947407, 11.31041188, ..., 14.77256202,
+        11.02458036, 10.82044119],
+       [11.41366718, 11.98302064, 16.43591159, ..., 12.03214462,
+        11.74580043, 10.89034556],
+       [12.75208294, 13.61803293, 12.3779542 , ..., 13.1075893 ,
+        11.86650136, 10.80025121]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>acceptance_rate</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.6772 0.2883 0.949 ... 1.0 0.9822</div><input id="attrs-97695b11-b867-43e2-abdb-b133dda024f5" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-97695b11-b867-43e2-abdb-b133dda024f5" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-36fb786e-b408-48fb-88c4-ce63f0e2d5cf" class="xr-var-data-in" type="checkbox"><label for="data-36fb786e-b408-48fb-88c4-ce63f0e2d5cf" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[0.67716552, 0.28827719, 0.94897278, ..., 0.92152115, 0.93750087,
+        1.        ],
+       [0.98740181, 0.93961991, 0.88393431, ..., 0.84865125, 0.9680683 ,
+        0.99965938],
+       [1.        , 0.83522088, 0.46844066, ..., 0.99519577, 0.91615156,
+        1.        ],
+       [0.75035682, 0.65437752, 0.93234475, ..., 0.95046768, 1.        ,
+        0.9822081 ]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>process_time_diff</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.000354 0.00035 ... 0.000326</div><input id="attrs-c4e2423f-c9df-4894-8a09-f8f6ac8b867f" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-c4e2423f-c9df-4894-8a09-f8f6ac8b867f" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-b8db22bd-d0af-4077-ab09-2bc709a0a0fa" class="xr-var-data-in" type="checkbox"><label for="data-b8db22bd-d0af-4077-ab09-2bc709a0a0fa" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[0.000354, 0.00035 , 0.00036 , ..., 0.000395, 0.000688, 0.000644],
+       [0.000731, 0.000331, 0.000318, ..., 0.000417, 0.000372, 0.00054 ],
+       [0.000363, 0.000355, 0.000703, ..., 0.000348, 0.000359, 0.000349],
+       [0.000339, 0.000401, 0.000556, ..., 0.000318, 0.000307, 0.000326]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>index_in_trajectory</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">-3 0 -2 2 0 0 ... -2 2 -1 -1 -1 -1</div><input id="attrs-b79a5648-4ffb-46c3-a6cf-8e260b798980" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-b79a5648-4ffb-46c3-a6cf-8e260b798980" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-b5a48dc6-e2b8-4f01-b454-134398c6f938" class="xr-var-data-in" type="checkbox"><label for="data-b5a48dc6-e2b8-4f01-b454-134398c6f938" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[-3,  0, -2, ...,  2, -2,  2],
+       [-2,  1, -1, ...,  2, -1, -1],
+       [-2,  2, -2, ..., -2,  2, -1],
+       [-3, -3, -1, ..., -1, -1, -1]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>perf_counter_start</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">2.793e+04 2.793e+04 ... 2.793e+04</div><input id="attrs-d392e1be-5e2b-4ac5-9c25-c477c2e26acb" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-d392e1be-5e2b-4ac5-9c25-c477c2e26acb" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-8d3fa2c6-b06f-4c81-8b3b-3e41c11c6a73" class="xr-var-data-in" type="checkbox"><label for="data-8d3fa2c6-b06f-4c81-8b3b-3e41c11c6a73" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[27925.3290118 , 27925.32946912, 27925.32992097, ...,
+        27926.32415995, 27926.32469636, 27926.3255872 ],
+       [27925.33158717, 27925.33252269, 27925.33302664, ...,
+        27926.38009789, 27926.38064217, 27926.38136463],
+       [27925.38604728, 27925.38651503, 27925.38732747, ...,
+        27926.50281371, 27926.50326247, 27926.50372378],
+       [27926.6205888 , 27926.62102005, 27926.621581  , ...,
+        27927.0774842 , 27927.07788576, 27927.07827639]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>smallest_eigval</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">nan nan nan nan ... nan nan nan nan</div><input id="attrs-06d83e80-fde4-472c-b3a5-4576752a2ff3" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-06d83e80-fde4-472c-b3a5-4576752a2ff3" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-6b330fb1-b3bc-4ec6-aaad-928e2d1848bb" class="xr-var-data-in" type="checkbox"><label for="data-6b330fb1-b3bc-4ec6-aaad-928e2d1848bb" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
-       [nan, nan, nan, ..., nan, nan, nan]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>perf_counter_diff</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.0003653 0.0003518 ... 0.0001691</div><input id="attrs-ea03d883-2ec5-474a-a073-42aaea8787c2" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-ea03d883-2ec5-474a-a073-42aaea8787c2" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-82615a96-b988-4cd6-b518-b6a334aae094" class="xr-var-data-in" type="checkbox"><label for="data-82615a96-b988-4cd6-b518-b6a334aae094" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[0.0003653 , 0.00035182, 0.00017944, ..., 0.00037458, 0.00056905,
-        0.00035031],
-       [0.00036343, 0.00036108, 0.00035282, ..., 0.00035277, 0.00033936,
-        0.00017175],
-       [0.00073977, 0.00047289, 0.00070984, ..., 0.00045175, 0.0003769 ,
-        0.00038411],
-       [0.00032993, 0.00034173, 0.00032981, ..., 0.00033085, 0.00017085,
-        0.00016913]])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-92caba40-aed3-4658-b226-afd454f7011a" class="xr-section-summary-in" type="checkbox"><label for="section-92caba40-aed3-4658-b226-afd454f7011a" class="xr-section-summary">Indexes: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>chain</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-99d2e205-5996-44f1-ab85-076026c76541" class="xr-index-data-in" type="checkbox"><label for="index-99d2e205-5996-44f1-ab85-076026c76541" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1, 2, 3], dtype='int64', name='chain'))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>draw</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-e216f2ef-d2c0-4955-a8a1-3bc33b78c13a" class="xr-index-data-in" type="checkbox"><label for="index-e216f2ef-d2c0-4955-a8a1-3bc33b78c13a" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
+       [nan, nan, nan, ..., nan, nan, nan]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>tree_depth</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">2 2 2 2 1 2 1 2 ... 1 2 2 2 2 2 2 2</div><input id="attrs-e4b39ba1-fbfb-4b01-aff6-c6bc5953422d" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-e4b39ba1-fbfb-4b01-aff6-c6bc5953422d" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-f1aa65fb-7ab8-4c39-95a2-bc7fe35d8693" class="xr-var-data-in" type="checkbox"><label for="data-f1aa65fb-7ab8-4c39-95a2-bc7fe35d8693" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[2, 2, 2, ..., 2, 2, 2],
+       [2, 1, 1, ..., 2, 2, 2],
+       [2, 2, 2, ..., 2, 2, 2],
+       [2, 2, 2, ..., 2, 2, 2]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>max_energy_error</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.6336 1.693 ... -0.6722 0.04775</div><input id="attrs-59529eb8-1913-4835-a645-7c1ccbb47afb" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-59529eb8-1913-4835-a645-7c1ccbb47afb" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-0901c382-1bf2-4566-aed5-261e7a17bd7a" class="xr-var-data-in" type="checkbox"><label for="data-0901c382-1bf2-4566-aed5-261e7a17bd7a" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[ 0.63358786,  1.69317187,  0.10825251, ...,  0.18228916,
+        -0.28887261, -0.39517755],
+       [-0.35301362,  0.06227983,  0.12337253, ..., -1.13410666,
+         0.0974225 , -0.04353356],
+       [-0.24483796,  0.32592443,  1.57015131, ..., -0.29568362,
+         0.22883667, -0.03093065],
+       [ 0.49070639,  0.83144085, -0.54938587, ..., -0.31444971,
+        -0.67219551,  0.04775064]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>diverging</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">bool</div><div class="xr-var-preview xr-preview">False False False ... False False</div><input id="attrs-6abd6f76-2f98-487f-8ebd-0da1085ac157" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-6abd6f76-2f98-487f-8ebd-0da1085ac157" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-3e9d38ed-c7d6-44ac-a610-4b389c630db2" class="xr-var-data-in" type="checkbox"><label for="data-3e9d38ed-c7d6-44ac-a610-4b389c630db2" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>step_size</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">1.034 1.034 1.034 ... 1.299 1.299</div><input id="attrs-1b91874a-8aec-42f6-a4e9-9cdcd23244e4" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-1b91874a-8aec-42f6-a4e9-9cdcd23244e4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-433172d8-7617-4eb3-9ed7-143416923935" class="xr-var-data-in" type="checkbox"><label for="data-433172d8-7617-4eb3-9ed7-143416923935" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[1.0335069 , 1.0335069 , 1.0335069 , ..., 1.0335069 , 1.0335069 ,
+        1.0335069 ],
+       [1.29349346, 1.29349346, 1.29349346, ..., 1.29349346, 1.29349346,
+        1.29349346],
+       [1.06682395, 1.06682395, 1.06682395, ..., 1.06682395, 1.06682395,
+        1.06682395],
+       [1.29895775, 1.29895775, 1.29895775, ..., 1.29895775, 1.29895775,
+        1.29895775]])</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>largest_eigval</span></div><div class="xr-var-dims">(chain, draw)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">nan nan nan nan ... nan nan nan nan</div><input id="attrs-54ee5c49-cf8d-40ab-b0bd-2530569d5722" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-54ee5c49-cf8d-40ab-b0bd-2530569d5722" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-9d73803d-4d5e-480c-9683-015cde381bcd" class="xr-var-data-in" type="checkbox"><label for="data-9d73803d-4d5e-480c-9683-015cde381bcd" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([[nan, nan, nan, ..., nan, nan, nan],
+       [nan, nan, nan, ..., nan, nan, nan],
+       [nan, nan, nan, ..., nan, nan, nan],
+       [nan, nan, nan, ..., nan, nan, nan]])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-60c021d5-e469-4092-b93f-b346bd8afe2b" class="xr-section-summary-in" type="checkbox"><label for="section-60c021d5-e469-4092-b93f-b346bd8afe2b" class="xr-section-summary">Indexes: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>chain</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-3dbb641a-8844-42da-8387-507d976d0fe3" class="xr-index-data-in" type="checkbox"><label for="index-3dbb641a-8844-42da-8387-507d976d0fe3" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1, 2, 3], dtype='int64', name='chain'))</pre></div></li><li class="xr-var-item"><div class="xr-index-name"><div>draw</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-e041dfc8-2e99-4558-935b-76cfab818f5f" class="xr-index-data-in" type="checkbox"><label for="index-e041dfc8-2e99-4558-935b-76cfab818f5f" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
             ...
             990, 991, 992, 993, 994, 995, 996, 997, 998, 999],
-           dtype='int64', name='draw', length=1000))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-98b5eee0-5b6b-4a42-a31b-3d7ed5d27fb1" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-98b5eee0-5b6b-4a42-a31b-3d7ed5d27fb1" class="xr-section-summary">Attributes: <span>(6)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>created_at :</span></dt><dd>2023-09-14T16:23:12.133961</dd><dt><span>arviz_version :</span></dt><dd>0.16.0</dd><dt><span>inference_library :</span></dt><dd>pymc</dd><dt><span>inference_library_version :</span></dt><dd>5.5.0</dd><dt><span>sampling_time :</span></dt><dd>19.272015810012817</dd><dt><span>tuning_steps :</span></dt><dd>1000</dd></dl></div></li></ul></div></div><br></div>
+           dtype='int64', name='draw', length=1000))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-f9585ec8-5acd-4b0c-aabb-69c54a30a878" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-f9585ec8-5acd-4b0c-aabb-69c54a30a878" class="xr-section-summary">Attributes: <span>(6)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>created_at :</span></dt><dd>2023-09-19T09:55:11.542695</dd><dt><span>arviz_version :</span></dt><dd>0.16.0</dd><dt><span>inference_library :</span></dt><dd>pymc</dd><dt><span>inference_library_version :</span></dt><dd>5.5.0</dd><dt><span>sampling_time :</span></dt><dd>18.27219009399414</dd><dt><span>tuning_steps :</span></dt><dd>1000</dd></dl></div></li></ul></div></div><br></div>
                       </ul>
                   </div>
             </li>
             
             <li class="xr-section-item">
-                  <input id="idata_observed_data762017e0-faca-4a3a-af25-60bb9b1b5750" class="xr-section-summary-in" type="checkbox">
-                  <label for="idata_observed_data762017e0-faca-4a3a-af25-60bb9b1b5750" class="xr-section-summary">observed_data</label>
+                  <input id="idata_observed_datab12b2d3f-a099-4613-9c09-d179806d3083" class="xr-section-summary-in" type="checkbox">
+                  <label for="idata_observed_datab12b2d3f-a099-4613-9c09-d179806d3083" class="xr-section-summary">observed_data</label>
                   <div class="xr-section-inline-details"></div>
                   <div class="xr-section-details">
                       <ul id="xr-dataset-coord-list" class="xr-var-list">
@@ -2213,10 +2213,10 @@ Coordinates:
 Data variables:
     y        (y_dim_0) int64 200 200
 Attributes:
-    created_at:                 2023-09-14T16:23:12.139236
+    created_at:                 2023-09-19T09:55:11.548593
     arviz_version:              0.16.0
     inference_library:          pymc
-    inference_library_version:  5.5.0</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-0ce56af7-a5c1-48ae-8d84-ecd7ec335085" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-0ce56af7-a5c1-48ae-8d84-ecd7ec335085" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">y_dim_0</span>: 2</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-36ccf17e-804b-47c8-aaea-5d31e3685e0a" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-36ccf17e-804b-47c8-aaea-5d31e3685e0a" class="xr-section-summary">Coordinates: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">y_dim_0</span></div><div class="xr-var-dims">(y_dim_0)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1</div><input id="attrs-11c33666-6985-46c5-8169-b44ae2f20ae4" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-11c33666-6985-46c5-8169-b44ae2f20ae4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-22e3461c-ac8e-448b-bfdd-d09915174a29" class="xr-var-data-in" type="checkbox"><label for="data-22e3461c-ac8e-448b-bfdd-d09915174a29" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-af0edcbb-09a4-492e-a604-0a67ea27b67c" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-af0edcbb-09a4-492e-a604-0a67ea27b67c" class="xr-section-summary">Data variables: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>y</span></div><div class="xr-var-dims">(y_dim_0)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">200 200</div><input id="attrs-6b3c6425-6c2d-4c2c-897c-f8a70d51b634" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-6b3c6425-6c2d-4c2c-897c-f8a70d51b634" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-6d5dfe39-4648-4c4e-9f15-16216fac78fc" class="xr-var-data-in" type="checkbox"><label for="data-6d5dfe39-4648-4c4e-9f15-16216fac78fc" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([200, 200])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-f46cbcf1-91b5-4074-bfa4-91290033df4a" class="xr-section-summary-in" type="checkbox"><label for="section-f46cbcf1-91b5-4074-bfa4-91290033df4a" class="xr-section-summary">Indexes: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>y_dim_0</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-d01ebc1a-6f17-400c-94e0-ac7178b40659" class="xr-index-data-in" type="checkbox"><label for="index-d01ebc1a-6f17-400c-94e0-ac7178b40659" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1], dtype='int64', name='y_dim_0'))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-ff16a6e8-5f9e-4c6b-b87f-4bf4d8a3994e" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-ff16a6e8-5f9e-4c6b-b87f-4bf4d8a3994e" class="xr-section-summary">Attributes: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>created_at :</span></dt><dd>2023-09-14T16:23:12.139236</dd><dt><span>arviz_version :</span></dt><dd>0.16.0</dd><dt><span>inference_library :</span></dt><dd>pymc</dd><dt><span>inference_library_version :</span></dt><dd>5.5.0</dd></dl></div></li></ul></div></div><br></div>
+    inference_library_version:  5.5.0</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input id="section-040ede7e-c198-486d-9360-56192f1072a5" class="xr-section-summary-in" type="checkbox" disabled=""><label for="section-040ede7e-c198-486d-9360-56192f1072a5" class="xr-section-summary" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">y_dim_0</span>: 2</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input id="section-2e1953a4-3797-4336-8e6e-7b596d48f829" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-2e1953a4-3797-4336-8e6e-7b596d48f829" class="xr-section-summary">Coordinates: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">y_dim_0</span></div><div class="xr-var-dims">(y_dim_0)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">0 1</div><input id="attrs-f5636c0c-f014-4467-b813-6535b0d81137" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-f5636c0c-f014-4467-b813-6535b0d81137" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-ee084c33-3e54-4e86-abfa-cc60865a890c" class="xr-var-data-in" type="checkbox"><label for="data-ee084c33-3e54-4e86-abfa-cc60865a890c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([0, 1])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-4239dc07-08b8-4381-a2a0-fa55fe7168b4" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-4239dc07-08b8-4381-a2a0-fa55fe7168b4" class="xr-section-summary">Data variables: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>y</span></div><div class="xr-var-dims">(y_dim_0)</div><div class="xr-var-dtype">int64</div><div class="xr-var-preview xr-preview">200 200</div><input id="attrs-c4bd4108-723c-4c8a-a85e-f775cc452401" class="xr-var-attrs-in" type="checkbox" disabled=""><label for="attrs-c4bd4108-723c-4c8a-a85e-f775cc452401" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use href="#icon-file-text2"></use></svg></label><input id="data-da7a319c-130b-4608-9763-56d16a416c38" class="xr-var-data-in" type="checkbox"><label for="data-da7a319c-130b-4608-9763-56d16a416c38" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><div class="xr-var-data"><pre>array([200, 200])</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-0d5cb72f-3679-45fc-953c-5578be42adde" class="xr-section-summary-in" type="checkbox"><label for="section-0d5cb72f-3679-45fc-953c-5578be42adde" class="xr-section-summary">Indexes: <span>(1)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-index-name"><div>y_dim_0</div></div><div class="xr-index-preview">PandasIndex</div><div></div><input id="index-d37f73a4-4016-40d3-91c3-0d186ac8ddd0" class="xr-index-data-in" type="checkbox"><label for="index-d37f73a4-4016-40d3-91c3-0d186ac8ddd0" title="Show/Hide index repr"><svg class="icon xr-icon-database"><use href="#icon-database"></use></svg></label><div class="xr-index-data"><pre>PandasIndex(Int64Index([0, 1], dtype='int64', name='y_dim_0'))</pre></div></li></ul></div></li><li class="xr-section-item"><input id="section-bdec29ec-d7cd-4ef7-b040-c1b43d121128" class="xr-section-summary-in" type="checkbox" checked=""><label for="section-bdec29ec-d7cd-4ef7-b040-c1b43d121128" class="xr-section-summary">Attributes: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>created_at :</span></dt><dd>2023-09-19T09:55:11.548593</dd><dt><span>arviz_version :</span></dt><dd>0.16.0</dd><dt><span>inference_library :</span></dt><dd>pymc</dd><dt><span>inference_library_version :</span></dt><dd>5.5.0</dd></dl></div></li></ul></div></div><br></div>
                       </ul>
                   </div>
             </li>
@@ -2580,9 +2580,9 @@ dl.xr-attrs {
 </div>
 <p><br></p>
 <p>It is easy to use the information in the object:</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>trace.posterior.theta.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="96">
 <pre><code>(4, 1000, 2)</code></pre>
 </div>
 </div>
@@ -2604,9 +2604,9 @@ dl.xr-attrs {
 <section id="exploring-the-posterior" class="slide level2">
 <h2>Exploring the Posterior</h2>
 <p><br><br></p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pm.summary(trace, var_names<span class="op">=</span>[<span class="st">"theta"</span>, <span class="st">"uplift"</span>]).loc[:, [<span class="st">"mean"</span>,<span class="st">"sd"</span>, <span class="st">"hdi_3%"</span>, <span class="st">"hdi_97%"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="97">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2635,24 +2635,24 @@ dl.xr-attrs {
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">theta[0]</td>
-<td>0.250</td>
+<td>0.201</td>
 <td>0.013</td>
-<td>0.228</td>
-<td>0.276</td>
+<td>0.177</td>
+<td>0.224</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">theta[1]</td>
-<td>0.250</td>
+<td>0.200</td>
 <td>0.012</td>
-<td>0.227</td>
-<td>0.274</td>
+<td>0.176</td>
+<td>0.224</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">uplift</td>
-<td>0.002</td>
-<td>0.072</td>
-<td>-0.134</td>
-<td>0.134</td>
+<td>0.001</td>
+<td>0.087</td>
+<td>-0.150</td>
+<td>0.175</td>
 </tr>
 </tbody>
 </table>
@@ -2660,9 +2660,6 @@ dl.xr-attrs {
 </div>
 </div>
 </div>
-<ul>
-<li>DISCUSS THE OUTPUT</li>
-</ul>
 <aside class="notes">
 <p>did you expect to have 0.25 as the mean for theta_A? why?</p>
 <p>what is HDI?</p>
@@ -2685,13 +2682,13 @@ dl.xr-attrs {
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1,4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>arviz.plot_posterior(trace.posterior[<span class="st">"uplift"</span>], </span>
-<span id="cb19-2"><a href="#cb19-2"></a>                    <span class="op">**</span>plotting_defaults, </span>
-<span id="cb19-3"><a href="#cb19-3"></a>                    figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
-<span id="cb19-4"><a href="#cb19-4"></a></span>
-<span id="cb19-5"><a href="#cb19-5"></a>plt.title(<span class="st">"B vs. A Relative Uplift Distribution"</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb19-6"><a href="#cb19-6"></a>plt.axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">"red"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1,3,4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>arviz.plot_posterior(trace.posterior[<span class="st">"uplift"</span>],</span>
+<span id="cb19-2"><a href="#cb19-2"></a>                        figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>),</span>
+<span id="cb19-3"><a href="#cb19-3"></a>                        ref_val<span class="op">=</span><span class="dv">0</span>,  </span>
+<span id="cb19-4"><a href="#cb19-4"></a>                        hdi_prob<span class="op">=</span> <span class="fl">0.95</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a>plt.title(<span class="st">"B vs. A Relative Uplift Distribution"</span>, fontsize<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img data-src="slide_files/figure-revealjs/cell-16-output-1.png" width="391" height="278"></p>
 </div>
@@ -2701,9 +2698,6 @@ dl.xr-attrs {
 <blockquote>
 <p>We will work more with <code>InferenceData</code> and <code>ArviZ</code> in the hands-on session.</p>
 </blockquote>
-<ul>
-<li>DISCUSS THE OUTPUT</li>
-</ul>
 </div>
 </div>
 </section>
@@ -3049,7 +3043,7 @@ conv_alpha, conv_beta = [5000, 5000]
 # let's define parameters for the mean purchase prior
 purchase_alpha, purchase_beta = [9000, 900]
 ``` -->
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20" data-code-line-numbers="1|3,17|3-15|5-8|11-15|17-29|19-22|25-29|32|32,37|35-36|41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> example_model:</span>
 <span id="cb20-2"><a href="#cb20-2"></a></span>
 <span id="cb20-3"><a href="#cb20-3"></a>    <span class="co">#-----------------------------------------------conversion rate model</span></span>

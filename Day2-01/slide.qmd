@@ -5,7 +5,7 @@ author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-29
 editor:
-  render-on-save: true
+  render-on-save: false
 format:
   revealjs:
     auto-stretch: false
@@ -279,11 +279,6 @@ import numpy as np
 import pymc as pm
 rng = np.random.default_rng(4000)
 __spec__ = None
-plotting_defaults = dict(
-    bins=50,
-    kind="hist",
-    textsize=8,
-)
 ```
 
 
@@ -316,7 +311,7 @@ visitors    = [1000, 1000]
 conversion = [200, 200]
 
 # let's define parameters for a prior for the conversion rates
-alpha, beta = [100, 100]
+alpha, beta = [1, 1]
 ```
 
 <!-- #
@@ -573,7 +568,6 @@ explain the InferenceData object
 pm.summary(trace, var_names=["theta", "uplift"]).loc[:, ["mean","sd", "hdi_3%", "hdi_97%"]]
 ```
 
-- DISCUSS THE OUTPUT
 
 ::: notes
 did you expect to have 0.25 as the mean for theta_A? why?
@@ -595,13 +589,13 @@ We can also use the `ArviZ` library for plotting. The main advantage is that it 
 #| echo: true
 #| eval: true
 #| code-fold: false
-#| code-line-numbers: 1,4
-arviz.plot_posterior(trace.posterior["uplift"], 
-                    **plotting_defaults, 
-                    figsize=(5, 3))
+#| code-line-numbers: 1,3,4
+arviz.plot_posterior(trace.posterior["uplift"],
+                        figsize=(5, 3),
+                        ref_val=0,  
+                        hdi_prob= 0.95)
 
-plt.title("B vs. A Relative Uplift Distribution", fontsize=10)
-plt.axvline(x=0, color="red");
+plt.title("B vs. A Relative Uplift Distribution", fontsize=10);
 ```
 <br/>
 
@@ -611,7 +605,7 @@ plt.axvline(x=0, color="red");
 > We will work more with `InferenceData` and `ArviZ` in the hands-on session.
 
 
-- DISCUSS THE OUTPUT
+
 :::
 :::
 
