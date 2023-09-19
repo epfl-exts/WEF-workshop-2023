@@ -176,7 +176,7 @@ You will use this data set to do some data analysis and visualization.
 
 Let's begin:
 
--   Open the Jupyter notebook in `Day1-01/handson.ipynb`
+-   Open the Jupyter notebook in `Day1-01/Handson.ipynb`
 - Load the data in the same folder as the notebook
 -   Follow the instructions in the notebook, and provide your answers in the code cells
 -   You will be able to find the solution notebook by the end of the day

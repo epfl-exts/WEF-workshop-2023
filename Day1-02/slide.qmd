@@ -342,7 +342,7 @@ display(sample)
 
 Let's begin:
 
-- Open the Jupyter notebook in `Day1-02/handson.ipynb`
+- Open the Jupyter notebook in `Day1-02/Handson.ipynb`
 - Follow the instructions in the notebook, and provide your answers in the code cells
 - You will be able to find the solution notebook by the end of the day
 - [Please be back here at 11:30]{style="color:#ff412c; font-weight: bold;"}

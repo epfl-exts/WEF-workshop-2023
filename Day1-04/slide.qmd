@@ -488,7 +488,7 @@ HDI: get it after the test
 
 Let's begin:
 
--   Open the Jupyter notebook in `Day1-04/handson.ipynb`
+-   Open the Jupyter notebook in `Day1-04/Handson.ipynb`
 - Run the codes and provide your answers to the tasks in the notebook
 -   You will be able to find the solution notebook by the end of the day
 - [Please be back here at 15:30]{style="color:#ff412c; font-weight: bold;"}
