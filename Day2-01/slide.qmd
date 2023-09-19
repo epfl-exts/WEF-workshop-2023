@@ -978,10 +978,11 @@ with pm.Model() as example_model:
 
 After the coffee break:
 
--   Open the Jupyter notebooks named `handson_1.ipynb` and `handson_2.ipynb` in the `Day2-02` folder.
+-   Open the Jupyter notebooks named `Handson_1.ipynb` and `Handson_2.ipynb` in the `Day2-02` folder.
 -   Follow the instructions in the notebooks and run the codes.
--   If you had time and like to do more, you can also try the `handson_3.ipynb` notebook.
+-   If you had time and want to do more, you can also try the `bonus.ipynb` notebook.
 -   You will be able to find the solution notebooks before the next session.
+- [Please be back here at 11:30]{style="color:#ff412c; font-weight: bold;"}
 
 ::: footer
 :::
