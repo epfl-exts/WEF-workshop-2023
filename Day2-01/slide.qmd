@@ -981,7 +981,7 @@ After the coffee break:
 -   Open the Jupyter notebooks named `handson_1.ipynb` and `handson_2.ipynb` in the `Day2-02` folder.
 -   Follow the instructions in the notebooks and run the codes.
 -   If you had time and like to do more, you can also try the `handson_3.ipynb` notebook.
--   You will be able to find the solution notebooks by the end of the day.
+-   You will be able to find the solution notebooks before the next session.
 
 ::: footer
 :::
