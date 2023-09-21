@@ -5,7 +5,7 @@ author: EPFL Extension School
 institute: World Economic Forum
 date: 2023-09-28
 editor:
-  render-on-save: false
+  render-on-save: true
 format:
   revealjs:
     code-copy: true
@@ -130,27 +130,32 @@ as you see Distributions are all around us, so it makes sense to formulate them 
 
 <br>
 
+
+
 That's where we have statistical distributions: e.g.
-<span class="fragment" fragment-index=1>`Normal`, </span>
-<span class="fragment" fragment-index=2>`Beta`, </span>
-<span class="fragment" fragment-index=3>`Gamma`, . . .</span>
+<span class="fragment" fragment-index=1>Normal, </span>
+<span class="fragment" fragment-index=2>Beta, </span>
+<span class="fragment" fragment-index=3>Gamma, . . .</span>
 
 ::: {.fragment fragment-index=1 .absolute top="370" left="50" width="200"}
-![](img/normal.png)
+<!-- ![](img/normal.png) -->
+$\frac{1}{\color{red}\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{\color{blue}x-\color{red}\mu}{\color{red}\sigma}\right)^2}$
 :::
 ::: {.fragment fragment-index=1 .absolute top="470" left="50" width="300"}
 ![](img/normal1.png)
 :::
 
 ::: {.fragment fragment-index=2 .absolute top="570" left="400" width="200"}
-![](img/beta.png)
+<!-- ![](img/beta.png) -->
+$\frac{1}{B(\color{red}\alpha,\color{red}\beta)} \color{blue}x^{\color{red}\alpha-1}(1-\color{blue}x)^{\color{red}\beta-1}$
 :::
 ::: {.fragment fragment-index=2 .absolute top="300"  left="380"  width="300"}
 ![](img/beta1.png)
 :::
 
 ::: {.fragment fragment-index=3 .absolute top="370" right="80" width="150"}
-![](img/gamma.png)
+<!-- ![](img/gamma.png) -->
+$\frac{ \color{blue}x^{\color{red}\alpha-1} e^{-\color{red}\beta \color{blue}x} \color{red}\beta^\color{red}\alpha}{\Gamma(\color{red}\alpha)}$
 :::
 ::: {.fragment fragment-index=3 .absolute top="470" right="10" width="300"}
 ![](img/gamma1.png)
@@ -345,7 +350,7 @@ Let's begin:
 - Open the Jupyter notebook in `Day1-02/Handson.ipynb`
 - Follow the instructions in the notebook, and provide your answers in the code cells
 - You will be able to find the solution notebook by the end of the day
-- [Please be back here at 11:30]{style="color:#ff412c; font-weight: bold;"}
+- [Please be back here at 12:00]{style="color:#ff412c; font-weight: bold;"}
 
 
 ::: footer

@@ -180,7 +180,7 @@ Let's begin:
 - Load the data in the same folder as the notebook
 -   Follow the instructions in the notebook, and provide your answers in the code cells
 -   You will be able to find the solution notebook by the end of the day
--   [Please be back here at 10:00]{style="color:#ff412c; font-weight: bold;"}
+-   [Please be back here at 10:30]{style="color:#ff412c; font-weight: bold;"}
 
 ::: footer
 :::
