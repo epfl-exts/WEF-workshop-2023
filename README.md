@@ -1,5 +1,8 @@
 # Introduction to A/B Testing
-28-29 September 2023
+
+Digital Extension School, Life Long Learning, EPFL
+
+28-29 September 2023 at World Economic Forum, Geneva
 
 ## Overview
 
@@ -16,7 +19,7 @@ A/B testing is a powerful tool for product development and decision making. It i
 ## Prerequisites
 
 - Basic knowledge of Python
-- Basic knowledge of statistics
+- Basic knowledge of Statistics
 
 
 ## Getting Started
@@ -34,22 +37,22 @@ Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023
 
 ### Day 1
 
-#### Introduction to the workshop: (8:30 - 9:00)
-#### Morning Session: Data Analysis and Statistics (9:00  - 12:00 )
+#### Introduction to the workshop: (9:00 - 9:30)
+#### Morning Session: Data Analysis and Statistics (9:30  - 12:30 )
 - **Objective**: Refresher on data analysis with Python and statistics.
 - **Agenda**:
-  - 9:00  - 10:15 : [Data Analysis using Python](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-01)
-  - 10:15  - 10:30 : ☕
-  - 10:30  - 11:45 : [Statistical Distributions & Inference](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-02) + Quiz
-  - 11:45  - 12:00 : Q&A 
+  - 9:30  - 10:45 : [Data Analysis using Python](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-01)
+  - 10:45  - 11:00 : Coffee Break
+  - 11:00  - 12:15 : [Statistical Distributions & Inference](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-02) + Quiz
+  - 12:15  - 12:30 : Q&A 
 
-#### Afternoon Session: Bayesian Statistics and A/B Testing (13:00  - 16:00 )
+#### Afternoon Session: Bayesian Statistics and A/B Testing (13:30  - 16:30 )
 - **Objective**: Discover the power of Bayesian thinking and its role in A/B testing.
 - **Agenda**:
-  - 13:00  - 14:15 : [Bayesian Statistics](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-03)
-  - 14:15  - 14:30 : ☕
-  - 14:30  - 15:45 : [(I) Bayesians vs Frequentists (II) Introduction to AB Testing](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-04) + Quiz
-  - 15:45  - 16:00 : Q&A 
+  - 13:30  - 14:45 : [Bayesian Statistics](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-03)
+  - 14:45  - 15:00 : Coffee Break
+  - 15:00  - 16:15 : [(I) Bayesians vs Frequentists (II) Introduction to AB Testing](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-04) + Quiz
+  - 16:15  - 16:30 : Q&A 
 
 
 
@@ -59,7 +62,7 @@ Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023
 - **Objective**: Dive deeper into A/B testing concepts and methods.
 - **Agenda**:
   - 9:00  - 10:15 : [A/B Testing in PyMC](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01) 
-  - 10:15  - 10:30 : ☕
+  - 10:15  - 10:30 : Coffee Break
   - 10:30  - 11:45 : [Hands-on Session](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-02) + Quiz
   - 11:45  - 12:00 : Q&A 
 
@@ -68,7 +71,7 @@ Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023
 - **Objective**: Apply your newfound knowledge to implement A/B tests.
 - **Agenda**:
   - 13:00  - 14:15 : [Hands-on Session]()
-  - 14:15  - 14:30 : ☕
+  - 14:15  - 14:30 : Coffee Break
   - 14:30  - 15:45 : [Hands-on Session]()
   - 15:45  - 16:00 : Q&A 
 
