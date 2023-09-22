@@ -12,14 +12,22 @@
 # ignore renders during dev, but release them once work is done
 #**/slide.html
 **/slide_files/
+**/img/
 
 # ignore my scratch notes
-**/notes/
+
+# ignore qmd files
+**/*.qmd
+
+# ignore solution notebooks
+**/*_solution.ipynb
 
 # Jupyter Notebook
 .ipynb_checkpoints
+**/.ipynb_checkpoints/
 
 # ignore the cache
+.jupyter_cache
 **/.jupyter_cache/
 
 # macOS forlder attributes
