@@ -451,6 +451,21 @@ EPFL Extension School
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>Today we continue with the Bayesian A/B testing from yesterday, and then learn how to do it in Python with the PyMC library.</p>
+<p>We go through the Bernoulli and Value Conversion problems before the coffee break, and then we have a hands-on session on implementing them in PyMC.</p>
+<p>In the afternoon you will be on your own to implement the A/B testing problem in PyMC.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-1" class="slide level2" data-chalkboard-buttons="false" data-background-image="../assets/img/AdobeStock_536776996.jpeg" data-background-size="cover">
 <h2></h2>
@@ -462,6 +477,19 @@ EPFL Extension School
 <p><span class="emoji" data-emoji="heavy_check_mark">✔️</span> Bayesians vs Frequentists</p>
 <p><span class="emoji" data-emoji="heavy_check_mark">✔️</span> A/B Testing</p>
 <p>☐ <span style="color:#ff412c;">A/B Testing in Python</span></p>
+<aside class="notes">
+<p>And you can do all of this because we have covered all of the elements in the previous sessions. So, let’s get started.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="ab-testing" class="slide level2">
 <h2>A/B Testing</h2>
@@ -627,7 +655,6 @@ EPFL Extension School
 </div>
 <div class="callout-content">
 <ul>
-<li>Priors can follow other distributions than Beta</li>
 <li>Priors can be different for each version</li>
 <li>Number of visitors can be different for each version</li>
 <li>Conversions are happenning independently</li>
@@ -703,7 +730,7 @@ Luckily we get the whole distribution of the uplift, not just these three states
 <section id="define-parameters-in" class="slide level2">
 <h2>Define Parameters in <img data-src="img/PyMC.png" class="center"></h2>
 <p><br></p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1,2|4,5|7,8|10,11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># let's define the variants A and B</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>variants  <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>]</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
@@ -732,7 +759,7 @@ plt.show()
 </section>
 <section id="creating-a-model-in" class="slide level2">
 <h2>Creating a Model in <img data-src="img/PyMC.png" class="center"></h2>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="1|4|5,6|7|10|11,12|4,13|7,14|4,17,18|21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> example_model:</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Priors for unknown model parameters</span></span>
@@ -755,15 +782,46 @@ plt.show()
 <span id="cb3-20"><a href="#cb3-20"></a>    <span class="co"># Draw samples from the posterior</span></span>
 <span id="cb3-21"><a href="#cb3-21"></a>    trace <span class="op">=</span> pm.sample(draws<span class="op">=</span><span class="dv">1000</span>, return_inferencedata<span class="op">=</span><span class="va">False</span>, progressbar<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!-- ::: fragment -->
+<div class="absolute" style="top: 15%; left: 7%; bottom: 70%; width: 610px; ">
+<div class="blackbox">
+
+</div>
+</div>
+<!-- ::: -->
+<!-- ::: fragment -->
+<div class="absolute" style="top: 33%; left: 7%; bottom: 51%; width: 610px; ">
+<div class="blackbox">
+
+</div>
+</div>
+<!-- ::: -->
+<!-- ::: fragment -->
+<div class="absolute" style="top: 52%; left: 7%; bottom: 38%; width: 610px; ">
+<div class="blackbox">
+
+</div>
+</div>
+<!-- ::: -->
+<div class="absolute" style="top: 65%; left: 7%; bottom: 30%; width: 750px; ">
+<div class="blackbox">
+
+</div>
+</div>
 <div class="quarto-figure quarto-figure-left">
 <figure>
 <p><img data-src="img/Screenshot%202023-07-16%20at%2016.12.14.png" style="width:80.0%;height:80.0%"></p>
 </figure>
 </div>
 <aside class="notes">
-<p>how to explain the with statement in pymc?</p>
-<p>the pymc code looks like this: it hijacks the context manager which one usually uses for opening/closing files and instead uses it to create a context for the model and define its variables. Here it opens a model (WITH pm.Model() AS model) and populate it with the priors and variables. Then it runs the model and samples from the posterior. Model is an object which is a container for the model random variables. It is the top level container for all probability models.</p>
-<p>Finally it returns the posterior samples. The context manager is a python construct that allows you to do something before and after a block of code. In this case it opens the model and closes it after the sampling is done. Any time you declare a pymc mvariable inside a with statement (or context manager), it gets added to the model. Pymc is a high level language.</p>
+<p>What about the with statement at the beginning?</p>
+<ul>
+<li><p>with statement is the context manager. Context manager is usually used for opening/closing files in python. Here it creates a context for the model and defines its variables.</p></li>
+<li><p>it is a python construct that allows you to do something before and after a block of code. In this case it opened the model and closed it after the sampling is done.</p></li>
+<li><p>Any time you declare a pymc variable inside a with statement (or context manager), it gets added to the model.</p></li>
+</ul>
+<p>Here it opens a model (WITH pm.Model() AS model) and populate it with the priors and variables. Then it runs the model and samples from the posterior.</p>
+<p>Model is an object which is a container for the model random variables. It is the top level container for all probability models.</p>
 <p>chain: Each row of an array is treated as an independent series of draws from the variable, called a chain</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -780,7 +838,7 @@ plt.show()
 <section id="checking-the-model-specification" class="slide level2">
 <h2>Checking the Model Specification</h2>
 <p>Unobserved Random Variables:</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>example_model.unobserved_RVs  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="88">
 <pre><code>[theta, uplift]</code></pre>
@@ -788,21 +846,21 @@ plt.show()
 </div>
 <p><br></p>
 <p>Observed Random Variables:</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>example_model.observed_RVs  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="89">
 <pre><code>[y]</code></pre>
 </div>
 </div>
 <p><br></p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>trace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="90">
 <pre><code>&lt;MultiTrace: 4 chains, 1000 iterations, 3 variables&gt;</code></pre>
 </div>
 </div>
 <p><br></p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>trace.theta.shape,  trace.uplift.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>((4000, 2), (4000,))</code></pre>
@@ -811,7 +869,7 @@ plt.show()
 </section>
 <section id="ploting-the-output" class="slide level2">
 <h2>Ploting the Output</h2>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's put the trace into a dataframe</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat([pd.DataFrame(trace[<span class="st">'theta'</span>]), </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                pd.DataFrame(trace[<span class="st">'uplift'</span>])],</span>
@@ -823,7 +881,7 @@ plt.show()
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">plot</a></li><li><a href="#tabset-1-2">show it</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="5,9,13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># let's create a  subplot with three plots in a row that shows the theta_A, theta_B and uplift</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">3</span>), sharey<span class="op">=</span><span class="va">True</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -843,7 +901,7 @@ plt.show()
 </div>
 </div>
 <div id="tabset-1-2">
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <p><img data-src="slide_files/figure-revealjs/cell-11-output-1.png" width="947" height="292"></p>
 </div>
@@ -854,7 +912,7 @@ plt.show()
 </section>
 <section id="changing-the-output-type" class="slide level2">
 <h2>Changing the Output Type</h2>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="22,23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> example_model:</span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
 <span id="cb14-3"><a href="#cb14-3"></a>    <span class="co"># Priors for unknown model parameters</span></span>
@@ -908,7 +966,7 @@ plt.show()
 <section id="changing-the-output-type-1" class="slide level2">
 <h2>Changing the Output Type</h2>
 <p>Let’s check the output:</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>trace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="95">
 
@@ -2580,7 +2638,7 @@ dl.xr-attrs {
 </div>
 <p><br></p>
 <p>It is easy to use the information in the object:</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>trace.posterior.theta.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="96">
 <pre><code>(4, 1000, 2)</code></pre>
@@ -2604,7 +2662,7 @@ dl.xr-attrs {
 <section id="exploring-the-posterior" class="slide level2">
 <h2>Exploring the Posterior</h2>
 <p><br><br></p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pm.summary(trace, var_names<span class="op">=</span>[<span class="st">"theta"</span>, <span class="st">"uplift"</span>]).loc[:, [<span class="st">"mean"</span>,<span class="st">"sd"</span>, <span class="st">"hdi_3%"</span>, <span class="st">"hdi_97%"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="97">
 <div>
@@ -2661,8 +2719,7 @@ dl.xr-attrs {
 </div>
 </div>
 <aside class="notes">
-<p>did you expect to have 0.25 as the mean for theta_A? why?</p>
-<p>what is HDI?</p>
+<p>did you expect to have 0.2 as the mean for theta_A? why?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2680,9 +2737,7 @@ dl.xr-attrs {
 <p><br></p>
 <p>We can also use the <code>ArviZ</code> library for plotting. The main advantage is that it works pretty well with the output data. Also, it gives the HDI for the Relative Uplift distribution.</p>
 <p><br></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1,3,4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>arviz.plot_posterior(trace.posterior[<span class="st">"uplift"</span>],</span>
 <span id="cb19-2"><a href="#cb19-2"></a>                        figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>),</span>
 <span id="cb19-3"><a href="#cb19-3"></a>                        ref_val<span class="op">=</span><span class="dv">0</span>,  </span>
@@ -2693,13 +2748,19 @@ dl.xr-attrs {
 <p><img data-src="slide_files/figure-revealjs/cell-16-output-1.png" width="391" height="278"></p>
 </div>
 </div>
-<p><br></p>
-</div><div class="column" style="width:40%;">
-<blockquote>
+<aside class="notes">
 <p>We will work more with <code>InferenceData</code> and <code>ArviZ</code> in the hands-on session.</p>
-</blockquote>
-</div>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="value-conversion" class="slide level2">
 <h2>Value Conversion</h2>
@@ -3043,7 +3104,7 @@ conv_alpha, conv_beta = [5000, 5000]
 # let's define parameters for the mean purchase prior
 purchase_alpha, purchase_beta = [9000, 900]
 ``` -->
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20" data-code-line-numbers="1|3,17|3-15|5-8|11-15|17-29|19-22|25-29|32|32,37|35-36|41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> example_model:</span>
 <span id="cb20-2"><a href="#cb20-2"></a></span>
 <span id="cb20-3"><a href="#cb20-3"></a>    <span class="co">#-----------------------------------------------conversion rate model</span></span>
