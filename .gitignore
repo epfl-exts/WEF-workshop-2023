@@ -21,7 +21,7 @@
 **/*.qmd
 
 # ignore solution notebooks
-**/*_solution.ipynb
+**/*_solution.*
 
 # Jupyter Notebook
 .ipynb_checkpoints
