@@ -394,7 +394,7 @@ EPFL Extension School
 <p><br></p>
 <p><span class="emoji" data-emoji="heavy_check_mark">✔️</span> Python</p>
 <p><br></p>
-<p><span class="emoji" data-emoji="heavy_check_mark">✔️</span> Statistical Distributions &amp; Inference</p>
+<p><span class="emoji" data-emoji="heavy_check_mark">✔️</span> Statistical Distributions</p>
 <p><br></p>
 <p><span class="emoji" data-emoji="heavy_check_mark">✔️</span> Bayesian Statistics</p>
 <p><br></p>
@@ -405,23 +405,14 @@ EPFL Extension School
 <h2>Statistical Inference</h2>
 <h4 id="objective">Objective</h4>
 <p><br></p>
-<div class="cell" data-reveal="true">
-<div class="cell-output-display">
-<div>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-  A(observe data) --&gt; B(learn about its properties)
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
+<blockquote>
+<p>Observe data and learn about it</p>
+</blockquote>
 <p><br></p>
+<div class="fragment">
+<!-- -->
 <h4 id="frequentists-vs-bayesians">Frequentists vs Bayesians</h4>
 <p><br> <br></p>
-</div>
-<div class="fragment">
 <table>
 <colgroup>
 <col style="width: 24%">
@@ -475,9 +466,20 @@ EPFL Extension School
 </section>
 <section id="sampling-distribution" class="slide level2">
 <h2>Sampling Distribution</h2>
-<p><img data-src="img/coin_flip.png" class="absolute r-stretch" style="width: 50%; " data-fig-align="center"> <img data-src="img/coin_flip-4.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-3.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-1.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-10.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-6.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-8.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-9.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-5.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-7.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-0.png" class="absolute fragment" style="width: 50%; "> <img data-src="img/coin_flip-2.png" class="fragment fade-in" style="width:50.0%"></p>
-<div class="fragment">
-<p>Statistical methods that rely on <span style="color:#ff332c">sampling distributions</span> are sometimes called <span style="color:#ff332c">frequentist</span> methods.</p>
+
+<!-- ![](img/coin_flip.png){.absolute .r-stretch  fig-align="center" width="50%"} 
+![](img/coin_flip-4.png){.absolute .fragment  width="50%"} 
+![](img/coin_flip-3.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-1.png){.absolute .fragment  width="50%"} 
+![](img/coin_flip-10.png){.absolute .fragment  width="50%"} 
+![](img/coin_flip-6.png){.absolute .fragment   width="50%"} 
+![](img/coin_flip-8.png){.absolute .fragment   width="50%"}
+![](img/coin_flip-9.png){.absolute .fragment   width="50%"}
+![](img/coin_flip-5.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-7.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-0.png){.absolute .fragment  width="50%"}
+![](img/coin_flip-2.png){.fragment .fade-in  width="50%"} -->
+<img data-src="img/coin_flip-2.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p>Statistical methods that rely on <span style="color:#ff332c">sampling distributions</span> are sometimes called <span style="color:#ff332c">frequentist</span> methods.</p>
 <aside class="notes">
 <p>notice that the graph has 11 numbers on the x axis because we’re gonna repeat the experminet of flipping the coin 11 times, and each time we get different heads ratio. The binomial probability distribution in this figure is also called a sampling distribution. This terminology stems from the idea that any set of N flips is a representative sample of the behavior of the coin. If we were to repeatedly run experiments with a fair coin, such that in every experiment we flip the coin exactly N times, then, in the long run, the probability of getting each possible z (# of heads) would be the distribution shown in this plot.</p>
 <p>note that p(head)=0.5 is fixed by null hypothesis. The ratios on the x axis are coming from the samples</p>
@@ -493,22 +495,20 @@ EPFL Extension School
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="frequentists-vs-bayesians-1" class="slide level2">
 <h2>Frequentists vs Bayesians</h2>
 <h4 id="example">Example</h4>
 <p><br> <br></p>
 <p>Suppose that there is a sensor in this room that measures the temperature. I take data recorded by it and observe that:</p>
-<p><br> <br></p>
-<div>
+<p><br></p>
+<!-- ::: incremental -->
 <ul>
-<li class="fragment">10 values ranging from 18C<sup>0</sup> to 22 C<sup>0</sup></li>
-<li class="fragment">I am interested in the average temperature, which is 20 based on the data</li>
-<li class="fragment">I conclude that <span class="math inline">\(\bar{x}=20\)</span> is a good estimator of <span class="math inline">\(\theta\)</span></li>
-<li class="fragment">There is a Frequentist in the room!</li>
+<li>10 values ranging from 18C<sup>0</sup> to 22 C<sup>0</sup></li>
+<li>I am interested in the average temperature <span class="math inline">\(\theta\)</span></li>
+<li>The sample mean is 20 and I conclude that <span class="math inline">\(\bar{x}\)</span>=20 is a good estimator of <span class="math inline">\(\theta\)</span></li>
+<li>There is a Frequentist in the room! <!-- ::: --></li>
 </ul>
-</div>
 <aside class="notes">
 <p>note that in this example theta is not the same as before. It could simply be the mean of the normal distribution that the temperature follows.</p>
 <style type="text/css">
@@ -529,55 +529,23 @@ EPFL Extension School
 <p><br> <br></p>
 <p>Then you tell me that there is an issue with the sensor, as it caps values above 25 by 25:</p>
 <p><br></p>
-<div>
+<!-- ::: incremental -->
 <ul>
-<li class="fragment">You argue that <span class="math inline">\(\bar{x}=20\)</span> is no longer an unbiased estimator of <span class="math inline">\(\theta\)</span></li>
-<li class="fragment">That’s true even though my 10 values were between 18 to 22</li>
-<li class="fragment">Future realisations of the temperature could be large</li>
+<li>You argue that <span class="math inline">\(\bar{x}\)</span>=20 is no longer a good estimator of <span class="math inline">\(\theta\)</span></li>
+<li>That’s true even though my 10 values were between 18 to 22</li>
+<li>Future realisations of the temperature could be large <!-- ::: --></li>
 </ul>
-</div>
-</section>
-<section id="frequentists-vs-bayesians-3" class="slide level2">
-<h2>Frequentists vs Bayesians</h2>
-<h4 id="example-2">Example</h4>
-<p><br> <br></p>
+<p><br></p>
+<div class="fragment">
 <p>As a Bayesian, you argue that:</p>
-<div>
 <ul>
-<li class="fragment">You can have a prior about the parameter <span class="math inline">\(\theta\)</span></li>
-<li class="fragment">Then, the 10 observed values can serve as a piece of evidence</li>
-<li class="fragment">That leads to a posterior about <span class="math inline">\(\theta\)</span></li>
+<li>You can have a prior about the parameter <span class="math inline">\(\theta\)</span></li>
+<li>Then, the 10 observed values can serve as a piece of evidence</li>
+<li>That leads to a posterior about <span class="math inline">\(\theta\)</span></li>
 </ul>
 </div>
 </section>
-<section id="frequentism-vs-bayesianism" class="slide level2">
-<h2>Frequentism vs Bayesianism</h2>
-<p><img data-src="img/freq_bayes.png" class="absolute" style="bottom: 20px; "></p>
-<p><img data-src="img/freq.png" class="absolute fragment fade-in" style="bottom: 20px; "></p>
-<p><img data-src="img/bayes.png" class="absolute fragment fade-in" style="bottom: 20px; "></p>
-<aside class="notes">
-<p>frequentists reason horizontally, with mu fixed and x varying, while Bayesian inference proceeds vertically, with x fixed, according to the posterior distribution of mu.</p>
-<ul>
-<li>Bayesian inference requires a prior distribution g(mu). When past experience provides g, there is every good reason to employ Bayes’ theorem.</li>
-<li>Frequentism replaces the choice of a prior with the choice of a method t(x), designed to answer the specific question at hand. This adds an arbitrary element to the inferential process</li>
-<li>In the absence of genuine prior information, a whiff of subjectivity hangs over Bayesian results, even those based on uninformative priors. Classical frequentism claimed for itself the high ground of scientific objectivity</li>
-</ul>
-<p><strong>Frequentist</strong>: they assume that we can <span class="rn" data-rn-type="highlight" data-rn-color="red">repeatedly</span> have realisations of the measurements from the sensor, but we are able to only observe one such realisations, and infer <span class="math inline">\(\theta\)</span>. The imaginary repeated realsations can constitute the whole spectrum of values for <span class="math inline">\(\theta\)</span></p>
-<ul>
-<li><strong>Bayesians</strong>: they take the only <span style="color:red;">observable</span> realisation, and infer the whole spectrum of values for <span class="math inline">\(\theta\)</span>. They don’t rely on any other imaginary realisation. However they need to rely on a prior about <span class="math inline">\(\theta\)</span>.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+
 <section id="section-1" class="slide level2" data-chalkboard-buttons="false" data-background-image="img/AdobeStock_81141285.jpeg" data-background-position="center" data-background-repeat="no-repeat" data-background-opacity="0.6" data-background-size="cover">
 <h2></h2>
 <!-- ### Introduction to A/B testing { style="color:#fcf6f5;" } -->
@@ -782,6 +750,25 @@ EPFL Extension School
 <li><p><strong>Twitter</strong>: personalized news feed based on friends and interests</p></li>
 <li><p><strong>LinkedIn</strong>: the A/B test decides whether the top slot in the user’s stream should encourage the user to add more contacts by importing her/his address book or show top news articles.</p></li>
 </ul>
+<p>Tips to improve your A/B testing:</p>
+<ul>
+<li><p>break your testing audience into some common sense segments, eg: By demographics, By geography, New vs.&nbsp;returning visitors</p></li>
+<li><p>START SIMPLE, then REFINE YOUR SEGMENTS:</p></li>
+</ul>
+<p>Experimentation is an iterative process, meaning you must take it step by step. Once you have meaningful results for these higher-level segments, you can go more granular and try to discover important nuances about smaller and smaller ones.</p>
+<ul>
+<li>FAVOR RECENT DATA:</li>
+</ul>
+<p>Business moves fast. Your experimentation data should move even faster.</p>
+<p>Common A/B testing mistakes:</p>
+<ul>
+<li>lack of domain knowledge</li>
+<li>not enough data</li>
+<li>not enough time</li>
+<li>not enough traffic</li>
+<li>not enough conversions</li>
+<li>not enough patience</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -794,7 +781,6 @@ EPFL Extension School
           display:block!important;
       }</style></aside>
 </section>
-
 <section id="a-few-key-terms" class="slide level2">
 <h2>A few Key Terms</h2>
 <p><br> <br></p>
