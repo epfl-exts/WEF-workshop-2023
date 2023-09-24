@@ -43,7 +43,7 @@ Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023
 - **Agenda**:
   - 9:30  - 10:45 : [Data Analysis using Python](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-01)
   - 10:45  - 11:00 : Coffee Break
-  - 11:00  - 12:15 : [Statistical Distributions & Inference](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-02) + Quiz
+  - 11:00  - 12:15 : [Statistical Distributions](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day1-02) + Quiz
   - 12:15  - 12:30 : Q&A 
 
 #### Afternoon Session: Bayesian Statistics and A/B Testing (13:30  - 16:30 )
@@ -61,7 +61,7 @@ Explore the [workshop repository](https://github.com/epfl-exts/WEF-workshop-2023
 #### Morning Session: Deep Dive into A/B Testing (9:00  - 12:00 )
 - **Objective**: Dive deeper into A/B testing concepts and methods.
 - **Agenda**:
-  - 9:00  - 10:15 : [A/B Testing in PyMC](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01) 
+  - 9:00  - 10:15 : [A/B Testing in PyMC](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-01) + Quiz
   - 10:15  - 10:30 : Coffee Break
   - 10:30  - 11:45 : [Hands-on Session](https://github.com/epfl-exts/WEF-workshop-2023/tree/main/Day2-02) + Quiz
   - 11:45  - 12:00 : Q&A 
