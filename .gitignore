@@ -20,6 +20,7 @@
 
 # ignore qmd files
 **/*.qmd
+**/*.pdf
 
 # ignore solution notebooks
 **/*_solution*
