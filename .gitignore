@@ -12,6 +12,7 @@
 # ignore renders during dev, but release them once work is done
 #**/slide.html
 **/slide_files/
+**/slide_*
 
 **/img/
 ***/img/
@@ -23,7 +24,7 @@
 **/*.pdf
 
 # ignore solution notebooks
-**/*_solution*
+#**/*_solution.*
 
 # Jupyter Notebook
 .ipynb_checkpoints
